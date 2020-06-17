@@ -1,0 +1,32 @@
+{% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
+<!-- extended from -->
+{% block title %}Register{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page">Register</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="review_article cute_border_line shadow p-4 mb-3">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">{{legend}}</legend>
+            <hr class="my-2">
+            <section class="">
+                {{ form|crispy }}
+            </section>
+        </fieldset>
+        <article>
+            <button class="btn btn-info btn_block" type="submit" id="submitBtn">Sign Up</button>
+        </article>
+    </form>
+    <hr class="my-2">
+    <article class="">
+        <p class="text_muted mb-0">
+            Do you already have an account? <a class="ml-2 btn-link" href="{% url 'gamebit-login' %}">Log in</a>
+        </p>
+    </article>
+</section>
+<!-- endblock -->
+{% endblock body %}

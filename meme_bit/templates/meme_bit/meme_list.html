@@ -1,0 +1,42 @@
+{% extends "app_bit/base.html" %}
+<!-- extended from -->
+{% block title %} Memes {% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page">Memes</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section id="MemeTitle" class="text-center jumbotron cuter_border shadow cute_border_line shadow p-3 mb-0">
+    <h1 class="display-6">Have a Laugh!</h1>
+    <p class="lead">Why not relax a bit seeing memes? You can always read our reviews later.</p>
+</section>
+{% if memes %}
+<hr class="my-4"> {% endif %}
+<section id="Memes" class="row row-cols-1 row-cols-md-2">
+    {% for meme in memes %}
+    <div class="col mb-2">
+        <div class="cute_border_for_pictures cute_border_line shadow mb-3 p-2">
+            <p class="text-center lead spaces mb-0"><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a></p>
+            <hr class="my-2">
+            <figure class="d-flex justify-content-center">
+                <a class="" href="{% url 'gamebit-meme-full' meme.id %}">
+                    <img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.author.username}}'s meme">
+                </a>
+            </figure>
+            <hr class="my-2">
+            <article class="d-flex justify-content-start p-2">
+                <div class="flex-wrap align-self-center">
+                    <a class="" href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}</em></strong></a></i>
+                </div>
+                <div class="margin_left">
+                    <small class="text_muted">{{meme.date_posted|date:"F d, Y" }}</small>
+                    <br>
+                    <small class="text_muted">To check out the full meme, click on the picture</small>
+                </div>
+            </article>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock body %}

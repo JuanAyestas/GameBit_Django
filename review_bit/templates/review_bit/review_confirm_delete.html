@@ -1,0 +1,37 @@
+{% extends "app_bit/base.html" %}
+<!-- extended from -->
+{% block title %}Deleting {{review.title}}{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-review' %}">Reviews</a></li>
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-detail' review.id %}">{{review.title}}</a></li>
+<li class="breadcrumb-item active" aria-current="page">Deleting...</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="review_article cute_border_line shadow p-4 mb-3">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">Deleting the review...</legend>
+            <hr class="my-2">
+            <article class="alert alert-danger">
+                <p class="mb-0 lead">Are you completely sure you want to delete the following review:</p>
+            </article>
+            <h3 class="text-center"> {{review.title}}</h3>
+            <figure class="cuter_border d-flex justify-content-center mb-3">
+                <img class="carou_size cute_border_for_pictures" src="{{review.thumbnail.url}}" alt="{{review.title}}">
+            </figure>
+            <article id="ReviewSummary">
+                <p class="lead jumbito">General Info: </p>
+                <p class="lead mb-0 pl-2 pr-2">{{ review.summary }}</p>
+            </article>
+        </fieldset>
+        <article class="d-flex justify-content-center flex_container">
+            <a class="btn btn-secondary btn_block m-2" href="{% url 'gamebit-detail' review.id %}">Cancel</a>
+            <button class="btn btn-danger btn_block m-2" type="submit" id="submitBtn">Yes, delete the Review</button>
+        </article>
+    </form>
+</section>
+<!-- endblock -->
+{% endblock body %}

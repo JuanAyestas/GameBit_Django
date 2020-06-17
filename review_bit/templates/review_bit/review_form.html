@@ -1,0 +1,31 @@
+{% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
+<!-- extended from -->
+{% block title %}{% if review %} Editing the Review {% else %} Writing a Review {% endif %}{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-review' %}">Reviews</a></li>
+{% if review %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-detail' review.id %}">{{review.title}}</a></li>
+<li class="breadcrumb-item active" aria-current="page">Editing the Review</li>
+{% else %}
+<li class="breadcrumb-item active" aria-current="page">Uploading a Review</li>
+{% endif %} {% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="review_article cute_border_line shadow p-4 mb-3">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">{% if review %} Updating the Review... {% else %} Writing a Review... {% endif %}</legend>
+            <hr class="my-2">
+            <section class="">
+                {{ form|crispy }} {{ form_pic|crispy}}
+            </section>
+        </fieldset>
+        <article>
+            <button class="btn btn-info btn_block" type="submit" id="submitBtn">{% if review %} Save Changes {% else %} Post the Review {% endif %}</button>
+        </article>
+    </form>
+</section>
+<!-- endblock -->
+{% endblock body %}

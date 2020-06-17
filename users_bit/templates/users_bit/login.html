@@ -1,0 +1,32 @@
+{% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
+<!-- extended from -->
+{% block title %}Log in{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page">Log in</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="review_article cute_border_line shadow p-4 mb-3">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">Log in</legend>
+            <hr class="my-2">
+            <!--  -->
+            {{ form|crispy }}
+        </fieldset>
+        <article class="form-group d-flex justify-content-start flex_article">
+            <button class="btn btn-info btn_block mr-3" type="submit">Log In</button>
+            <p class="align-self-center mb-2 mt-2"><a class="btn-link" href="{% url 'gamebit-reset' %}">Forgot your password? </a></p>
+        </article>
+    </form>
+    <hr class="my-2">
+    <article class="">
+        <p class="text_muted mb-0">
+            Don't have an account, yet? <a class="ml-2 btn-link" href="{% url 'gamebit-register' %}">Sign Up </a>
+        </p>
+    </article>
+</section>
+<!-- endblock -->
+{% endblock body %}

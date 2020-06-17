@@ -1,0 +1,34 @@
+{% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
+<!-- extended from -->
+{% block title %} {% if meme %} Editing {{meme.caption}} {% else %} Meme Upload {% endif %} {% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme' %}">Memes</a></li>
+{% if meme %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a></li>
+<li class="breadcrumb-item active" aria-current="page">Editing the Meme</li>
+{% else %}
+<li class="breadcrumb-item active" aria-current="page">Uploading a Meme</li>
+{% endif %} {% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="alert alert-warning" role="alert">
+    <p class="lead mb-0">Keep in mind the<em><a class="btn-link" href="{% url 'gamebit-rule' %}"> GameBit - Rules</a></em> before uploading/editing a meme. That way we can all have nice things.
+</section>
+<section class="review_article cute_border_line shadow p-4 mb-3">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">{% if meme %} Updating a meme...{% else %} Uploading a meme... {% endif %}</legend>
+            <hr class="my-2">
+            <section class="">
+                {{ form|crispy }}
+            </section>
+        </fieldset>
+        <article>
+            <button class="btn btn-info btn_block" type="submit" id="submitBtn">{% if meme %} Save Changes {% else %} Upload the meme {% endif %}</button>
+        </article>
+    </form>
+</section>
+<!-- endblock -->
+{% endblock body %}

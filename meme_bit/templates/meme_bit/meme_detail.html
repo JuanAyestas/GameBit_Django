@@ -1,0 +1,39 @@
+{% extends "app_bit/base.html" %}{% load filters.py %}
+<!-- extended from -->
+{% block title %} {{meme.caption}} {% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme' %}">Memes</a></li>
+<li class="breadcrumb-item active" aria-current="page">{{meme.caption}}</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section id="Memes" class="">
+    <div class="cute_border_for_pictures cute_border_line shadow mb-3 p-2">
+        <p class="text-center spaces lead">{{meme.caption}}</p>
+        <figure class="d-flex justify-content-center">
+            <a class="" href="#">
+                <img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}">
+            </a>
+        </figure>
+        {% if user == meme.author %}
+        <hr class="my-2">
+        <section class="d-flex justify-content-center" id="ManageButtons">
+            <a class="btn btn-primary btn_block m-1" href="{% url 'gamebit-meme-edit' meme.id %}">Edit</a>
+            <a class="btn btn-danger btn_block m-1" href="{% url 'gamebit-meme-delete' meme.id%}">Delete</a>
+        </section>
+        {% endif %}
+        <hr class="my-2">
+        <div class="d-flex justify-content-start p-2">
+            <div class="flex-wrap align-self-center">
+                <a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}<i style="line-height: 1.5;" class="ml-1 fas fa-signature"></i></em></strong></a>
+            </div>
+            <article class="margin_left">
+                <small class="text_muted">{{meme.date_posted|date:"F d, Y" }}</small>
+                <hr class="my-2">
+                <small class="text_muted">To check out more content of the author, <strong><em>click their name.</em></strong></small>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock body %}

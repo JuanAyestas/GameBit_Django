@@ -1,0 +1,33 @@
+{% extends "app_bit/base.html" %}
+<!-- extended from -->
+{% block title %}Deleting {{review.title}}{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme' %}">Memes</a></li>
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme-full' meme.id %}">Current Meme</a></li>
+<li class="breadcrumb-item active" aria-current="page">Deleting...</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="review_article bigger_space cute_border_line shadow p-4 mb-3">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">Deleting the meme...</legend>
+            <hr class="my-2">
+            <article class="alert alert-danger">
+                <p class="mb-0 lead">Are you completely sure you want to delete the following meme:</p>
+            </article>
+            <h3 class="text-center"> {{meme.caption}}</h3>
+            <figure class="cuter_border d-flex justify-content-center mb-0">
+                <img class="carou_size cute_border_for_pictures" src="{{meme.meme.url}}" alt="{{meme.title}}">
+            </figure>
+        </fieldset>
+        <article class="d-flex justify-content-center flex_container">
+            <a class="btn btn-secondary btn_block m-2" href="{% url 'gamebit-meme-full' meme.id %}">Cancel</a>
+            <button class="btn btn-danger btn_block m-2" type="submit" id="submitBtn">Yes, delete the Meme</button>
+        </article>
+    </form>
+</section>
+<!-- endblock -->
+{% endblock body %}

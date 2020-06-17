@@ -1,0 +1,31 @@
+{% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
+<!-- extended from -->
+{% block title %}{% if picture %} Editing the Picture {% else %} Uploading Pictures for {{review.title}} {% endif %}{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-review' %}">Reviews</a></li>
+{% if picture %}
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-detail' review.id %}">{{review.title}}</a></li>
+<li class="breadcrumb-item active" aria-current="page">Editing the Picture</li>
+{% else %}
+<li class="breadcrumb-item active" aria-current="page">Uploading Pictures...</li>
+{% endif %} {% endblock bread %}
+<!--  -->
+{% block body %}
+<section class="review_article cute_border_line shadow p-4 mb-3">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {% for hidden in post.Form.hidden_fields %} {{hidden}} {% endfor %}
+        <fieldset class="form-group">
+            <legend class="">{% if picture %} Updating Pictures for {{review.title}}...{% else %} Uploading Pictures for {{review.title}}... {% endif %}</legend>
+            <hr class="my-2">
+            <section class="">
+                {{ form|crispy }}
+            </section>
+        </fieldset>
+        <article>
+            <button class="btn btn-info" type="submit" id="submitBtn">{% if picture %} Save Changes {% else %} Upload the Pictures {% endif %}</button>
+        </article>
+    </form>
+</section>
+<!-- endblock -->
+{% endblock body %}

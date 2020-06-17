@@ -1,0 +1,20 @@
+{% extends "app_bit/base.html" %}
+<!-- extended from -->
+{% block title %}Logged Out{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page">Logged Out</li>
+{% endblock bread %}
+<!--  -->
+{% block body %}
+<section>
+    <h2>You've been logged out.</h2>
+    <hr class="my-2">
+    <article class="">
+        <p class="text-muted mb-0">
+            <a class="btn-link" href="{% url 'gamebit-login' %}">Log in again</a>
+        </p>
+    </article>
+</section>
+<!-- endblock -->
+{% endblock body %}
