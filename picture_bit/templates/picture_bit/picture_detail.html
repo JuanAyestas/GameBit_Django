@@ -20,7 +20,7 @@
             <div class="d-flex justify-content-center w-100" href="#">
                 {% if review.thumbnail.width >= 1200 %}
                 <img class="cute_border_for_pictures w-100" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% else %}
-                <img class="cute_border_for_pictures" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% endif %}
+                <img class="cute_border_for_pictures w_100" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% endif %}
             </div>
         </figure>
     </article>
@@ -31,7 +31,7 @@
                 <figure class="mb-0">
                     {% if picture.picture_files.width >= 1200 %}
                     <img class="cute_border_for_pictures w-100" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% else %}
-                    <img class="cute_border_for_pictures" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% endif %}
+                    <img class="cute_border_for_pictures w_100" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% endif %}
                     <!---->
                     {% if user == review.author %}<a class="btn btn-danger btn-block mt-3" href="{% url 'gamebit-pic-delete' review.id picture.id %}">Delete the Picture</a> {% endif %}
                 </figure>

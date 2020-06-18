@@ -12,9 +12,9 @@
     <div class="cute_border_for_pictures cute_border_line shadow mb-3 p-2">
         <p class="text-center spaces lead">{{meme.caption}}</p>
         <figure class="d-flex justify-content-center">
-            <a class="" href="#">
-                <img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}">
-            </a>
+            {% if meme.meme.width >= 1200 %}
+            <img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}"> {% else %}
+            <img class="cuter_border w_100" src="{{meme.meme.url}}" alt="{{meme.caption}}"> {% endif %}
         </figure>
         {% if user == meme.author %}
         <hr class="my-2">

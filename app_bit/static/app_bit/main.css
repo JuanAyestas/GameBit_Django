@@ -414,6 +414,9 @@ a:hover {
     .margins_total {
         margin: 0.5rem;
     }
+    .w_100 {
+        width: 100% !important;
+    }
 }
 
 @media screen and (max-width: 500px) {
