@@ -3,6 +3,7 @@
 .vscode
 Pipfile
 Pipfile.lock
+Postgres-2.3.5-12.dmg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

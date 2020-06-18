@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import psycopg2
+import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+#DATABASE settings
+DATABASE_URL = os.environ["DATABASE_URL"]
+conn = psycopg2.connect(DATABASE_URL, sslmode="require")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -26,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_DJANGO")
 # DEBUG = os.environ.get("DEBUG_VALUE")
 DEBUG = True
 
-ALLOWED_HOSTS = ["gamebit-council.herokuapp.com"]
+ALLOWED_HOSTS = ["gamebit-council.herokuapp.com", ""]
 
 # Application definition
 
@@ -135,6 +141,7 @@ MEDIA_URL = "/media/"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+
 LOGIN_REDIRECT_URL = "gamebit-home"
 LOGIN_URL = "gamebit-login"
 
@@ -144,3 +151,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get("EMAIL_DJANGO")
 EMAIL_HOST_PASSWORD = os.environ.get("PASS_DJANGO")
+
+DATABASES['default'] = dj_database_url.config(
+    conn_max_age=600, ssl_require=True)
+
+django_heroku.settings(locals())
