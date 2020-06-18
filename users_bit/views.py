@@ -81,5 +81,5 @@ def profile(request):
 class SummaryDetailView(DetailView):
     model = User
     template_name = 'users_bit/summary.html'
-    context_object_name = 'user'
+    context_object_name = 'author'
 

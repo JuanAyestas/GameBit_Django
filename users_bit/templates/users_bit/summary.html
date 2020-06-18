@@ -1,35 +1,35 @@
 {% extends "app_bit/base.html" %}
 <!-- extended from -->
-{% block title %}{{user.username}}'s Summary{% endblock title %}
+{% block title %}{{author.username}}'s Summary{% endblock title %}
 <!---->
 {% block bread %}
-<li class="breadcrumb-item active" aria-current="page">{{user.username}}'s Summary</li>
+<li class="breadcrumb-item active" aria-current="page">{{author.username}}'s Summary</li>
 {% endblock bread %}
 <!--  -->
 {% block body %}
 <div class="review_article cute_border cute_border_line bigger_space mb-3 p-3">
     <section id="GeneralInfo" class="d-flex justify-content-center">
         <article id="UserInfo" class="">
-            <img class="medium_picc margins_total" src="{{user.profile.image.url}}" alt="{{user.username}}">
-            <h2 class="text-center"><em>{{user.username}}</em></h2>
+            <img class="medium_picc margins_total" src="{{author.profile.image.url}}" alt="{{author.username}}">
+            <h2 class="text-center"><em>{{author.username}}</em></h2>
         </article>
     </section>
     <hr class="my-2">
     <div class="p-3">
-        {% if user.review_set.all %}
+        {% if author.review_set.all %}
         <section id="ReviewsInfo">
             <p class="jumbito lead">Reviews posted:</p>
             <ul>
-                {% for review in user.review_set.all %}
+                {% for review in author.review_set.all %}
                 <li><a href="{% url 'gamebit-detail' review.id %}">{{review.title}}</a></li>
                 {% endfor %}
             </ul>
         </section>
-        {% endif %} {% if user.meme_set.all %}
+        {% endif %} {% if author.meme_set.all %}
         <section id="MemesInfo">
             <p class="jumbito lead">Memes posted:</p>
             <ul>
-                {% for meme in user.meme_set.all %}
+                {% for meme in author.meme_set.all %}
                 <li><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a></li>
                 {% endfor %}
             </ul>
