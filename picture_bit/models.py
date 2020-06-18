@@ -1,6 +1,8 @@
 from django.db import models
 from PIL import Image
 from django.utils import timezone
+import io
+from django.core.files.storage import default_storage as storage
 from review_bit.models import Review
 
 # Create your models here.
@@ -15,8 +17,16 @@ class Picture(models.Model):
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        img = Image.open(self.picture_files.path)
+        
+        img_read = storage.open(self.picture_files.name, 'rb')
+        img = Image.open(img_read)
+        
         if img.height > 900 or img.width > 1600:
             output_size = (1600, 900)
             img.thumbnail(output_size)
-            img.save(self.picture_files.path)
+            in_mem_file = io.BytesIO()
+            img.convert('RGB').save(in_mem_file, format='JPEG')
+            img_write = storage.open(self.picture_files.name, 'w+')
+            img_write.write(in_mem_file.getvalue())
+            img_write.close()
+        img_read.close()

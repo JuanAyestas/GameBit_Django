@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from PIL import Image
+import io
+from django.core.files.storage import default_storage as storage
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -24,8 +26,16 @@ class Review(models.Model):
 
   def save(self, *args, **kwargs):
       super().save(*args, **kwargs)
-      img = Image.open(self.thumbnail.path)
+      
+      img_read = storage.open(self.thumbnail.name, 'rb')
+      img = Image.open(img_read)
+
       if img.height > 900 or img.width > 1600:
-          output_size = (1600, 900)
-          img.thumbnail(output_size)
-          img.save(self.thumbnail.path)
+            output_size = (1600, 900)
+            img.thumbnail(output_size)
+            in_mem_file = io.BytesIO()
+            img.convert('RGB').save(in_mem_file, format='JPEG')
+            img_write = storage.open(self.thumbnail.name, 'w+')
+            img_write.write(in_mem_file.getvalue())
+            img_write.close()
+      img_read.close()
