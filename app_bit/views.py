@@ -8,6 +8,7 @@ def home(request):
 
 class AboutView(ListView):
   model = User
+  queryset = User.objects.order_by("username")
   template_name = 'app_bit/about.html'
   context_object_name = 'users'
 
