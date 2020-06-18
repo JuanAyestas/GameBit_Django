@@ -13,7 +13,7 @@ class Picture(models.Model):
     uploaded_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"{self.review.title}'s picture"
+        return f"{self.review.title}'s picture, uploaded on: {uploaded_at}"
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
