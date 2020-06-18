@@ -32,11 +32,11 @@
             <a href="{{picture.picture_files.url}}"><img class="cute_border_for_pictures w_100" src="{{picture.picture_files.url}}" alt="{{review.title}}"></a>{% endif %}
         </figure>
         {% if user == review.author %}
-        <hr class="my-2">
+        <hr class="my-2 w_75">
         <article class="d-flex justify-content-center">
             <a class="btn btn-danger btn_block" href="{% url 'gamebit-pic-delete' review.id picture.id %}">Delete the Picture</a>
         </article>
-        <hr class="my-2"> {% endif %}
+        <hr class="my-2 w_75"> {% endif %}
     </article>
     {% endfor %}
 </section>

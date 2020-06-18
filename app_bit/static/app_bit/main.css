@@ -340,14 +340,15 @@ a:hover {
     margin: 1rem;
 }
 
+.w_75 {
+    width: 75% !important;
+}
+
 @media screen and (max-width: 993px) {
     .w_100 {
         width: 100% !important;
     }
-}
-
-@media screen and (max-width: 780px) {
-    .w_100 {
+    .w_75 {
         width: 100% !important;
     }
 }
@@ -425,9 +426,6 @@ a:hover {
     }
     .margins_total {
         margin: 0.5rem;
-    }
-    .w_100 {
-        width: 100% !important;
     }
 }
 
