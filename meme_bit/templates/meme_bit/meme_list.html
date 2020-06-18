@@ -16,7 +16,7 @@
 <section id="Memes" class="row row-cols-1 row-cols-md-2">
     {% for meme in memes %}
     <div class="col mb-2">
-        <div class="cute_border_for_pictures cute_border_line shadow mb-3 p-2">
+        <div class="cute_border_for_pictures cute_border_line shadow p-2">
             <p class="text-center lead spaces mb-0"><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a></p>
             <hr class="my-2">
             <figure class="d-flex justify-content-center">

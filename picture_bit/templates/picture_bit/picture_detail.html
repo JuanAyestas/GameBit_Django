@@ -25,20 +25,18 @@
         </figure>
     </article>
     {% for picture in review.picture_set.all %}
-    <article class="">
-        <figure class="cute_border_for_pictures p-3 mt-3 shadow">
-            <div class="d-flex justify-content-center w-100">
-                <figure class="mb-0">
-                    {% if picture.picture_files.width >= 1200 %}
-                    <a href="{{picture.picture_files.url}}"><img class="cute_border_for_pictures w-100" src="{{picture.picture_files.url}}" alt="{{review.title}}"></a>{% else %}
-                    <a href="{{picture.picture_files.url}}"><img class="cute_border_for_pictures w_100" src="{{picture.picture_files.url}}" alt="{{review.title}}"></a>{% endif %}
-                    <!---->
-                    {% if user == review.author %}<a class="btn btn-danger btn-block mt-3" href="{% url 'gamebit-pic-delete' review.id picture.id %}">Delete the Picture</a> {% endif %}
-                </figure>
-            </div>
-            </div>
-
+    <article class="cute_border_for_pictures p-3 mt-3 shadow">
+        <figure class="d-flex justify-content-center">
+            {% if picture.picture_files.width >= 1200 %}
+            <a href="{{picture.picture_files.url}}"><img class="cute_border_for_pictures w-100" src="{{picture.picture_files.url}}" alt="{{review.title}}"></a>{% else %}
+            <a href="{{picture.picture_files.url}}"><img class="cute_border_for_pictures w_100" src="{{picture.picture_files.url}}" alt="{{review.title}}"></a>{% endif %}
         </figure>
+        {% if user == review.author %}
+        <hr class="my-2">
+        <article class="d-flex justify-content-center">
+            <a class="btn btn-danger btn_block" href="{% url 'gamebit-pic-delete' review.id picture.id %}">Delete the Picture</a>
+        </article>
+        <hr class="my-2"> {% endif %}
     </article>
     {% endfor %}
 </section>

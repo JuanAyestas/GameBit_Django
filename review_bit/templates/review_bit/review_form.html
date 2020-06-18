@@ -19,7 +19,15 @@
             <legend class="">{% if review %} Updating the Review... {% else %} Writing a Review... {% endif %}</legend>
             <hr class="my-2">
             <section class="">
-                {{ form|crispy }} {{ form_pic|crispy}}
+                {% if review %} {% else %}
+                <div class="alert alert-warning" role="alert">
+                    <p class="lead mb-0">Double check, just in case the game has been reviewed before.</p>
+                </div>
+                {% endif %} {{ form|crispy }} {% if form_pic %}
+                <div class="alert alert-warning" role="alert">
+                    <p class="lead mb-0">Please, don't forget to add pictures for the review!</p>
+                </div>
+                {{ form_pic|crispy}} {% endif %}
             </section>
         </fieldset>
         <article>

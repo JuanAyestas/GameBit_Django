@@ -62,9 +62,8 @@ class ReviewDetailView(DetailView):
 @method_decorator(admin_decorator, name="dispatch")
 class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
-    fields = ["title", "platform", "thumbnail", "summary", "content"]
+    form_class = ReviewForm
     success_message = "The review has been updated successfully!"
-
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -340,6 +340,12 @@ a:hover {
     margin: 1rem;
 }
 
+@media screen and (max-width: 993px) {
+    .w_100 {
+        width: 100% !important;
+    }
+}
+
 @media screen and (max-width: 780px) {
     .w_100 {
         width: 100% !important;
