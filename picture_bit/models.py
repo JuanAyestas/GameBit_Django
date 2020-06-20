@@ -11,6 +11,9 @@ class Picture(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
     picture_files = models.ImageField(upload_to="review_pics", null=True, blank=True)
     uploaded_at = models.DateTimeField(default=timezone.now)
+    
+    class Meta:
+        ordering = ["-uploaded_at",]
 
     def __str__(self):
         return f"{self.review.title}'s picture, uploaded on: {uploaded_at}"
