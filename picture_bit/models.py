@@ -16,7 +16,7 @@ class Picture(models.Model):
         ordering = ["-uploaded_at",]
 
     def __str__(self):
-        return f"{self.review.title}'s picture, uploaded on: {uploaded_at}"
+        return f"{self.review.title}'s picture, uploaded on: {self.uploaded_at}"
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

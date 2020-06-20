@@ -12,6 +12,7 @@ class ReviewPictureDetail(DetailView):
     model = Review
     context_object_name = "review"
     template_name = "picture_bit/picture_detail.html"
+    # "review_pics": Picture.objects.filter(review=get_object_or_404(Review, pk=self.kwargs.get("pk")))
 
 
 class ReviewPictureDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
