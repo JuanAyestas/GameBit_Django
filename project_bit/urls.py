@@ -24,7 +24,7 @@ urlpatterns = [
     path("reviews/", include("review_bit.urls")),
     path("memes/", include("meme_bit.urls")),
     path("", include("users_bit.urls")),
-    path("'reviews/", include("picture_bit.urls")),
+    path("reviews/", include("picture_bit.urls")),
 ]
 
 if settings.DEBUG:

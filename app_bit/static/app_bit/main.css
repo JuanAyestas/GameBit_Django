@@ -344,11 +344,18 @@ a:hover {
     width: 75% !important;
 }
 
+.w_90 {
+    width: 90% !important;
+}
+
 @media screen and (max-width: 993px) {
     .w_100 {
         width: 100% !important;
     }
     .w_75 {
+        width: 100% !important;
+    }
+    .w_90 {
         width: 100% !important;
     }
 }
@@ -380,19 +387,19 @@ a:hover {
         padding: 1rem !important;
     }
     h1 {
-        font-size: 1.8rem !important;
+        font-size: 2.0rem !important;
     }
     h2 {
-        font-size: 1.4rem !important;
+        font-size: 1.7rem !important;
     }
     h3 {
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
     }
     h4 {
-        font-size: 1.1rem !important;
+        font-size: 1.2rem !important;
     }
     h5 {
-        font-size: 0.9rem !important;
+        font-size: 1rem !important;
     }
     .reviews_info {
         padding-left: 1.25rem !important;
