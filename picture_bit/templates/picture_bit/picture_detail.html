@@ -57,7 +57,7 @@
                 <div class="modal-body p-1">
                     <figure class="text-center mb-0 w-100">
                         {% if picture.picture_files.width >= 1200 %}
-                        <img class="cute_border_for_pictures w-100" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% elif 1200 > picture.picture_files.width and picture.picture_files.width > 720 %}
+                        <img class="cute_border_for_pictures w_95" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% elif 1200 > picture.picture_files.width and picture.picture_files.width > 720 %}
                         <img class="cute_border_for_pictures w_80" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% else %}
                         <img class="cute_border_for_pictures w_100" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% endif %}
                     </figure>
@@ -81,7 +81,7 @@
             <div class="modal-body p-1">
                 <figure class="text-center mb-0 w-100">
                     {% if review.thumbnail.width >= 1200 %}
-                    <img class="cute_border_for_pictures w-100" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% elif 1200 > review.thumbnail.width and review.thumbnail.width > 720 %}
+                    <img class="cute_border_for_pictures w_95" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% elif 1200 > review.thumbnail.width and review.thumbnail.width > 720 %}
                     <img class="cute_border_for_pictures w_80" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% else %}
                     <img class="cute_border_for_pictures w_100" src="{{review.thumbnail.url}}" alt="{{review.title}}"> {% endif %}
                 </figure>
