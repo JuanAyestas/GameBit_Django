@@ -155,7 +155,7 @@ a:hover {
 
 .modal-content {
     background: var(--modal);
-    border: 0.0625rem solid white;
+    border: 0.0625rem solid var(--modal);
 }
 
 .img-thumbnail {
@@ -371,17 +371,7 @@ a:hover {
 .modal_custom {
     max-width: 100% !important;
     padding-right: 0 !important;
-    background-color: rgba(20, 20, 20, 0.2);
-}
-
-.middle_modal {
-    top: 4%;
-}
-
-@media screen and (max-width:1000px) {
-    .middle_modal {
-        top: 0;
-    }
+    background-color: rgba(20, 20, 20, 0.4);
 }
 
 @media screen and (max-width: 993px) {
@@ -399,21 +389,6 @@ a:hover {
     }
     .w_75 {
         width: 100% !important;
-    }
-    .middle_modal {
-        top: 2%;
-    }
-}
-
-@media screen and (max-width:810px) {
-    .middle_modal {
-        top: 8%;
-    }
-}
-
-@media screen and (max-width:690px) {
-    .middle_modal {
-        top: 14%;
     }
 }
 
@@ -491,17 +466,11 @@ a:hover {
     .margins_total {
         margin: 0.5rem;
     }
-    .middle_modal {
-        top: 20%;
-    }
 }
 
 @media screen and (max-width: 500px) {
     .bigger_space {
         margin-top: 1.5rem !important;
-    }
-    .middle_modal {
-        top: 22%;
     }
 }
 

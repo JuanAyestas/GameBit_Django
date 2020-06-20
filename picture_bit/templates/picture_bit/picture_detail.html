@@ -17,10 +17,10 @@
 </article>
 <h1 class="text-center">{{review.title}}</h1>
 <section id="ReviewPictures" class="row row-cols-1 row-cols-md-2">
-    <div class="col mb-2">
+    <div id="Thumbnail" class="col mb-2">
         <article class="cute_border_for_pictures p-2 mt-3 shadow">
             <figure class="text-center mb-0 w-100" href="#">
-                <button class="no_border cute_border_for_pictures btn-link" type="button" data-toggle="modal" data-target="#ThumbModal">
+                <button class="no_border cute_border_for_pictures" type="button" data-toggle="modal" data-target="#ThumbModal">
                     <img class="cute_border_for_pictures w-100" src="{{review.thumbnail.url}}" alt="{{review.title}}">
                 </button>
                 <figcaption>Click the picture to see it in fullscreen.</figcaption>
@@ -28,10 +28,10 @@
         </article>
     </div>
     {% for picture in review.picture_set.all %}
-    <div class="col mb-2">
+    <div id="Pictures" class="col mb-2">
         <article class="cute_border_for_pictures p-2 mt-3 shadow">
             <figure class="text-center mb-0 w-100">
-                <button class="no_border cute_border_for_pictures btn-link" type="button" data-toggle="modal" data-target="#PicModal{{picture.id}}">
+                <button class="no_border cute_border_for_pictures" type="button" data-toggle="modal" data-target="#PicModal{{picture.id}}">
                     <img class="cute_border_for_pictures w-100" src="{{picture.picture_files.url}}" alt="{{review.title}}">
                 </button>
                 <!---->
@@ -47,7 +47,7 @@
     {% block modal_2 %}
     <!-- Picture modal -->
     <div class="modal modal_custom fade text-center" id="PicModal{{picture.id}}" tabindex="-1" role="dialog" aria-labelledby="PicModalLabel{{picture.id}}" aria-hidden="true">
-        <div class="modal-dialog modal_dialog middle_modal w_95 m-auto" role="document">
+        <div class="modal-dialog modal_dialog modal-dialog-centered w_95 m-auto" role="document">
             <div class="modal-content">
                 <div class="d-flex justify-content-start">
                     <button id="x_symbol" type="button" class="close pt-0 pb-0 pl-3 pr-3" data-dismiss="modal" aria-label="Close" value="{{picture.id}}">
@@ -71,7 +71,7 @@
 {% block modal %}
 <!-- Thumbnail modal -->
 <div class="modal modal_custom fade text-center" id="ThumbModal" tabindex="-1" role="dialog" aria-labelledby="ThumbModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal_dialog middle_modal w_95 m-auto" role="document">
+    <div class="modal-dialog modal_dialog modal-dialog-centered w_95 m-auto" role="document">
         <div class="modal-content">
             <div class="d-flex justify-content-start">
                 <button id="x_symbol" type="button" class="close pt-0 pb-0 pl-3 pr-3" data-dismiss="modal" aria-label="Close">
