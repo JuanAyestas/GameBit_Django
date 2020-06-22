@@ -1,9 +1,10 @@
 {% extends "app_bit/base.html" %}
 <!-- extended from -->
-{% block title %} Memes {% endblock title %}
+{% block title %} Searching... {% endblock title %}
 <!---->
 {% block bread %}
-<li class="breadcrumb-item active" aria-current="page">Memes</li>
+<li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme' %}">Memes</a></li>
+<li class="breadcrumb-item active" aria-current="page">Searching...</li>
 {% endblock bread %}
 <!---->
 {% block search_bar %}
@@ -13,15 +14,15 @@
 </form>
 {% endblock search_bar %}
 <!--  -->
-{% block body %}
-<section id="MemeTitle" class="text-center jumbotron cuter_border shadow cute_border_line shadow p-3 mb-0">
-    <h1 class="display-6">Have a Laugh!</h1>
-    <p class="lead">Why not relax a bit seeing memes? You can always read our reviews later.</p>
-</section>
-{% if memes %}
-<hr class="my-4"> {% endif %}
-<section id="Memes" class="row row-cols-1 row-cols-md-2">
-    {% for meme in memes %}
+{% block body %} {% if meme_list|length >= 1%}
+<div class="alert alert-warning" role="alert">
+    <p class="text-center lead mb-0">We found {{meme_list|length}} {% if meme_list|length == 1 %}meme{% else %}memes{% endif %} that matched your search.</p>
+</div>
+{% else %}
+<h2 class="mb-4">Searching...</h2>
+{% endif %}
+<section id="Memes" class="row row-cols-1 {% if meme_list|length >= 1%} row-cols-md-2 {% endif %}">
+    {% for meme in meme_list %}
     <div class="col mb-2">
         <div class="cute_border_for_pictures cute_border_line shadow p-2">
             <p class="text-center lead spaces mb-0"><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a></p>
@@ -43,6 +44,10 @@
                 </div>
             </article>
         </div>
+    </div>
+    {% empty %}
+    <div class="col col-12 alert alert-warning" role="alert">
+        <p class="lead mb-0">Sorry, we've not posted that meme, or double check if you typed a caption correctly.</p>
     </div>
     {% endfor %}
 </section>

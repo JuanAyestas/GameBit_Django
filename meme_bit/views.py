@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import Q
 from django.contrib import messages
 from .models import Meme
 
@@ -61,3 +62,16 @@ class MemeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super().delete(request, *args, **kwargs)
+
+
+class MemeSearchResult(ListView):
+    model = Meme
+    ordering = ["-date_posted"]
+    template_name = "meme_bit/meme_search.html"
+
+    def get_queryset(self):
+        search = self.request.GET.get("meme")
+        meme_list = Meme.objects.filter(
+            Q(caption__icontains=search)
+        )
+        return meme_list

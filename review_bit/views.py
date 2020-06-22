@@ -99,7 +99,7 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class ReviewSearchResult(ListView):
     model = Review
     ordering = ["-date_posted"]
-    template_name = "review_search.html"
+    template_name = "review_bit/review_search.html"
     
     def get_queryset(self):
         search = self.request.GET.get("review")

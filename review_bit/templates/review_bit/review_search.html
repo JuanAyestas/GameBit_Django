@@ -9,12 +9,18 @@
 <!---->
 {% block search_bar %}
 <form class="d-flex justify-content-between" action="{% url 'gamebit-search' %}" method="GET">
-    <input class="form-control" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
-    <button class="btn btn-sm btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <input class="form-control bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
+    <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 </form>
 {% endblock search_bar %}
 <!---->
-{% block body %} {% for review in review_list %}
+{% block body %} {% if review_list|length >= 1%}
+<div class="alert alert-warning" role="alert">
+    <p class="text-center lead mb-0">We found {{review_list|length}} {% if review_list|length == 1 %}review{% else %}reviews{% endif %} that matched your search.</p>
+</div>
+{% else %}
+<h2 class="mb-4">Searching...</h2>
+{% endif %} {% for review in review_list %}
 <section id="Review" class="review_article cute_border cute_border_line shadow p-3">
     <article id="ReviewInfo" class="text-center">
         <h2><a href="{% url 'gamebit-detail' review.id %}">{{ review.title }}</a></h2>
