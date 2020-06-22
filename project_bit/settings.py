@@ -32,7 +32,8 @@ SECRET_KEY = os.environ.get("SECRET_DJANGO")
 # DEBUG = os.environ.get("DEBUG_VALUE")
 DEBUG = (os.environ.get("DEBUG_VALUE") == "True")
 
-ALLOWED_HOSTS = ["gamebit-council.herokuapp.com", ""]
+
+ALLOWED_HOSTS = ["gamebit-council.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 

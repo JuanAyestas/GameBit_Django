@@ -1,4 +1,4 @@
-{% extends "app_bit/base.html" %}
+{% extends "app_bit/base.html" %}{% load static %}
 <!-- extended from -->
 {% block title %}Searching...{% endblock title %}
 <!---->
@@ -9,17 +9,18 @@
 <!---->
 {% block search_bar %}
 <form class="d-flex justify-content-between" action="{% url 'gamebit-search' %}" method="GET">
-    <input class="form-control bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
-    <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <input class="form-control bar_form" name="review" type="search" placeholder="Search in reviews..."
+        aria-label="Search">
+    <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search"
+            aria-hidden="true"></i></button>
 </form>
 {% endblock search_bar %}
 <!---->
 {% block body %} {% if review_list|length >= 1%}
 <div class="alert alert-warning" role="alert">
-    <p class="text-center lead mb-0">We found {{review_list|length}} {% if review_list|length == 1 %}review{% else %}reviews{% endif %} that matched your search.</p>
+    <p class="text-center lead mb-0">We found {{review_list|length}}
+        {% if review_list|length == 1 %}review{% else %}reviews{% endif %} that matched your search.</p>
 </div>
-{% else %}
-<h2 class="mb-4">Searching...</h2>
 {% endif %} {% for review in review_list %}
 <section id="Review" class="review_article cute_border cute_border_line shadow p-3">
     <article id="ReviewInfo" class="text-center">
@@ -29,7 +30,8 @@
         <hr class="w-50 my-2">
     </article>
     <figure id="ReviewThumbnail" class="text-center">
-        <a href="{% url 'gamebit-detail' review.id %}"><img class="cute_border_for_pictures carou_size shadow" src="{{review.thumbnail.url}}" alt="{{review.title}}"></a>
+        <a href="{% url 'gamebit-detail' review.id %}"><img class="cute_border_for_pictures carou_size shadow"
+                src="{{review.thumbnail.url}}" alt="{{review.title}}"></a>
     </figure>
     <article id="ReviewSummary">
         <p class="lead jumbito">General Info: </p>
@@ -39,21 +41,35 @@
     <article id="AuthorInfo" class="d-flex justify-content-start mt-3">
         <div class="flex-wrap align-self-center">
             <figure class="mb-0 profile_pic_container">
-                <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}" alt="{{review.author}}"></a>
+                <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures"
+                        src="{{review.author.profile.image.url}}" alt="{{review.author}}"></a>
             </figure>
-            <p class="mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author }}</em></strong></a></p>
+            <p class="mb-0"><a
+                    href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author }}</em></strong></a>
+            </p>
         </div>
         <div class="margin_left align-self-center">
             <small class="text_muted">{{ review.date_posted|date:"F d, Y" }}</small>
             <hr class="my-2">
-            <small class="text_muted">To check out the full review,  <em><strong>click on it's title.</strong></em></small>
+            <small class="text_muted">To check out the full review, <em><strong>click on it's
+                        title.</strong></em></small>
         </div>
     </article>
 </section>
 <hr class="my-4"> {% empty %}
-<div class="alert alert-warning" role="alert">
-    <p class="lead mb-0">Sorry, that game probably hasn't been reviewed yet, or double check if you typed it correctly.</p>
-</div>
+<section id="Title" class="jumbotron cute_border cute_border_line shadow p-3 mb-3">
+    <h2 class="">We couldn't find anything, sorry...</h2>
+    <p style="font-weight: 500 !important;" class="lead text-muted"><em>Not even the Detective Pikachu could find
+            what you're looking for.</em></p>
+    <hr class="my-2">
+    <div class="d-flex justify-content-center mb-3">
+        <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-review' %}">Go Back</a>
+    </div>
+    <figure class="cute_border_for_pictures mb-0">
+        <img class="w-100 cute_border_for_pictures" src="{% static 'app_bit/home_pictures/pikachu.jpg' %}"
+            alt="Search Failed">
+    </figure>
+</section>
 {% endfor %}
 <!-- endblock -->
 {% endblock body %}
