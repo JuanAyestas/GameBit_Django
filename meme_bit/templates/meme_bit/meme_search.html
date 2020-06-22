@@ -17,8 +17,7 @@
 <!--  -->
 {% block body %} {% if meme_list|length >= 1%}
 <div class="alert alert-warning" role="alert">
-    <p class="text-center lead mb-0">We found {{meme_list|length}}
-        {% if meme_list|length == 1 %}meme{% else %}memes{% endif %} that matched your search.</p>
+    <p class="text-center lead mb-0">We found {{meme_list|length}} {% if meme_list|length == 1 %}meme{% else %}memes{% endif %} that matched your search.</p>
 </div>
 {% endif %}
 <section id="Memes" class="row row-cols-1 {% if meme_list|length >= 1%} row-cols-md-2 {% endif %}">
@@ -36,8 +35,7 @@
             <hr class="my-2">
             <article class="d-flex justify-content-start p-2">
                 <div class="flex-wrap align-self-center">
-                    <a class=""
-                        href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}</em></strong></a></i>
+                    <a class="" href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}</em></strong></a></i>
                 </div>
                 <div class="margin_left">
                     <small class="text_muted">{{meme.date_posted|date:"F d, Y" }}</small>
@@ -49,15 +47,14 @@
     </div>
     {% empty %}
     <section id="Title" class="jumbotron cute_border cute_border_line shadow col p-3 mb-3">
-        <h2 class="">We couldn't find anything, sorry...</h2>
-        <p style="font-weight: 500 !important;" class="lead"><em>Have another meme, instead!</em></p>
+        <h3 class="">We couldn't find anything, sorry...</h3>
+        <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Have another meme, instead!</em></p>
         <hr class="my-2">
         <div class="d-flex justify-content-center mb-3">
             <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-meme' %}">Go Back</a>
         </div>
         <figure class="cute_border_for_pictures mb-0">
-            <img class="cute_border_for_pictures w-100" src="{% static 'app_bit/home_pictures/gru.jpg' %}"
-                alt="Search Failed">
+            <img class="cute_border_for_pictures w-100" src="{% static 'app_bit/home_pictures/gru.jpg' %}" alt="Search Failed">
         </figure>
     </section>
 
