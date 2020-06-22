@@ -3,6 +3,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from users_bit.decorators import allowed_users
 from picture_bit.models import Picture
@@ -94,6 +95,18 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         messages.success(self.request, self.success_message)
         return super().delete(request, *args, **kwargs)
 
+
+class ReviewSearchResult(ListView):
+    model = Review
+    ordering = ["-date_posted"]
+    template_name = "review_search.html"
+    
+    def get_queryset(self):
+        search = self.request.GET.get("review")
+        review_list = Review.objects.filter(
+            Q(title__icontains=search) | Q(platform__icontains=search)
+        )
+        return review_list
 
 
 # class ReviewCreateView(LoginRequiredMixin, CreateView):

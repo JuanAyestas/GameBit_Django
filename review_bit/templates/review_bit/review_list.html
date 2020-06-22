@@ -5,7 +5,14 @@
 {% block bread %}
 <li class="breadcrumb-item active" aria-current="page">Reviews</li>
 {% endblock bread %}
-<!--  -->
+<!---->
+{% block search_bar %}
+<form class="d-flex justify-content-between" action="{% url 'gamebit-search' %}" method="GET">
+    <input class="form-control" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
+    <button class="btn btn-sm btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+{% endblock search_bar %}
+<!---->
 {% block body %}
 <section id="Title" class="text-center jumbotron cute_border cute_border_line shadow p-3 mb-0">
     <h1>GameBit - Reviews</h1>
