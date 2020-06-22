@@ -23,7 +23,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExample03">
-                    <div class="navbar-nav mr-auto order-0">
+                    <div class="navbar-nav order-3 mt-1">
+                        {% block search_bar %} {% endblock search_bar %}
+                    </div>
+                    <div class="navbar-nav order-0 mr-auto mt-1">
                         <a class="nav-item nav-link mt-1" href="{% url 'gamebit-review' %}">Reviews</a>
                         <a class="nav-item nav-link mt-1" href="{% url 'gamebit-meme' %}">Memes</a>
                         <div class="label_div" id="theme-change">
@@ -35,9 +38,9 @@
                             </label>
                         </div>
                     </div>
-                    <div class="navbar-nav order-2">
+                    <div class="navbar-nav order-2 mt-1">
                         {% if user.is_authenticated %}
-                        <a class="nav-item nav-link mt-1" href="{% url 'gamebit-profile' %}">Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'gamebit-profile' %}">Profile</a>
                         <div class="nav-item dropdown mt-1">
                             <button class="btn btn-sm btn-secondary nav-link dropdown-toggle p-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New </button>
                             <div class="dropdown-menu cuter_border p-2" aria-labelledby="navbarDropdown">
@@ -51,9 +54,6 @@
                         <a class="nav-item nav-link mt-1" href="{% url 'gamebit-logout' %}">Log out</a> {% else %}
                         <a class="nav-item nav-link mt-1" href="{% url 'gamebit-login' %}">Log in</a>
                         <a class="nav-item nav-link mt-1" href="{% url 'gamebit-register' %}">Register</a> {% endif %}
-                    </div>
-                    <div class="navbar-nav order-1">
-                        {% block search_bar %} {% endblock search_bar %}
                     </div>
                 </div>
             </div>
