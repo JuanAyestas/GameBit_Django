@@ -12,10 +12,11 @@ from django.contrib.auth.models import User
 class Meme(models.Model):
     caption = models.CharField(max_length=120)
     meme = models.ImageField(upload_to="memes")
-    date_posted = models.DateTimeField(default=timezone.now)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
     # relationship with User
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    
     def __str__(self):
         return f"Meme: {self.caption}, {self.date_posted}"
 
