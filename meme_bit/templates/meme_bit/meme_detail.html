@@ -29,7 +29,7 @@
                 <a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}<i style="line-height: 1.5;" class="ml-1 fas fa-signature"></i></em></strong></a>
             </div>
             <article class="margin_left">
-                <small class="text_muted">{{meme.date_posted|date:"F d, Y" }}</small>
+                <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>
                 <hr class="my-2">
                 <small class="text_muted">To check out more content of the author, <strong><em>click their name.</em></strong></small>
             </article>

@@ -10,7 +10,7 @@ from .models import Meme
 class MemeListView(ListView):
     model = Meme
     context_object_name = "memes"
-    ordering = ["-date_posted"]
+    ordering = ["-date_updated"]
     paginate_by = 10
 
 
@@ -66,7 +66,7 @@ class MemeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class MemeSearchResult(ListView):
     model = Meme
-    ordering = ["-date_posted"]
+    ordering = ["-date_updated"]
     template_name = "meme_bit/meme_search.html"
 
     def get_queryset(self):

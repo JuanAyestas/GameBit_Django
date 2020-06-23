@@ -29,7 +29,7 @@
             <p class="mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author }}</em></strong></a></p>
         </div>
         <div class="margin_left align-self-center">
-            <small class="text_muted">{{ review.date_posted|date:"F d, Y" }}</small>
+            <small class="text_muted">{{ review.date_updated|date:"F d, Y" }}</small>
             <hr class="my-2">
             <small class="text_muted">To check out the full review,  <em><strong>click on it's title.</strong></em></small>
         </div>

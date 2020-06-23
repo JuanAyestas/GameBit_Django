@@ -19,7 +19,7 @@ meme_decorator = allowed_users(allowed_roles=["Staff Member", "Dynamic Duo", "Vi
 class ReviewListView(ListView):
     model = Review
     context_object_name = "reviews"
-    ordering = ["-date_posted"]
+    ordering = ["-date_updated"]
     paginate_by = 4
 
 
@@ -98,7 +98,7 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ReviewSearchResult(ListView):
     model = Review
-    ordering = ["-date_posted"]
+    ordering = ["-date_updated"]
     template_name = "review_bit/review_search.html"
     
     def get_queryset(self):
