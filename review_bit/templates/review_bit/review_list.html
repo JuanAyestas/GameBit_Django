@@ -23,6 +23,31 @@
 {% for review in reviews %}
 <hr class="my-4">
 <section id="Review" class="review_article cute_border cute_border_line shadow p-3">
+    <div class="dropleft">
+        <div class="dropdown float-right">
+            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-square"></i>
+            </button>
+            <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_facebook review 'Facebook' %}
+                    <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_twitter "Check out our review: {{review.title}}" review "Twitter" %}
+                    <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_whatsapp review 'WhatsApp' %}
+                    <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% send_email "Check out our review: {{review.title}}" "{{review.summary}}" review "Mail" %}
+                    <i class="fas fa-envelope ml-1 mt-1"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <article id="AuthorInfo" class="d-flex justify-content-start">
         <div class="flex-wrap align-self-center">
             <figure class="mb-0 profile_pic_container">
@@ -35,7 +60,6 @@
             <hr class="my-2">
             <small class="text_muted">To check out the full review,  <em><strong>click on it's title.</strong></em></small>
         </div>
-        {% post_to_facebook review "Share" %}
     </article>
     <hr class="my-2">
     <article id="ReviewInfo" class="text-center">

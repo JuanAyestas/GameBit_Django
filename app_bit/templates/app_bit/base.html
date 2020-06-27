@@ -29,23 +29,19 @@
                         {% if user.is_authenticated %}
                         <div class="nav-item dropdown order_3 bar_flex">
                             <div class="mr-auto pt-lg-2">
-                                <a class="nav-item nav-link order-1 d-lg-inline" href="{% url 'gamebit-review' %}">Reviews</a>
-                                <a class="nav-item nav-link order-2 d-lg-inline" href="{% url 'gamebit-meme' %}">Memes</a>
+                                <a class="nav-item nav-link order-1 d-lg-inline" href="{% url 'gamebit-review' %}">Reviews</i></a>
+                                <a class="nav-item nav-link order-2 d-lg-inline" href="{% url 'gamebit-meme' %}">Memes</i></a>
                             </div>
-                            <div>
+                            <div class="dropleft">
                                 <button class="btn nav-link dropdown-toggle profile_button text-center" href="#" id="UserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img class="button_pic mr-1" src="{{user.profile.image.url}}" alt="">{{user.username}}
                                 </button>
-                                <div style="left: 11rem !important;" class="dropdown-menu cuter_border p-2" aria-labelledby="UserDropdown">
+                                <div class="dropdown-menu cuter_border another_menu p-2" aria-labelledby="UserDropdown">
                                     {% if user|has_group:"Staff Member" %}
                                     <a class="dropdown-item cuter_border" href="{% url 'gamebit-create' %}">New Review</a> {% endif %}
                                     <a class="dropdown-item cuter_border" href="{% url 'gamebit-meme-create' %}">New Meme</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-profile' %}">Profile
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-badge-fill mb-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-                                    </svg>
-                                </a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-profile' %}">Profile <i class="fas fa-user-circle"></i></a>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-item cuter_border label_div" id="theme-change">
                                         <input type="checkbox" class="checkbox" id="checkbox-theme" />
@@ -56,19 +52,16 @@
                                     </label>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-about' %}">About Us</a>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-logout' %}">Log out 
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-open-fill mb-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2v13h1V2.5a.5.5 0 0 0-.5-.5H11zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
-                                    </svg>
-                                </a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-about' %}">About Us <i class="fas fa-info-circle"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-logout' %}">Log out <i class="fas fa-sign-out-alt"></i></a>
                                 </div>
                             </div>
                             {% else %}
-                            <a class="nav-item nav-link order-1" href="{% url 'gamebit-review' %}">Reviews</a>
-                            <a class="nav-item nav-link order-2" href="{% url 'gamebit-meme' %}">Memes</a>
-                            <a class="nav-item nav-link btn btn-outline-secondary order-3 mr-lg-1" href="{% url 'gamebit-login' %}">Log in </a>
-                            <a class="nav-item nav-link btn btn-outline-success order-4 mt-1 mt-lg-0" href="{% url 'gamebit-register' %}">Register</a> {% endif %}
+                            <a class="nav-item nav-link order-1" href="{% url 'gamebit-review' %}">Reviews</i></a>
+                            <a class="nav-item nav-link order-2" href="{% url 'gamebit-meme' %}">Memes</i></a>
+                            <a class="nav-item nav-link order-3" href="{% url 'gamebit-about' %}">About Us <i class="fas fa-info-circle"></i></a>
+                            <a class="nav-item nav-link btn btn-outline-secondary order-4 mr-lg-1" href="{% url 'gamebit-login' %}">Log in <i class="fas fa-sign-in-alt"></i></a>
+                            <a class="nav-item nav-link btn btn-outline-success order-5 mt-1 mt-lg-0" href="{% url 'gamebit-register' %}">Register <i class="fas fa-user-plus"></i></a> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -78,12 +71,7 @@
             <div class="container">
                 <ol class="mb-0 breadcrumb p-0 pb-1">
                     <li class="breadcrumb-item" aria-current="page">
-                        <a href="{% url 'gamebit-home' %}">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill mb-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-                            </svg>
-                        </a>
+                        <a href="{% url 'gamebit-home' %}"> <i class="fas fa-home"></i> </a>
                     </li>
                     {% block bread %} {% endblock bread %}
                 </ol>

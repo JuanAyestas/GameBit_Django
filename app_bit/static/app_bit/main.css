@@ -397,7 +397,16 @@ a:hover {
 
 .profile_button {
     padding: 0 0 0 0.5rem !important;
-    margin-left: 2.063rem !important;
+    margin-left: 2.2rem !important;
+}
+
+.stubborn_menu {
+    left: -4.375rem !important;
+}
+
+.another_menu {
+    left: 1rem !important;
+    top: 3rem !important;
 }
 
 .order_3 {
@@ -519,11 +528,17 @@ a:hover {
     .margins_total {
         margin: 0.5rem;
     }
+    .stubborn_menu {
+        left: -3.5rem !important;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .bigger_space {
         margin-top: 1.5rem !important;
+    }
+    .stubborn_menu {
+        left: -2.375rem !important;
     }
 }
 

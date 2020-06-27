@@ -1,4 +1,4 @@
-{% extends "app_bit/base.html" %}{% load filters.py %}
+{% extends "app_bit/base.html" %}{% load filters.py %} {% load social_share %}
 <!-- extended from -->
 {% block title %} {{meme.caption}} {% endblock title %}
 <!---->
@@ -9,6 +9,31 @@
 <!--  -->
 {% block body %}
 <section id="Memes" class="">
+    <div class="dropleft">
+        <div class="dropdown float-right">
+            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-square"></i>
+            </button>
+            <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{meme.id}}">
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_facebook meme 'Facebook' %}
+                    <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_twitter "Check out our meme: {{meme.caption}}" meme "Twitter" %}
+                    <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_whatsapp meme 'WhatsApp' %}
+                    <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% send_email "Check out our meme: {{meme.caption}}" "" meme "Mail" %}
+                    <i class="fas fa-envelope ml-1 mt-1"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="cute_border_for_pictures cute_border_line shadow mb-3 p-2">
         <p class="text-center spaces lead">{{meme.caption}}</p>
         <figure class="d-flex justify-content-center">
