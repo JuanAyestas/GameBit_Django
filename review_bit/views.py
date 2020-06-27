@@ -40,7 +40,7 @@ def ReviewCreate(request):
             summary = form.cleaned_data["summary"]
             content = form.cleaned_data["content"]
             review_obj = Review.objects.create(title=title, platform=platform, thumbnail=thumbnail,
-                                               summary=summary, content=summary, author=user)
+                                               summary=summary, content=content, author=user)
             rev_id = review_obj.id
             for f in files:
                 Picture.objects.create(review=review_obj, picture_files=f)
