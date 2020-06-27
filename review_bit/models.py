@@ -31,8 +31,8 @@ class Review(models.Model):
       img_read = storage.open(self.thumbnail.name, 'rb')
       img = Image.open(img_read)
 
-      if img.height > 900 or img.width > 1600:
-            output_size = (1600, 900)
+      if img.height > 720 or img.width > 1280:
+            output_size = (1280, 720)
             img.thumbnail(output_size)
             in_mem_file = io.BytesIO()
             img.convert('RGB').save(in_mem_file, format='JPEG')

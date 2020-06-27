@@ -6,8 +6,10 @@
 <li class="breadcrumb-item active" aria-current="page">Memes</li>
 {% endblock bread %}
 <!---->
+{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
+<!---->
 {% block search_bar %}
-<form class="d-flex justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
+<form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
     <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
     <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 </form>

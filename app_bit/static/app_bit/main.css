@@ -390,10 +390,6 @@ a:hover {
     display: none !important;
 }
 
-.hide_big {
-    display: block !important;
-}
-
 .negative_margin {
     padding-left: 1.125rem;
     padding-right: 1.125rem;
@@ -401,6 +397,16 @@ a:hover {
 
 .profile_button {
     padding: 0 0 0 0.5rem !important;
+    margin-left: 2.063rem !important;
+}
+
+.order_3 {
+    order: 3;
+}
+
+.bar_flex {
+    display: flex !important;
+    flex-direction: row !important;
 }
 
 @media screen and (max-width: 991px) {
@@ -427,6 +433,15 @@ a:hover {
     }
     .profile_button {
         padding: 0 !important;
+    }
+    .hide_small {
+        display: inline-block !important;
+    }
+    .margin_top {
+        margin-top: 0.5rem !important;
+    }
+    .order_3 {
+        order: 0;
     }
 }
 
