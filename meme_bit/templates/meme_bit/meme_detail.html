@@ -1,11 +1,26 @@
 {% extends "app_bit/base.html" %}{% load filters.py %} {% load social_share %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/memes/{{meme.id}}">
+<meta property="og:type" content="article">
+<meta property="og:description" content="{{meme.summary}}">
+<meta property="og:image" content="{{meme.meme.url}}"> {% endblock meta_tag %}
+<!---->
 {% block title %} {{meme.caption}} {% endblock title %}
 <!---->
 {% block bread %}
 <li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme' %}">Memes</a></li>
 <li class="breadcrumb-item active" aria-current="page">{{meme.caption}}</li>
 {% endblock bread %}
+<!---->
+{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
+<!---->
+{% block search_bar %}
+<form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
+    <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
+    <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+{% endblock search_bar %}
 <!--  -->
 {% block body %}
 <section id="Memes" class="">

@@ -9,7 +9,7 @@
 {% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
 <!---->
 {% block search_bar %}
-<form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-search' %}" method="GET">
+<form class="d-flex justify-content-between w-100" action="{% url 'gamebit-search' %}" method="GET">
     <input class="form-control form-control-sm bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
     <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 </form>
