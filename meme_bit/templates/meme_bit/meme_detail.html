@@ -2,10 +2,12 @@
 <!-- extended from -->
 {% block meta_tag %}
 <meta property="og:type" content="article">
-<meta property="og:title" content="GameBit-Meme">
-<meta property="og:description" content="{{meme.summary}}">
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/memes/{{meme.id}}/">
+<meta property="og:title" content="{{meme.caption}}">
+<meta property="og:description" content="">
 <meta property="og:image" content="{{meme.meme.url}}">
-<meta property="fb:app_id" content="302881441117258">
+<meta property="og:image:alt" content="{{meme.caption}}">
+<meta property="fb:app_id" content="{{facebook}}">
 <!---->
 {% endblock meta_tag %}
 <!---->

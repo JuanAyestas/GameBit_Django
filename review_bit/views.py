@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -62,7 +63,9 @@ class ReviewDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
+        context.update({
+            "brand": "Gamebit Council",
+            "facebook": os.environ.get("FACEBOOK_ID")})
         return context
 
 

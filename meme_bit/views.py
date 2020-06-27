@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -20,7 +21,9 @@ class MemeDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
+        context.update({
+            "brand": "Gamebit Council", 
+            "facebook": os.environ.get("FACEBOOK_ID")})
         return context
 
 
