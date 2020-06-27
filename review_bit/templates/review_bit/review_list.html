@@ -20,9 +20,11 @@
     <h1>GameBit - Reviews</h1>
     <p class="lead mb-0">Check out our latest reviews</p>
 </section>
+{% if reviews %}
+<hr class="my-2"> {% endif %}
+<!---->
 {% for review in reviews %}
-<hr class="my-4">
-<section id="Review" class="review_article cute_border cute_border_line shadow">
+<section id="Review" class="review_article cute_border cute_border_line shadow mb-3">
     <div class="dropleft">
         <div class="dropdown float-right">
             <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
