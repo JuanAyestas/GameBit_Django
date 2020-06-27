@@ -532,6 +532,9 @@ a:hover {
     .stubborn_menu {
         left: -3.5rem !important;
     }
+    .lead {
+        font-size: 1rem !important;
+    }
 }
 
 @media screen and (max-width: 500px) {

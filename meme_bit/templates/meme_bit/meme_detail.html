@@ -69,7 +69,7 @@
         <hr class="my-2">
         <div class="d-flex justify-content-start p-2">
             <div class="flex-wrap align-self-center">
-                <a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}<i style="line-height: 1.5;" class="ml-1 fas fa-signature"></i></em></strong></a>
+                <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a></p>
             </div>
             <article class="margin_left">
                 <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>

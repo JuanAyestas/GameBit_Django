@@ -61,7 +61,7 @@
             <hr class="my-2">
             <article class="d-flex justify-content-start p-2">
                 <div class="flex-wrap align-self-center">
-                    <a class="" href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{meme.author.username}}</em></strong></a></i>
+                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a></p>
                 </div>
                 <div class="margin_left">
                     <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>
