@@ -31,7 +31,7 @@
 <section id="Memes" class="">
     <div class="dropleft">
         <div class="dropdown float-right">
-            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-share-square"></i>
             </button>
             <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{meme.id}}">
@@ -59,7 +59,7 @@
         <figure class="d-flex justify-content-center">
             {% if meme.meme.width >= 1200 %}
             <a href="{{meme.meme.url}}"><img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}"></a> {% else %}
-            <a href="{{meme.meme.url}}"><img class="cuter_border w_100" src="{{meme.meme.url}}" alt="{{meme.caption}}"></a> {% endif %}
+            <a href="{{meme.meme.url}}"><img class="pr-5 pl-5 cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}"></a> {% endif %}
         </figure>
         {% if user == meme.author %}
         <hr class="my-2">

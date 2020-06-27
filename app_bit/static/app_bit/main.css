@@ -418,6 +418,10 @@ a:hover {
     flex-direction: row !important;
 }
 
+.share_button {
+    border-radius: .2rem .9375rem .2rem .2rem;
+}
+
 @media screen and (max-width: 991px) {
     .w_100 {
         width: 100% !important;
@@ -476,9 +480,6 @@ a:hover {
     }
     .medium_picc {
         width: 12rem !important;
-    }
-    .cute_border {
-        padding: 1rem !important;
     }
     h1 {
         font-size: 2rem !important;
