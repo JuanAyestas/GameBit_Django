@@ -50,7 +50,8 @@ def ReviewCreate(request):
         form_pic = PictureForm()
     context = {
         "form": form,
-        "form_pic": form_pic
+        "form_pic": form_pic,
+        "brand": "Gamebit Council"
     }
     return render(request, "review_bit/review_form.html", context)
 
@@ -58,6 +59,11 @@ def ReviewCreate(request):
 class ReviewDetailView(DetailView):
     model = Review
     context_object_name = "review"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 
 
 @method_decorator(admin_decorator, name="dispatch")
@@ -65,6 +71,11 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
     form_class = ReviewForm
     success_message = "The review has been updated successfully!"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -84,6 +95,11 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     context_object_name = "review"
     success_url = "/reviews"
     success_message = "The review has been deleted successfully!"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 
     def test_func(self):
         review = self.get_object()

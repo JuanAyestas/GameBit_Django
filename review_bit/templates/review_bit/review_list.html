@@ -7,8 +7,8 @@
 {% endblock bread %}
 <!---->
 {% block search_bar %}
-<form class="d-flex justify-content-between" action="{% url 'gamebit-search' %}" method="GET">
-    <input class="form-control bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
+<form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-search' %}" method="GET">
+    <input class="form-control form-control-sm bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
     <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 </form>
 {% endblock search_bar %}

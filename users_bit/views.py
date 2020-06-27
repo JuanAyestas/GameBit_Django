@@ -28,6 +28,7 @@ def register(request):
     context = {
         "form": form,
         "legend": "GameBit - Visitor",
+        "brand": "Gamebit Council"
     }
     return render(request, "users_bit/register.html", context)
 
@@ -50,6 +51,7 @@ def staff_register(request):
     context = {
         "form": form,
         "legend": "GameBit - Staff",
+        "brand": "Gamebit Council"
     }
     return render(request, "users_bit/register.html", context)
 
@@ -73,7 +75,7 @@ def profile(request):
         "up_form": up_form,
         "pro_form": pro_form,
         "legend": "Update your info",
-        "reviews": Review.objects.filter(author_id=request.user.id)
+        "brand": "Gamebit Council"
     }
     return render(request, "users_bit/profile.html", context)
 
@@ -82,4 +84,9 @@ class SummaryDetailView(DetailView):
     model = User
     template_name = 'users_bit/summary.html'
     context_object_name = 'author'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 

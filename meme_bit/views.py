@@ -17,12 +17,22 @@ class MemeListView(ListView):
 class MemeDetailView(DetailView):
     model = Meme
     context_object_name = "meme"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 
 
 class MemeCreateView(LoginRequiredMixin, CreateView):
     model = Meme
     fields = ["caption", "meme"]
     success_message = "The meme has been uploaded successfully!"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -34,6 +44,11 @@ class MemeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Meme
     fields = ["caption", "meme"]
     success_message = "The meme has been updated successfully!"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -52,6 +67,11 @@ class MemeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     context_object_name = "meme"
     success_url = "/memes"
     success_message = "The meme has been deleted successfully!"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"brand": "Gamebit Council"})
+        return context
     
     def test_func(self):
         meme = self.get_object()

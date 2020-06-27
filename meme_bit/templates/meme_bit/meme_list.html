@@ -8,7 +8,7 @@
 <!---->
 {% block search_bar %}
 <form class="d-flex justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
-    <input class="form-control bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
+    <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
     <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 </form>
 {% endblock search_bar %}
