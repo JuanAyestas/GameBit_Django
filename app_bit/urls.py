@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.home, name="gamebit-home"),
     path('about/', AboutView.as_view(), name="gamebit-about"),
     path('rules/', views.rules, name="gamebit-rule"),
+    path('coin/', views.coin, name="gamebit-coin"),
 ]

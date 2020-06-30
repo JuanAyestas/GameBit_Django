@@ -6,6 +6,9 @@ from django.views.generic import ListView
 def home(request):
   return render(request, "app_bit/home.html", {"brand": "Gamebit Council"})
 
+def coin(request):
+  return render(request, "app_bit/coin_flip.html")
+
 class AboutView(ListView):
   model = User
   queryset = User.objects.order_by("username")
