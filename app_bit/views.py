@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.views.generic import ListView
@@ -7,7 +8,7 @@ def home(request):
   return render(request, "app_bit/home.html", {"brand": "Gamebit Council"})
 
 def coin(request):
-  return render(request, "app_bit/coin_flip.html")
+  return render(request, "app_bit/coin_flip.html", {"facebook": os.environ.get("FACEBOOK_ID")})
 
 class AboutView(ListView):
   model = User
