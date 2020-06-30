@@ -1,5 +1,15 @@
-{% extends "app_bit/base.html" %}
+{% extends "app_bit/base.html" %}{% load static %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/{% url 'gamebit-rule' %}">
+<meta property="og:title" content="GameBit - Rules">
+<meta property="og:description" content="We'll have nice things if you follow the rules.">
+<meta property="og:image:alt" content="GameBit - Rules">
+<meta property="fb:app_id" content="{{facebook}}">
+<!---->
+{% endblock meta_tag %}
+<!---->
 {% block title %}Rules{% endblock title %}
 <!---->
 {% block bread %}

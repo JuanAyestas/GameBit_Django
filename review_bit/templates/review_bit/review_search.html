@@ -1,5 +1,16 @@
-{% extends "app_bit/base.html" %}{% load static %} {% load social_share %}
+{% extends "app_bit/base.html" %}{% load static %}{% load social_share %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/{% url 'gamebit-review' %}">
+<meta property="og:title" content="GameBit - Reviews">
+<meta property="og:description" content="Check out our latest reviews!">
+<meta property="og:image" content="{% static 'app_bit/home_pictures/reviews.png' %}">
+<meta property="og:image:alt" content="GameBit - Reviews">
+<meta property="fb:app_id" content="{{facebook}}">
+<!---->
+{% endblock meta_tag %}
+<!---->
 {% block title %}Searching...{% endblock title %}
 <!---->
 {% block bread %}

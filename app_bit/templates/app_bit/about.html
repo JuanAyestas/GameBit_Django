@@ -1,5 +1,16 @@
-{% extends "app_bit/base.html" %}{% load filters.py %}
+{% extends "app_bit/base.html" %}{% load static %}{% load filters.py %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/{% url 'gamebit-about' %}">
+<meta property="og:title" content="GameBit - About">
+<meta property="og:description" content="Who are we?">
+<meta property="og:image" content="{% static 'app_bit/home_pictures/about.png' %}">
+<meta property="og:image:alt" content="GameBit - About">
+<meta property="fb:app_id" content="{{facebook}}">
+<!---->
+{% endblock meta_tag %}
+<!---->
 {% block title %}About Us{% endblock title %}
 <!---->
 {% block bread %}

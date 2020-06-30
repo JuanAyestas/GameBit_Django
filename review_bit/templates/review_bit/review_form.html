@@ -1,5 +1,17 @@
-{% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
+{% extends "app_bit/base.html" %}{% load static %}{% load crispy_forms_tags %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:type" content="article"> {% if review %}
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/{% url 'gamebit-edit' %}"> {% else %}
+<meta property="og:url" content="https://gamebit-council.herokuapp.com/{% url 'gamebit-create' %}"> {% endif %}
+<meta property="og:title" content="GameBit - Reviews">
+<meta property="og:description" content="Check out our latest reviews!">
+<meta property="og:image" content="{% static 'app_bit/home_pictures/new_review.png' %}">
+<meta property="og:image:alt" content="GameBit - Reviews">
+<meta property="fb:app_id" content="{{facebook}}">
+<!---->
+{% endblock meta_tag %}
+<!---->
 {% block title %}{% if review %} Editing the Review {% else %} Writing a Review {% endif %}{% endblock title %}
 <!---->
 {% block bread %}

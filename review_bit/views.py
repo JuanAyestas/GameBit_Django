@@ -22,6 +22,12 @@ class ReviewListView(ListView):
     context_object_name = "reviews"
     ordering = ["-date_updated"]
     paginate_by = 4
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            "facebook": os.environ.get("FACEBOOK_ID")})
+        return context
 
 
 @login_required
@@ -52,7 +58,8 @@ def ReviewCreate(request):
     context = {
         "form": form,
         "form_pic": form_pic,
-        "brand": "Gamebit Council"
+        "brand": "Gamebit Council",
+        "facebook": os.environ.get("FACEBOOK_ID"),
     }
     return render(request, "review_bit/review_form.html", context)
 
@@ -77,7 +84,8 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
+        context.update({"brand": "Gamebit Council",
+                        "facebook": os.environ.get("FACEBOOK_ID")})
         return context
 
     def form_valid(self, form):
@@ -119,6 +127,12 @@ class ReviewSearchResult(ListView):
     model = Review
     ordering = ["-date_updated"]
     template_name = "review_bit/review_search.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            "facebook": os.environ.get("FACEBOOK_ID")})
+        return context
     
     def get_queryset(self):
         search = self.request.GET.get("review")
