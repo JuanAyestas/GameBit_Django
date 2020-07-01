@@ -211,6 +211,8 @@ p {
     color: #e0bb00;
     border: 2px solid #b89900;
     border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
     top: 21px;
     left: 36px;
 }
@@ -218,6 +220,8 @@ p {
 .circle {
     position: absolute !important;
     border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
     width: 80px !important;
     height: 80px !important;
     border: 2px solid #b89900;
