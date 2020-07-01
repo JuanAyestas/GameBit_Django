@@ -177,12 +177,12 @@ p {
 
 .side-a {
     background-color: #fbd000;
-    border: 3px solid #b89900;
+    border: 2px solid #b89900;
 }
 
 .side-b {
     background-color: #fbd000;
-    border: 3px solid #b89900;
+    border: 2px solid #b89900;
 }
 
 #coin {
@@ -204,22 +204,77 @@ p {
 }
 
 .star {
-    position: fixed;
-    font-size: 70px;
-    left: 10.5px;
-    top: 12px;
+    position: absolute;
+    font-size: 60px;
+    left: 14.5px;
+    top: 15.5px;
     color: #e0bb00;
 }
 
 .rectangle {
-    position: fixed;
-    width: 30% !important;
-    height: 65% !important;
+    position: absolute;
+    width: 25% !important;
+    height: 55% !important;
     color: #e0bb00;
-    border: 3px solid #e0bb00;
-    border-radius: unset !important;
-    top: 17px;
-    left: 33px;
+    border: 2px solid #b89900;
+    border-radius: 5px !important;
+    top: 21px;
+    left: 36px;
+}
+
+.circle {
+    position: absolute !important;
+    border-radius: 50% !important;
+    width: 80px !important;
+    height: 80px !important;
+    border: 2px solid #b89900;
+    top: 8px;
+    left: 8px;
+    background: transparent;
+}
+
+.eye {
+    position: absolute !important;
+    border-radius: 50% !important;
+    width: 5px !important;
+    height: 12px !important;
+    background-color: black;
+    top: 40px;
+    left: 39px;
+}
+
+.eye_2 {
+    position: absolute !important;
+    border-radius: 50% !important;
+    width: 5px !important;
+    height: 12px !important;
+    background-color: black;
+    top: 40px;
+    left: 52px;
+}
+
+.dot {
+    position: absolute !important;
+    border-radius: 50% !important;
+    width: 3px !important;
+    height: 5px !important;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+}
+
+.dot_2 {
+    position: absolute !important;
+    border-radius: 50% !important;
+    width: 3px !important;
+    height: 5px !important;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+}
+
+#eyes {
+    background: none;
 }
 
 #coin.heads {
