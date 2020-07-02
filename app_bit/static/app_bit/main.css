@@ -347,7 +347,7 @@ a:hover {
 }
 
 .margin_container {
-    margin-top: 7rem;
+    margin-top: 2rem;
 }
 
 .w_50 {
@@ -529,8 +529,8 @@ a:hover {
     .small_pic_container {
         margin-top: 0.9375rem !important;
     }
-    .bigger_space {
-        margin-top: 1rem !important;
+    .margin_container {
+        margin-top: 1.5rem !important;
     }
     .left_right {
         margin-left: 0.5rem;
@@ -548,9 +548,6 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
-    .bigger_space {
-        margin-top: 1.5rem !important;
-    }
     .stubborn_menu {
         left: -2.375rem !important;
     }

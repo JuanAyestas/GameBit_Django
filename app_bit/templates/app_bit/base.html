@@ -111,9 +111,9 @@
             </div>
         </nav>
     </header>
-    <main role="main" class="container margin_container">
+    <main role="main" class="container">
         <section class="row">
-            <article class="col-md-12">
+            <article class="col-md-12 margin_container">
                 {% if messages %} {% for message in messages %}
                 <section class="alert alert-{{ message.tags }}">
                     {{ message }}
