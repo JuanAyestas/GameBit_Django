@@ -182,11 +182,12 @@
         }
         .rng {
             padding-top: 35px;
+            padding-bottom: 70px;
             font-size: 1.54rem !important;
         }
         .padding {
-            padding-top: 80px;
-            padding-bottom: 55px;
+            padding-top: 40px;
+            padding-bottom: 70px;
         }
         .coin {
             padding-top: 135px;
