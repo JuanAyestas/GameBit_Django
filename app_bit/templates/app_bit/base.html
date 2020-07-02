@@ -118,7 +118,10 @@
                 <section class="alert alert-{{ message.tags }}">
                     {{ message }}
                 </section>
-                {% endfor %} {% endif %} {% block body %} {% endblock body %}
+                {% endfor %} {% endif %}
+                <section class="margin_container">
+                    {% block body %} {% endblock body %}
+                </section>
             </article>
         </section>
     </main>
