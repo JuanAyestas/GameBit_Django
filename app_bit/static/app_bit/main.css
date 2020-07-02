@@ -18,6 +18,7 @@
     --img: #fff;
     --link: #007bff;
     --x_symbol: black;
+    --coin_bg: #212121;
     transition: background 0.2s ease-in;
 }
 
@@ -41,6 +42,7 @@
     --img: #343a40;
     --link: #52a6ff;
     --x_symbol: white;
+    --coin_bg: #212121;
     transition: background 0.2s ease-in;
 }
 
@@ -53,9 +55,13 @@ span {
 }
 
 body {
-    margin-top: 7rem;
+    margin-top: 5.2rem;
     background-color: var(--bg_color);
     color: var(--font_color);
+}
+
+#coin_div {
+    background-color: var(--coin_bg);
 }
 
 a {
@@ -226,7 +232,7 @@ a:hover {
     transition: transform 0.2s linear;
 }
 
-.checkbox:checked+.label_check .ball {
+.checkbox:checked + .label_check .ball {
     transform: translateX(1.5rem);
 }
 
@@ -340,6 +346,10 @@ a:hover {
     margin: 1rem;
 }
 
+.margin_container {
+    margin-top: 1.8rem;
+}
+
 .w_50 {
     width: 50% !important;
 }
@@ -419,7 +429,7 @@ a:hover {
 }
 
 .share_button {
-    border-radius: .2rem .9375rem .2rem .2rem;
+    border-radius: 0.2rem 0.9375rem 0.2rem 0.2rem;
 }
 
 @media screen and (max-width: 991px) {
@@ -611,20 +621,17 @@ a:hover {
     background-color: var(--form);
 }
 
-
 /* Mark input boxes that gets an error on validation: */
 
 input.invalid {
     background: #ffdddd;
 }
 
-
 /* Hide all steps by default: */
 
 .tab {
     display: none;
 }
-
 
 /* Make circles that indicate the steps of the form: */
 
@@ -645,13 +652,11 @@ input.invalid {
     margin: 0;
 }
 
-
 /* Mark the active step: */
 
 .step.active {
     opacity: 1;
 }
-
 
 /* Mark the steps that are finished and valid: */
 

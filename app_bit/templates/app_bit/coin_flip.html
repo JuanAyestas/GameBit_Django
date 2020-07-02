@@ -19,7 +19,7 @@
 <li class="breadcrumb-item active" aria-current="page">Flip a Coin</li>
 {% endblock bread %}
 <!---->
-{% block body %}
+{% block coin_cont %}
 <section class="container_custom">
     <a class="btn btn-sm btn-primary" href="{% url 'gamebit-home' %}">Go back</a>
     <article id="Title">
@@ -48,19 +48,19 @@
         <h2 class="coin_class coin text-center mb-0"><strong><em>Touch the coin!</em></strong></h2>
     </article>
 </section>
-{% endblock body %} {% block script %}
+{% endblock coin_cont %} {% block script %}
 <script id="INLINE_PEN_JS_ID">
-    jQuery(document).ready(function($) {
+    jQuery(document).ready(function ($) {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute("src", "{% static 'app_bit/Mario-coin-sound.mp3'%}");
 
-        $('.play').click(function() {
+        $('.play').click(function () {
             audioElement.play();
         });
-        $("#coin").on("click", function() {
+        $("#coin").on("click", function () {
             var flipResult = Math.random();
             $("#coin").removeClass();
-            setTimeout(function() {
+            setTimeout(function () {
                 if (flipResult <= 0.5) {
                     $("#coin").addClass("heads");
                     console.log("it is head");

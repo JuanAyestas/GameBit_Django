@@ -7,7 +7,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> {% block icon %}
     <link rel="icon" type="image/jpg" href="{% static 'app_bit/logo.jpg' %}" /> {% endblock icon %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <title>GameBit-Council - {% block title %} {% endblock title %}</title>
     <script src="https://kit.fontawesome.com/53c772d881.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'app_bit/main.css' %}" />
@@ -29,9 +30,12 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top pt-1 pb-1">
             <div class="container">
-                <a href="{% url 'gamebit-home' %}"><img class="small_pic mr-2" src="{% static 'app_bit/logo.jpg' %}" alt="GameBit-Council Logo" /></a>
-                {% block brand %}<a class="navbar-brand" href="{% url 'gamebit-home' %}">{{brand}}</a>{% endblock brand %}
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <a href="{% url 'gamebit-home' %}"><img class="small_pic mr-2" src="{% static 'app_bit/logo.jpg' %}"
+                        alt="GameBit-Council Logo" /></a>
+                {% block brand %}<a class="navbar-brand"
+                    href="{% url 'gamebit-home' %}">{{brand}}</a>{% endblock brand %}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
+                    aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="margin_navbar collapse navbar-collapse" id="navbarsExample03">
@@ -40,41 +44,57 @@
                         {% if user.is_authenticated %}
                         <div class="nav-item dropdown order_3 bar_flex">
                             <div class="mr-auto pt-lg-2">
-                                <a class="nav-item nav-link order-1 d-lg-inline" href="{% url 'gamebit-review' %}">Reviews</i></a>
-                                <a class="nav-item nav-link order-2 d-lg-inline" href="{% url 'gamebit-meme' %}">Memes</i></a>
-                                <a class="nav-item nav-link order-3 d-lg-inline" href="{% url 'gamebit-coin' %}">Coin</i></a>
+                                <a class="nav-item nav-link order-1 d-lg-inline"
+                                    href="{% url 'gamebit-review' %}">Reviews</i></a>
+                                <a class="nav-item nav-link order-2 d-lg-inline"
+                                    href="{% url 'gamebit-meme' %}">Memes</i></a>
+                                <a class="nav-item nav-link order-3 d-lg-inline"
+                                    href="{% url 'gamebit-coin' %}">Coin</i></a>
                             </div>
                             <div class="dropleft">
-                                <button class="btn nav-link dropdown-toggle profile_button text-center" href="#" id="UserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="button_pic mr-1" src="{{user.profile.image.url}}" alt="">{{user.username}}
+                                <button class="btn nav-link dropdown-toggle profile_button text-center" href="#"
+                                    id="UserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <img class="button_pic mr-1" src="{{user.profile.image.url}}"
+                                        alt="">{{user.username}}
                                 </button>
                                 <div class="dropdown-menu cuter_border another_menu p-2" aria-labelledby="UserDropdown">
                                     {% if user|has_group:"Staff Member" %}
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-create' %}">New Review</a> {% endif %}
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-meme-create' %}">New Meme</a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-create' %}">New
+                                        Review</a> {% endif %}
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-meme-create' %}">New
+                                        Meme</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-profile' %}">Profile <i class="fas fa-user-circle"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-profile' %}">Profile <i
+                                            class="fas fa-user-circle"></i></a>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-item cuter_border label_div" id="theme-change">
                                         <input type="checkbox" class="checkbox" id="checkbox-theme" />
                                         <label for="checkbox-theme" class="label_check theme-change mb-0">
-                                        <i class="fas fa-moon"></i>
-                                        <i class="fas fa-sun"></i>
-                                        <span class="ball"></span>
-                                    </label>
+                                            <i class="fas fa-moon"></i>
+                                            <i class="fas fa-sun"></i>
+                                            <span class="ball"></span>
+                                        </label>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-about' %}">About Us <i class="fas fa-info-circle"></i></a>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-logout' %}">Log out <i class="fas fa-sign-out-alt"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-about' %}">About Us <i
+                                            class="fas fa-info-circle"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-logout' %}">Log out <i
+                                            class="fas fa-sign-out-alt"></i></a>
                                 </div>
                             </div>
                             {% else %}
                             <a class="nav-item nav-link order-1" href="{% url 'gamebit-review' %}">Reviews</i></a>
                             <a class="nav-item nav-link order-2" href="{% url 'gamebit-meme' %}">Memes</i></a>
-                            <a class="nav-item nav-link order-4 d-lg-inline" href="{% url 'gamebit-coin' %}">Coin</i></a>
-                            <a class="nav-item nav-link order-5" href="{% url 'gamebit-about' %}">About Us <i class="fas fa-info-circle"></i></a>
-                            <a class="nav-item nav-link btn btn-outline-secondary order-6 mr-lg-1" href="{% url 'gamebit-login' %}">Log in <i class="fas fa-sign-in-alt"></i></a>
-                            <a class="nav-item nav-link btn btn-outline-success order-7 mt-1 mt-lg-0" href="{% url 'gamebit-register' %}">Register <i class="fas fa-user-plus"></i></a> {% endif %}
+                            <a class="nav-item nav-link order-4 d-lg-inline"
+                                href="{% url 'gamebit-coin' %}">Coin</i></a>
+                            <a class="nav-item nav-link order-5" href="{% url 'gamebit-about' %}">About Us <i
+                                    class="fas fa-info-circle"></i></a>
+                            <a class="nav-item nav-link btn btn-outline-secondary order-6 mr-lg-1"
+                                href="{% url 'gamebit-login' %}">Log in <i class="fas fa-sign-in-alt"></i></a>
+                            <a class="nav-item nav-link btn btn-outline-success order-7 mt-1 mt-lg-0"
+                                href="{% url 'gamebit-register' %}">Register <i class="fas fa-user-plus"></i></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -91,7 +111,7 @@
             </div>
         </nav>
     </header>
-    <main role="main" class="container">
+    <main role="main" class="container margin_container">
         <section class="row">
             <article class="col-md-12">
                 {% if messages %} {% for message in messages %}
@@ -102,12 +122,21 @@
             </article>
         </section>
     </main>
+    <div id="coin_div">
+        {% block coin_cont %} {% endblock coin_cont %}
+    </div>
     <div id="modal">
         {% block modal %} {% endblock modal %} {% block modal_2 %} {% endblock modal_2 %}
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
+        crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+        crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+        crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js "></script>
     <script>
         // lazy loading
