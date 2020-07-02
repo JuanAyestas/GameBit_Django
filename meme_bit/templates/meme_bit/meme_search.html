@@ -18,84 +18,99 @@
 <li class="breadcrumb-item active" aria-current="page">Searching...</li>
 {% endblock bread %}
 <!---->
-{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
+{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit
+    Council</a>{% endblock brand %}
 <!---->
 {% block search_bar %}
 <div class="navbar-nav w_50 mr-auto">
     <form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
-        <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
-        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..."
+            aria-label="Search">
+        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search"
+                aria-hidden="true"></i></button>
     </form>
 </div>
 {% endblock search_bar %}
 <!--  -->
-{% block body %} {% if meme_list|length >= 1%}
-<div class="alert alert-warning" role="alert">
-    <p class="text-center lead mb-0">We found {{meme_list|length}} {% if meme_list|length == 1 %}meme{% else %}memes{% endif %} that matched your search.</p>
-</div>
-{% endif %}
-<section id="Memes" class="row row-cols-1 {% if meme_list|length >= 1%} row-cols-md-2 {% endif %}">
-    {% for meme in meme_list %}
-    <div class="col mb-2">
-        <div class="dropleft">
-            <div class="dropdown float-right">
-                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-share-square"></i>
-            </button>
-                <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{meme.id}}">
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_facebook meme 'Facebook' %}
-                        <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_twitter "Check out our meme: {{meme.caption}}" meme "Twitter" %}
-                        <i class="fab fa-twitter-square ml-1 mt-1"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_whatsapp meme 'WhatsApp' %}
-                        <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% send_email "Check out our meme: {{meme.caption}}" "" meme "Mail" %}
-                        <i class="fas fa-envelope ml-1 mt-1"></i>
+{% block body %}
+<section class="margin_container">
+    {% if meme_list|length >= 1%}
+    <div class="alert alert-warning" role="alert">
+        <p class="text-center lead mb-0">We found {{meme_list|length}}
+            {% if meme_list|length == 1 %}meme{% else %}memes{% endif %} that matched your search.
+        </p>
+    </div>
+    {% endif %}
+    <section id="Memes" class="row row-cols-1 {% if meme_list|length >= 1%} row-cols-md-2 {% endif %}">
+        {% for meme in meme_list %}
+        <div class="col mb-2">
+            <div class="dropleft">
+                <div class="dropdown float-right">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button"
+                        id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-share-square"></i>
+                    </button>
+                    <div class="dropdown-menu cuter_border p-2 stubborn_menu"
+                        aria-labelledby="ShareDropdown{{meme.id}}">
+                        <div class="dropdown-item cuter_border d-flex justify-content-start">
+                            {% post_to_facebook meme 'Facebook' %}
+                            <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                        </div>
+                        <div class="dropdown-item cuter_border d-flex justify-content-start">
+                            {% post_to_twitter "Check out our meme: {{meme.caption}}" meme "Twitter" %}
+                            <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                        </div>
+                        <div class="dropdown-item cuter_border d-flex justify-content-start">
+                            {% post_to_whatsapp meme 'WhatsApp' %}
+                            <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                        </div>
+                        <div class="dropdown-item cuter_border d-flex justify-content-start">
+                            {% send_email "Check out our meme: {{meme.caption}}" "" meme "Mail" %}
+                            <i class="fas fa-envelope ml-1 mt-1"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="cute_border_for_pictures cute_border_line shadow p-2">
+                <p class="text-center lead spaces mb-0"><a
+                        href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a>
+                </p>
+                <hr class="my-2">
+                <figure class="d-flex justify-content-center">
+                    <a class="" href="{% url 'gamebit-meme-full' meme.id %}">
+                        <img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}">
+                    </a>
+                </figure>
+                <hr class="my-2">
+                <article class="d-flex justify-content-start p-2">
+                    <div class="flex-wrap align-self-center">
+                        <p class="text-center mb-0"><a
+                                href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a>
+                        </p>
+                    </div>
+                    <div class="margin_left">
+                        <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>
+                        <br>
+                        <small class="text_muted">To check out the full meme, click on the picture</small>
+                    </div>
+                </article>
+            </div>
         </div>
-        <div class="cute_border_for_pictures cute_border_line shadow p-2">
-            <p class="text-center lead spaces mb-0"><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a>
+        {% empty %}
+        <section id="Title" class="jumbotron cute_border cute_border_line shadow col p-3 mb-3">
+            <h3 class="">We couldn't find anything, sorry...</h3>
+            <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Have another meme, instead!</em>
             </p>
             <hr class="my-2">
-            <figure class="d-flex justify-content-center">
-                <a class="" href="{% url 'gamebit-meme-full' meme.id %}">
-                    <img class="cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}">
-                </a>
+            <div class="d-flex justify-content-center mb-3">
+                <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-meme' %}">Go Back</a>
+            </div>
+            <figure class="cute_border_for_pictures mb-0">
+                <img class="cute_border_for_pictures w-100" src="{% static 'app_bit/home_pictures/gru.jpg' %}"
+                    alt="Search Failed">
             </figure>
-            <hr class="my-2">
-            <article class="d-flex justify-content-start p-2">
-                <div class="flex-wrap align-self-center">
-                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a></p>
-                </div>
-                <div class="margin_left">
-                    <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>
-                    <br>
-                    <small class="text_muted">To check out the full meme, click on the picture</small>
-                </div>
-            </article>
-        </div>
-    </div>
-    {% empty %}
-    <section id="Title" class="jumbotron cute_border cute_border_line shadow col p-3 mb-3">
-        <h3 class="">We couldn't find anything, sorry...</h3>
-        <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Have another meme, instead!</em></p>
-        <hr class="my-2">
-        <div class="d-flex justify-content-center mb-3">
-            <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-meme' %}">Go Back</a>
-        </div>
-        <figure class="cute_border_for_pictures mb-0">
-            <img class="cute_border_for_pictures w-100" src="{% static 'app_bit/home_pictures/gru.jpg' %}" alt="Search Failed">
-        </figure>
+        </section>
+        {% endfor %}
     </section>
-    {% endfor %}
 </section>
 {% endblock body %}

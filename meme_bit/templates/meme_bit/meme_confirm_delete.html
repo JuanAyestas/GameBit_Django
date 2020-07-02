@@ -9,25 +9,27 @@
 {% endblock bread %}
 <!--  -->
 {% block body %}
-<section class="review_article cute_border_line shadow p-4 mb-3">
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="">Deleting the meme...</legend>
-            <hr class="my-2">
-            <article class="alert alert-danger">
-                <p class="mb-0 lead">Are you completely sure you want to delete the following meme:</p>
+<section class="margin_container">
+    <section class="review_article cute_border_line shadow p-4 mb-3">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="">Deleting the meme...</legend>
+                <hr class="my-2">
+                <article class="alert alert-danger">
+                    <p class="mb-0 lead">Are you completely sure you want to delete the following meme:</p>
+                </article>
+                <h3 class="text-center"> {{meme.caption}}</h3>
+                <figure class="cuter_border d-flex justify-content-center mb-0">
+                    <img class="carou_size cute_border_for_pictures" src="{{meme.meme.url}}" alt="{{meme.title}}">
+                </figure>
+            </fieldset>
+            <article class="d-flex justify-content-center flex_container">
+                <a class="btn btn-secondary btn_block m-2" href="{% url 'gamebit-meme-full' meme.id %}">Cancel</a>
+                <button class="btn btn-danger btn_block m-2" type="submit" id="submitBtn">Yes, delete the Meme</button>
             </article>
-            <h3 class="text-center"> {{meme.caption}}</h3>
-            <figure class="cuter_border d-flex justify-content-center mb-0">
-                <img class="carou_size cute_border_for_pictures" src="{{meme.meme.url}}" alt="{{meme.title}}">
-            </figure>
-        </fieldset>
-        <article class="d-flex justify-content-center flex_container">
-            <a class="btn btn-secondary btn_block m-2" href="{% url 'gamebit-meme-full' meme.id %}">Cancel</a>
-            <button class="btn btn-danger btn_block m-2" type="submit" id="submitBtn">Yes, delete the Meme</button>
-        </article>
-    </form>
+        </form>
+    </section>
 </section>
 <!-- endblock -->
 {% endblock body %}

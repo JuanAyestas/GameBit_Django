@@ -24,28 +24,32 @@
 {% endif %} {% endblock bread %}
 <!--  -->
 {% block body %}
-<section class="review_article cute_border_line shadow p-4 mb-3">
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="">{% if review %} Updating the Review... {% else %} Writing a Review... {% endif %}</legend>
-            <hr class="my-2">
-            <section class="">
-                {% if review %} {% else %}
-                <div class="alert alert-warning" role="alert">
-                    <p class="lead mb-0">Double check, just in case the game has been reviewed before.</p>
-                </div>
-                {% endif %} {{ form|crispy }} {% if form_pic %}
-                <div class="alert alert-warning" role="alert">
-                    <p class="lead mb-0">Please, don't forget to add pictures for the review!</p>
-                </div>
-                {{ form_pic|crispy}} {% endif %}
-            </section>
-        </fieldset>
-        <article>
-            <button class="btn btn-info btn_block" type="submit" id="submitBtn">{% if review %} Save Changes {% else %} Post the Review {% endif %}</button>
-        </article>
-    </form>
+<section class="margin_container">
+    <section class="review_article cute_border_line shadow p-4 mb-3">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="">{% if review %} Updating the Review... {% else %} Writing a Review... {% endif %}
+                </legend>
+                <hr class="my-2">
+                <section class="">
+                    {% if review %} {% else %}
+                    <div class="alert alert-warning" role="alert">
+                        <p class="lead mb-0">Double check, just in case the game has been reviewed before.</p>
+                    </div>
+                    {% endif %} {{ form|crispy }} {% if form_pic %}
+                    <div class="alert alert-warning" role="alert">
+                        <p class="lead mb-0">Please, don't forget to add pictures for the review!</p>
+                    </div>
+                    {{ form_pic|crispy}} {% endif %}
+                </section>
+            </fieldset>
+            <article>
+                <button class="btn btn-info btn_block" type="submit" id="submitBtn">{% if review %} Save Changes
+                    {% else %} Post the Review {% endif %}</button>
+            </article>
+        </form>
+    </section>
 </section>
 <!-- endblock -->
 {% endblock body %}

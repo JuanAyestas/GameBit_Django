@@ -18,91 +18,106 @@
 <li class="breadcrumb-item active" aria-current="page">Searching...</li>
 {% endblock bread %}
 <!---->
-{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
+{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit
+    Council</a>{% endblock brand %}
 <!---->
 {% block search_bar %}
 <div class="navbar-nav w_50 mr-auto">
     <form class="d-flex justify-content-between w-100" action="{% url 'gamebit-search' %}" method="GET">
-        <input class="form-control form-control-sm bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
-        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <input class="form-control form-control-sm bar_form" name="review" type="search"
+            placeholder="Search in reviews..." aria-label="Search">
+        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search"
+                aria-hidden="true"></i></button>
     </form>
 </div>
 {% endblock search_bar %}
 <!---->
-{% block body %} {% if review_list|length >= 1%}
-<div class="alert alert-warning" role="alert">
-    <p class="text-center lead mb-0">We found {{review_list|length}} {% if review_list|length == 1 %}review{% else %}reviews{% endif %} that matched your search.</p>
-</div>
-{% endif %} {% for review in review_list %}
-<section id="Review" class="review_article cute_border cute_border_line shadow mb-3">
-    <div class="dropleft">
-        <div class="dropdown float-right">
-            <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-share-square"></i>
-            </button>
-            <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
-                <div class="dropdown-item cuter_border d-flex justify-content-start">
-                    {% post_to_facebook review 'Facebook' %}
-                    <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
-                </div>
-                <div class="dropdown-item cuter_border d-flex justify-content-start">
-                    {% post_to_twitter "Check out our review: {{review.title}}" review "Twitter" %}
-                    <i class="fab fa-twitter-square ml-1 mt-1"></i>
-                </div>
-                <div class="dropdown-item cuter_border d-flex justify-content-start">
-                    {% post_to_whatsapp review 'WhatsApp' %}
-                    <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
-                </div>
-                <div class="dropdown-item cuter_border d-flex justify-content-start">
-                    {% send_email "Check out our review: {{review.title}}" "{{review.summary}}" review "Mail" %}
-                    <i class="fas fa-envelope ml-1 mt-1"></i>
+{% block body %}
+<section class="margin_container">
+    {% if review_list|length >= 1%}
+    <div class="alert alert-warning" role="alert">
+        <p class="text-center lead mb-0">We found {{review_list|length}}
+            {% if review_list|length == 1 %}review{% else %}reviews{% endif %} that matched your search.</p>
+    </div>
+    {% endif %} {% for review in review_list %}
+    <section id="Review" class="review_article cute_border cute_border_line shadow mb-3">
+        <div class="dropleft">
+            <div class="dropdown float-right">
+                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button"
+                    id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-share-square"></i>
+                </button>
+                <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_facebook review 'Facebook' %}
+                        <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_twitter "Check out our review: {{review.title}}" review "Twitter" %}
+                        <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_whatsapp review 'WhatsApp' %}
+                        <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% send_email "Check out our review: {{review.title}}" "{{review.summary}}" review "Mail" %}
+                        <i class="fas fa-envelope ml-1 mt-1"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="p-3">
-        <article id="ReviewInfo" class="text-center">
-            <h2><a href="{% url 'gamebit-detail' review.id %}">{{ review.title }}</a></h2>
-            <p class="lead mt-2 mb-0">Is available for:</p>
-            <h4>{{ review.platform }}</h4>
-            <hr class="w-50 my-2">
-        </article>
-        <figure id="ReviewThumbnail" class="text-center">
-            <a href="{% url 'gamebit-detail' review.id %}"><img class="cute_border_for_pictures carou_size shadow" src="{{review.thumbnail.url}}" alt="{{review.title}}"></a>
-        </figure>
-        <article id="ReviewSummary">
-            <p class="lead jumbito">General Info: </p>
-            <p class="lead spaces mb-0 pl-2 pr-2">{{ review.summary }}</p>
-        </article>
+        <div class="p-3">
+            <article id="ReviewInfo" class="text-center">
+                <h2><a href="{% url 'gamebit-detail' review.id %}">{{ review.title }}</a></h2>
+                <p class="lead mt-2 mb-0">Is available for:</p>
+                <h4>{{ review.platform }}</h4>
+                <hr class="w-50 my-2">
+            </article>
+            <figure id="ReviewThumbnail" class="text-center">
+                <a href="{% url 'gamebit-detail' review.id %}"><img class="cute_border_for_pictures carou_size shadow"
+                        src="{{review.thumbnail.url}}" alt="{{review.title}}"></a>
+            </figure>
+            <article id="ReviewSummary">
+                <p class="lead jumbito">General Info: </p>
+                <p class="lead spaces mb-0 pl-2 pr-2">{{ review.summary }}</p>
+            </article>
+            <hr class="my-2">
+            <article id="AuthorInfo" class="d-flex justify-content-start mt-3">
+                <div class="flex-wrap align-self-center">
+                    <figure class="mb-0 profile_pic_container">
+                        <a href="{% url 'gamebit-summary' review.author.id %}"><img
+                                class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}"
+                                alt="{{review.author.username}}"></a>
+                    </figure>
+                    <p class="text-center mb-0"><a
+                            href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
+                    </p>
+                </div>
+                <div class="margin_left align-self-center">
+                    <small class="text_muted">{{ review.date_updated|date:"F d, Y" }}</small>
+                    <hr class="my-2">
+                    <small class="text_muted">To check out the full review, <em><strong>click on it's
+                                title.</strong></em></small>
+                </div>
+            </article>
+        </div>
+    </section>
+    {% empty %}
+    <section id="Title" class="jumbotron cute_border cute_border_line shadow p-3 mb-3">
+        <h3 class="">We couldn't find anything, sorry...</h3>
+        <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Not even Detective Pikachu could find
+                what you were looking for.</em></p>
         <hr class="my-2">
-        <article id="AuthorInfo" class="d-flex justify-content-start mt-3">
-            <div class="flex-wrap align-self-center">
-                <figure class="mb-0 profile_pic_container">
-                    <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}" alt="{{review.author.username}}"></a>
-                </figure>
-                <p class="text-center mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
-                </p>
-            </div>
-            <div class="margin_left align-self-center">
-                <small class="text_muted">{{ review.date_updated|date:"F d, Y" }}</small>
-                <hr class="my-2">
-                <small class="text_muted">To check out the full review, <em><strong>click on it's title.</strong></em></small>
-            </div>
-        </article>
-    </div>
+        <div class="d-flex justify-content-center mb-3">
+            <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-review' %}">Go Back</a>
+        </div>
+        <figure class="cute_border_for_pictures mb-0">
+            <img class="w-100 cute_border_for_pictures" src="{% static 'app_bit/home_pictures/pikachu.jpg' %}"
+                alt="Search Failed">
+        </figure>
+    </section>
+    {% endfor %}
 </section>
-{% empty %}
-<section id="Title" class="jumbotron cute_border cute_border_line shadow p-3 mb-3">
-    <h3 class="">We couldn't find anything, sorry...</h3>
-    <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Not even Detective Pikachu could find what you were looking for.</em></p>
-    <hr class="my-2">
-    <div class="d-flex justify-content-center mb-3">
-        <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-review' %}">Go Back</a>
-    </div>
-    <figure class="cute_border_for_pictures mb-0">
-        <img class="w-100 cute_border_for_pictures" src="{% static 'app_bit/home_pictures/pikachu.jpg' %}" alt="Search Failed">
-    </figure>
-</section>
-{% endfor %}
 <!-- endblock -->
 {% endblock body %}
