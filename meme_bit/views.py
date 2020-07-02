@@ -17,7 +17,9 @@ class MemeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "google": os.environ.get("GOOGLE_ID")
+        })
         return context
 
 
@@ -29,7 +31,8 @@ class MemeDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context.update({
             "brand": "Gamebit Council", 
-            "facebook": os.environ.get("FACEBOOK_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "google": os.environ.get("GOOGLE_ID")})
         return context
 
 
@@ -41,7 +44,8 @@ class MemeCreateView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({"brand": "Gamebit Council",
-                        "facebook": os.environ.get("FACEBOOK_ID")})
+                        "facebook": os.environ.get("FACEBOOK_ID"),
+                        "google": os.environ.get("GOOGLE_ID")})
         return context
 
     def form_valid(self, form):
@@ -57,7 +61,8 @@ class MemeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
+        context.update({"brand": "Gamebit Council",
+                        "google": os.environ.get("GOOGLE_ID")})
         return context
 
     def form_valid(self, form):
@@ -102,7 +107,8 @@ class MemeSearchResult(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "google": os.environ.get("GOOGLE_ID")})
         return context
 
     def get_queryset(self):

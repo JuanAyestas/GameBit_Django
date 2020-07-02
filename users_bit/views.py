@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -28,7 +29,8 @@ def register(request):
     context = {
         "form": form,
         "legend": "GameBit - Visitor",
-        "brand": "Gamebit Council"
+        "brand": "Gamebit Council",
+        "google": os.environ.get("GOOGLE_ID")
     }
     return render(request, "users_bit/register.html", context)
 
@@ -51,7 +53,8 @@ def staff_register(request):
     context = {
         "form": form,
         "legend": "GameBit - Staff",
-        "brand": "Gamebit Council"
+        "brand": "Gamebit Council",
+        "google": os.environ.get("GOOGLE_ID")
     }
     return render(request, "users_bit/register.html", context)
 
@@ -75,7 +78,8 @@ def profile(request):
         "up_form": up_form,
         "pro_form": pro_form,
         "legend": "Update your info",
-        "brand": "Gamebit Council"
+        "brand": "Gamebit Council",
+        "google": os.environ.get("GOOGLE_ID")
     }
     return render(request, "users_bit/profile.html", context)
 
@@ -87,6 +91,7 @@ class SummaryDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
+        context.update({"brand": "Gamebit Council",
+                        "google": os.environ.get("GOOGLE_ID")})
         return context
 

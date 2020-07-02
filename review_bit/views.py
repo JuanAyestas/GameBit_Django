@@ -26,7 +26,8 @@ class ReviewListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "google": os.environ.get("GOOGLE_ID")})
         return context
 
 
@@ -60,6 +61,7 @@ def ReviewCreate(request):
         "form_pic": form_pic,
         "brand": "Gamebit Council",
         "facebook": os.environ.get("FACEBOOK_ID"),
+        "google": os.environ.get("GOOGLE_ID"),
     }
     return render(request, "review_bit/review_form.html", context)
 
@@ -72,7 +74,8 @@ class ReviewDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context.update({
             "brand": "Gamebit Council",
-            "facebook": os.environ.get("FACEBOOK_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "google": os.environ.get("GOOGLE_ID")})
         return context
 
 
@@ -85,7 +88,8 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({"brand": "Gamebit Council",
-                        "facebook": os.environ.get("FACEBOOK_ID")})
+                        "facebook": os.environ.get("FACEBOOK_ID"),
+                        "google": os.environ.get("GOOGLE_ID")})
         return context
 
     def form_valid(self, form):
@@ -109,7 +113,8 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
+        context.update({"brand": "Gamebit Council",
+                        "google": os.environ.get("GOOGLE_ID")})
         return context
 
     def test_func(self):
@@ -131,7 +136,8 @@ class ReviewSearchResult(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "google": os.environ.get("GOOGLE_ID")})
         return context
     
     def get_queryset(self):

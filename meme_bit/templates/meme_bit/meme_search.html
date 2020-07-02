@@ -21,10 +21,12 @@
 {% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
 <!---->
 {% block search_bar %}
-<form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
-    <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
-    <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-</form>
+<div class="navbar-nav w_50 mr-auto">
+    <form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
+        <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
+        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+</div>
 {% endblock search_bar %}
 <!--  -->
 {% block body %} {% if meme_list|length >= 1%}

@@ -1,291 +1,324 @@
-body {
-    background-color: #212121 !important;
-}
-
-h1,
-h2,
-p {
-    font-family: "Press Start 2P", cursive, "Times New Roman", Times, serif;
-    color: white;
-    -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: 0.1px;
-    -webkit-text-fill-color: white;
-}
-
-#coin {
-    position: relative;
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-}
-
-#coin div {
-    width: 100%;
-    height: 100%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3), 0 12px 20px -10px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3), 0 12px 20px -10px rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3), 0 12px 20px -10px rgba(0, 0, 0, 0.4);
-}
-
-.container_custom {
-    background: url(./home_pictures/mario.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 28%;
-    height: 100%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.padding {
-    padding-top: 165px;
-}
-
-.rng {
-    padding-top: 65px;
-    font-size: 1.5rem !important;
-}
-
-.coin {
-    padding-top: 215px;
-    font-size: 1.5rem !important;
-}
-
-.decision {
-    font-size: 1.5rem !important;
-}
-
-@media screen and (max-width: 1025px) {
-    .container_custom {
-        width: 36%;
-        height: 46%;
+    body {
+        background-color: #212121 !important;
+        margin-top: 5.53rem !important;
     }
-    .padding {
-        padding-top: 115px;
+    
+    #coin {
+        position: relative;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
     }
-    .coin {
-        padding-top: 205px;
-    }
-}
-
-@media screen and (max-width: 993px) {
-    .container_custom {
-        width: 37.1%;
+    
+    #coin div {
+        width: 100%;
         height: 100%;
+        border-radius: 50%;
+        box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3), 0 12px 20px -10px rgba(0, 0, 0, 0.4);
     }
-}
-
-@media screen and (max-width: 769px) {
+    
     .container_custom {
-        width: 48%;
-        height: 62%;
+        background: url(./home_pictures/mario.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
     }
-}
-
-@media screen and (max-width: 415px) {
-    .container_custom {
-        width: 87.7%;
-        height: 85%;
+    
+    .padding {
+        padding-top: 165px;
     }
+    
     .rng,
+    .coin,
     .decision {
-        font-size: 1.4rem !important;
+        font-family: "Press Start 2P", cursive, "Times New Roman", Times, serif;
+        color: white;
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 0.1px;
+        -webkit-text-fill-color: white;
     }
-    .coin {
-        font-size: 1.4rem !important;
+    
+    @media (min-width: 319.98px) {
+        .container_custom {
+            padding: 0;
+            max-width: 100%;
+        }
+        .padding {
+            padding-top: 25px;
+            padding-bottom: 160px;
+        }
+        .rng {
+            padding-top: 15px;
+            padding-bottom: 45px;
+            font-size: 1.1rem !important;
+        }
+        .coin {
+            padding-top: 0;
+            padding-bottom: 20px;
+            font-size: 1.1rem !important;
+        }
+        .decision {
+            font-size: 1.1rem !important;
+        }
+        .btn {
+            margin-left: 6px;
+        }
     }
-}
-
-@media screen and (max-width: 412px) and (max-height: 824px) {
-    .container_custom {
-        width: 90%;
-        height: 77%;
+    
+    @media (min-width: 359.98px) {
+        .padding {
+            padding-top: 40px;
+            padding-bottom: 195px;
+        }
+        .rng {
+            padding-top: 25px;
+        }
+        .coin {
+            padding-top: 0;
+            padding-bottom: 30px;
+        }
+        .btn {
+            margin-left: 5px;
+        }
     }
-    .padding {
-        padding-top: 120px;
+    
+    @media (min-width: 374.98px) {
+        .padding {
+            padding-top: 50px;
+            padding-bottom: 190px;
+        }
+        .rng {
+            padding-top: 25px;
+        }
+        .coin {
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+        .btn {
+            margin-left: 12px;
+        }
     }
-}
-
-@media screen and (max-width: 412px) and (max-height:732px) {
-    .container_custom {
-        width: 90%;
-        height: 87%;
+    
+    @media (min-width: 410.98px) {
+        .container_custom {
+            max-width: 328px;
+        }
+        .padding {
+            padding-top: 55px;
+            padding-bottom: 195px;
+        }
+        .rng {
+            padding-top: 25px;
+        }
+        .coin {
+            padding-top: 0;
+            padding-bottom: 30px;
+        }
+        .btn {
+            margin-left: 0;
+        }
     }
-    .padding {
-        padding-top: 125px;
+    
+    @media (min-width: 413.98px) {
+        .container_custom {
+            max-width: 327px;
+        }
+        .padding {
+            padding-top: 55px;
+            padding-bottom: 185px;
+        }
+        .coin {
+            padding-bottom: 30px;
+            padding-top: 0;
+        }
+        .btn {
+            margin-left: 3px;
+        }
     }
-}
-
-@media screen and (max-width: 376px) {
-    .container_custom {
-        width: 100%;
-        height: 80%;
+    
+    @media (min-width: 767.98px) {
+        .container_custom {
+            max-width: 330px;
+        }
+        .padding {
+            padding-top: 50px;
+            padding-bottom: 175px;
+        }
+        .rng {
+            padding-top: 25px;
+            font-size: 1.3rem !important;
+        }
+        .coin {
+            padding-top: 10px;
+            padding-bottom: 30px;
+            font-size: 1.3rem !important;
+        }
+        .decision {
+            font-size: 1.3rem !important;
+        }
+        .btn {
+            margin-left: 2px;
+        }
     }
-    .padding {
-        padding-top: 130px;
+    
+    @media (min-width: 991.98px) {
+        .padding {
+            padding-top: 55px;
+            padding-bottom: 185px;
+        }
+        .coin {
+            padding-top: 0px;
+        }
     }
-    .coin {
-        padding-top: 210px;
+    
+    @media (min-width: 1199.98px) {
+        .container_custom {
+            max-width: 370px;
+        }
+        .rng {
+            padding-top: 35px;
+            font-size: 1.54rem !important;
+        }
+        .padding {
+            padding-top: 80px;
+            padding-bottom: 55px;
+        }
+        .coin {
+            padding-top: 135px;
+            padding-bottom: 30px;
+            font-size: 1.54rem !important;
+        }
+        .decision {
+            font-size: 1.54rem !important;
+        }
+        .btn {
+            margin-left: 3px;
+        }
     }
-}
-
-@media screen and (max-width: 376px) and (max-height: 668px) {
-    .container_custom {
-        width: 98.2%;
-        height: 95%;
+    
+    .side-a {
+        background-color: #fbd000;
+        border: 2px solid #b89900;
     }
-    .padding {
-        padding-top: 120px;
+    
+    .side-b {
+        background-color: #fbd000;
+        border: 2px solid #b89900;
     }
-}
-
-@media screen and (max-width: 361px) {
-    .padding {
-        padding-top: 100px;
+    
+    #coin {
+        transition: -webkit-transform 1s ease-in;
+        -webkit-transform-style: preserve-3d;
     }
-}
-
-@media screen and (max-width: 321px) {
-    .container_custom {
-        width: 100%;
-        height: 97%;
+    
+    #coin div {
+        position: absolute;
+        -webkit-backface-visibility: hidden;
     }
-    .padding {
-        padding-top: 80px;
+    
+    .side-a {
+        z-index: 100;
     }
-    .rng,
-    .decision {
-        font-size: 1.3rem !important;
+    
+    .side-b {
+        -webkit-transform: rotateY(-180deg);
     }
-    .coin {
-        font-size: 1.3rem !important;
-        padding-top: 180px;
+    
+    .star {
+        position: absolute;
+        font-size: 60px;
+        left: 14.5px;
+        top: 15.5px;
+        color: #e0bb00;
     }
-}
-
-.side-a {
-    background-color: #fbd000;
-    border: 2px solid #b89900;
-}
-
-.side-b {
-    background-color: #fbd000;
-    border: 2px solid #b89900;
-}
-
-#coin {
-    transition: -webkit-transform 1s ease-in;
-    -webkit-transform-style: preserve-3d;
-}
-
-#coin div {
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-}
-
-.side-a {
-    z-index: 100;
-}
-
-.side-b {
-    -webkit-transform: rotateY(-180deg);
-}
-
-.star {
-    position: absolute;
-    font-size: 60px;
-    left: 14.5px;
-    top: 15.5px;
-    color: #e0bb00;
-}
-
-.rectangle {
-    position: absolute;
-    width: 25% !important;
-    height: 55% !important;
-    color: #e0bb00;
-    border: 2px solid #b89900;
-    border-radius: 5px !important;
-    -webkit-border-radius: 5px !important;
-    -moz-border-radius: 5px !important;
-    top: 21px;
-    left: 36px;
-}
-
-.circle {
-    position: absolute !important;
-    border-radius: 50% !important;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    width: 80px !important;
-    height: 80px !important;
-    border: 2px solid #b89900;
-    top: 8px;
-    left: 8px;
-    background: transparent;
-}
-
-.eye {
-    position: absolute !important;
-    border-radius: 50% !important;
-    width: 5px !important;
-    height: 12px !important;
-    background-color: black;
-    top: 40px;
-    left: 39px;
-}
-
-.dot {
-    position: absolute !important;
-    border-radius: 50% !important;
-    width: 3px !important;
-    height: 5px !important;
-    background-color: white;
-    top: 1px;
-    left: 1px;
-}
-
-#coin.heads {
-    -webkit-animation: flipHeads 3s ease-out forwards;
-    -moz-animation: flipHeads 3s ease-out forwards;
-    -o-animation: flipHeads 3s ease-out forwards;
-    animation: flipHeads 3s ease-out forwards;
-}
-
-#coin.tails {
-    -webkit-animation: flipTails 3s ease-out forwards;
-    -moz-animation: flipTails 3s ease-out forwards;
-    -o-animation: flipTails 3s ease-out forwards;
-    animation: flipTails 3s ease-out forwards;
-}
-
-@-webkit-keyframes flipHeads {
-    from {
-        -webkit-transform: rotateY(0);
-        -moz-transform: rotateY(0);
-        transform: rotateY(0);
+    
+    .rectangle {
+        position: absolute;
+        width: 25% !important;
+        height: 55% !important;
+        color: #e0bb00;
+        border: 2px solid #b89900;
+        border-radius: 5px !important;
+        -webkit-border-radius: 5px !important;
+        -moz-border-radius: 5px !important;
+        top: 21px;
+        left: 36px;
     }
-    to {
-        -webkit-transform: rotateY(1800deg);
-        -moz-transform: rotateY(1800deg);
-        transform: rotateY(1800deg);
+    
+    .circle {
+        position: absolute !important;
+        border-radius: 50% !important;
+        -webkit-border-radius: 50% !important;
+        -moz-border-radius: 50% !important;
+        width: 80px !important;
+        height: 80px !important;
+        border: 2px solid #b89900;
+        top: 8px;
+        left: 8px;
+        background: transparent;
     }
-}
-
-@-webkit-keyframes flipTails {
-    from {
-        -webkit-transform: rotateY(0);
-        -moz-transform: rotateY(0);
-        transform: rotateY(0);
+    
+    .eye {
+        position: absolute !important;
+        border-radius: 50% !important;
+        width: 5px !important;
+        height: 12px !important;
+        background-color: black;
+        top: 40px;
+        left: 39px;
     }
-    to {
-        -webkit-transform: rotateY(1980deg);
-        -moz-transform: rotateY(1980deg);
-        transform: rotateY(1980deg);
+    
+    .dot {
+        position: absolute !important;
+        border-radius: 50% !important;
+        width: 3px !important;
+        height: 5px !important;
+        background-color: white;
+        top: 1px;
+        left: 1px;
     }
-}
+    
+    #coin.heads {
+        -webkit-animation: flipHeads 3s ease-out forwards;
+        -moz-animation: flipHeads 3s ease-out forwards;
+        -o-animation: flipHeads 3s ease-out forwards;
+        animation: flipHeads 3s ease-out forwards;
+    }
+    
+    #coin.tails {
+        -webkit-animation: flipTails 3s ease-out forwards;
+        -moz-animation: flipTails 3s ease-out forwards;
+        -o-animation: flipTails 3s ease-out forwards;
+        animation: flipTails 3s ease-out forwards;
+    }
+    
+    @-webkit-keyframes flipHeads {
+        from {
+            -webkit-transform: rotateY(0);
+            -moz-transform: rotateY(0);
+            transform: rotateY(0);
+        }
+        to {
+            -webkit-transform: rotateY(1800deg);
+            -moz-transform: rotateY(1800deg);
+            transform: rotateY(1800deg);
+        }
+    }
+    
+    @-webkit-keyframes flipTails {
+        from {
+            -webkit-transform: rotateY(0);
+            -moz-transform: rotateY(0);
+            transform: rotateY(0);
+        }
+        to {
+            -webkit-transform: rotateY(1980deg);
+            -moz-transform: rotateY(1980deg);
+            transform: rotateY(1980deg);
+        }
+    }

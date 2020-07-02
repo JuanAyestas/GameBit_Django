@@ -5,10 +5,14 @@ from django.views.generic import ListView
 # Create your views here.
 
 def home(request):
-  return render(request, "app_bit/home.html", {"brand": "Gamebit Council", "facebook": os.environ.get("FACEBOOK_ID")})
+  return render(request, "app_bit/home.html", {"brand": "Gamebit Council", 
+                                               "facebook": os.environ.get("FACEBOOK_ID"),
+                                               "google": os.environ.get("GOOGLE_ID")})
 
 def coin(request):
-  return render(request, "app_bit/coin_flip.html", {"facebook": os.environ.get("FACEBOOK_ID")})
+  return render(request, "app_bit/coin_flip.html", {"brand": "Gamebit Council", 
+                                                    "facebook": os.environ.get("FACEBOOK_ID"),
+                                                    "google": os.environ.get("GOOGLE_ID")})
 
 class AboutView(ListView):
   model = User
@@ -19,8 +23,11 @@ class AboutView(ListView):
   def get_context_data(self, **kwargs):
       context = super().get_context_data(**kwargs)
       context.update({"brand": "Gamebit Council",
-                      "facebook": os.environ.get("FACEBOOK_ID")})
+                      "facebook": os.environ.get("FACEBOOK_ID"),
+                      "google": os.environ.get("GOOGLE_ID")})
       return context
 
 def rules(request):
-  return render(request, "app_bit/rules.html", {"brand": "Gamebit Council", "facebook": os.environ.get("FACEBOOK_ID")})
+  return render(request, "app_bit/rules.html", {"brand": "Gamebit Council", 
+                                                "facebook": os.environ.get("FACEBOOK_ID"),
+                                                "google": os.environ.get("GOOGLE_ID")})
