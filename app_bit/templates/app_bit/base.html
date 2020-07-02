@@ -5,13 +5,13 @@
 <head>
     {% block meta_tag %}{% endblock meta_tag %}
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" type="image/jpg" href="{% static 'app_bit/logo.jpg' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> {% block icon %}
+    <link rel="icon" type="image/jpg" href="{% static 'app_bit/logo.jpg' %}" /> {% endblock icon %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <title>GameBit-Council - {% block title %} {% endblock title %}</title>
     <script src="https://kit.fontawesome.com/53c772d881.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'app_bit/main.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'app_bit/style.css' %}"> {% block font %} {% endblock font %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_bit/style.css' %}">
     <script async src="https://www.googletagmanager.com/gtag/js?id={{google}}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

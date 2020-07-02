@@ -10,7 +10,8 @@
 <meta property="fb:app_id" content="{{facebook}}">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <!---->
-{% endblock meta_tag %}
+{% endblock meta_tag %} {% block icon %}
+<link rel="icon" type="image/jpg" href="{% static 'app_bit/coin.png' %}" /> {% endblock icon %}
 <!---->
 {% block title %}Flip a Coin{% endblock title %}
 <!---->
@@ -18,7 +19,6 @@
 <li class="breadcrumb-item active" aria-current="page">Flip a Coin</li>
 {% endblock bread %}
 <!---->
-
 {% block body %}
 <section class="container_custom">
     <a class="btn btn-sm btn-primary" href="{% url 'gamebit-home' %}">Go back</a>
