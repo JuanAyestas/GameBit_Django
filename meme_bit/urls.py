@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import (MemeListView, MemeDetailView, MemeCreateView, 
                     MemeUpdateView, MemeDeleteView, MemeSearchResult)
-from . import views
 
 urlpatterns = [
     path('', MemeListView.as_view(), name="gamebit-meme"),

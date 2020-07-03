@@ -38,9 +38,9 @@ ALLOWED_HOSTS = ["gamebit-council.herokuapp.com", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "users_bit.apps.UsersBitConfig",
-    "meme_bit.apps.MemeBitConfig",
     "review_bit.apps.ReviewBitConfig",
+    "meme_bit.apps.MemeBitConfig",
+    "users_bit.apps.UsersBitConfig",
     "picture_bit.apps.PictureBitConfig",
     "crispy_forms",
     "app_bit.apps.AppBitConfig",

@@ -15,7 +15,7 @@
 <!---->
 {% block bread %}
 <li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-meme' %}">Memes</a></li>
-<li class="breadcrumb-item active" aria-current="page">{{meme.caption}}</li>
+<li class="breadcrumb-item active" aria-current="page">{{meme.author.username}}'s meme</li>
 {% endblock bread %}
 <!---->
 {% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit
@@ -24,10 +24,9 @@
 {% block search_bar %}
 <div class="navbar-nav w_50 mr-auto">
     <form class="d-flex w-100 justify-content-between" action="{% url 'gamebit-meme-search' %}" method="GET">
-        <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..."
-            aria-label="Search">
-        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search"
-                aria-hidden="true"></i></button>
+        <input class="form-control form-control-sm bar_form" name="meme" type="search" placeholder="Search in memes..." aria-label="Search">
+        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+        </button>
     </form>
 </div>
 {% endblock search_bar %}
@@ -37,8 +36,7 @@
     <section id="Memes" class="">
         <div class="dropleft">
             <div class="dropdown float-right">
-                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button"
-                    id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{meme.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-share-square"></i>
                 </button>
                 <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{meme.id}}">
@@ -62,23 +60,22 @@
             </div>
         </div>
         <div class="cute_border_for_pictures cute_border_line shadow mb-3 p-2">
-            <p class="text-center spaces lead">{{meme.caption}}</p>
-            <figure class="d-flex justify-content-center">
-                <a href="{{meme.meme.url}}"><img class="pr-lg-5 pl-lg-5 cuter_border w-100" src="{{meme.meme.url}}"
-                        alt="{{meme.caption}}"></a>
+            <p class="text-center spaces lead mt-3">{{meme.caption}}</p>
+            <hr class="my-2">
+            <figure class="d-flex justify-content-center mb-0">
+                <a href="{{meme.meme.url}}"><img class="pr-lg-5 pl-lg-5 cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}"></a>
             </figure>
             {% if user == meme.author %}
             <hr class="my-2">
             <section class="d-flex justify-content-center" id="ManageButtons">
                 <a class="btn btn-primary btn_block m-1" href="{% url 'gamebit-meme-edit' meme.id %}">Edit</a>
-                <a class="btn btn-danger btn_block m-1" href="{% url 'gamebit-meme-delete' meme.id%}">Delete</a>
+                <a class="btn btn-danger btn_block m-1" href="{% url 'gamebit-meme-delete' meme.id %}">Delete</a>
             </section>
             {% endif %}
             <hr class="my-2">
             <div class="d-flex justify-content-start p-2">
                 <div class="flex-wrap align-self-center">
-                    <p class="text-center mb-0"><a
-                            href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a>
+                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a>
                     </p>
                 </div>
                 <article class="margin_left">

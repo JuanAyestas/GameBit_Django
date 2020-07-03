@@ -29,9 +29,7 @@ class MemeDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({
-            "brand": "Gamebit Council", 
-            "facebook": os.environ.get("FACEBOOK_ID"),
+        context.update({"facebook": os.environ.get("FACEBOOK_ID"),
             "google": os.environ.get("GOOGLE_ID")})
         return context
 
@@ -43,8 +41,7 @@ class MemeCreateView(LoginRequiredMixin, CreateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council",
-                        "facebook": os.environ.get("FACEBOOK_ID"),
+        context.update({"facebook": os.environ.get("FACEBOOK_ID"),
                         "google": os.environ.get("GOOGLE_ID")})
         return context
 
@@ -61,8 +58,7 @@ class MemeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council",
-                        "google": os.environ.get("GOOGLE_ID")})
+        context.update({"google": os.environ.get("GOOGLE_ID")})
         return context
 
     def form_valid(self, form):
@@ -82,11 +78,6 @@ class MemeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     context_object_name = "meme"
     success_url = "/memes"
     success_message = "The meme has been deleted successfully!"
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
-        return context
     
     def test_func(self):
         meme = self.get_object()

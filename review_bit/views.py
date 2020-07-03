@@ -1,5 +1,5 @@
 import os
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -59,7 +59,6 @@ def ReviewCreate(request):
     context = {
         "form": form,
         "form_pic": form_pic,
-        "brand": "Gamebit Council",
         "facebook": os.environ.get("FACEBOOK_ID"),
         "google": os.environ.get("GOOGLE_ID"),
     }
@@ -73,7 +72,6 @@ class ReviewDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "brand": "Gamebit Council",
             "facebook": os.environ.get("FACEBOOK_ID"),
             "google": os.environ.get("GOOGLE_ID")})
         return context
@@ -84,13 +82,6 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
     form_class = ReviewForm
     success_message = "The review has been updated successfully!"
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council",
-                        "facebook": os.environ.get("FACEBOOK_ID"),
-                        "google": os.environ.get("GOOGLE_ID")})
-        return context
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -103,6 +94,12 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"facebook": os.environ.get("FACEBOOK_ID"),
+                        "google": os.environ.get("GOOGLE_ID")})
+        return context
+
 
 @method_decorator(admin_decorator, name="dispatch")
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -113,8 +110,7 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council",
-                        "google": os.environ.get("GOOGLE_ID")})
+        context.update({"google": os.environ.get("GOOGLE_ID")})
         return context
 
     def test_func(self):
@@ -146,14 +142,3 @@ class ReviewSearchResult(ListView):
             Q(title__icontains=search) | Q(platform__icontains=search)
         )
         return review_list
-
-
-# class ReviewCreateView(LoginRequiredMixin, CreateView):
-#     model = Review
-#     fields = ["title", "platform", "thumbnail", "summary", "content"]
-#     success_message = "The review has been posted successfully!"
-
-#     def form_valid(self, form):
-#         form.instance.author = self.request.user
-#         messages.success(self.request, self.success_message)
-#         return super().form_valid(form)

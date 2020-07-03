@@ -17,16 +17,13 @@
 <li class="breadcrumb-item active" aria-current="page">Reviews</li>
 {% endblock bread %}
 <!---->
-{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit
-    Council</a>{% endblock brand %}
+{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
 <!---->
 {% block search_bar %}
 <div class="navbar-nav w_50 mr-auto">
     <form class="d-flex justify-content-between w-100" action="{% url 'gamebit-search' %}" method="GET">
-        <input class="form-control form-control-sm bar_form" name="review" type="search"
-            placeholder="Search in reviews..." aria-label="Search">
-        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search"
-                aria-hidden="true"></i></button>
+        <input class="form-control form-control-sm bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
+        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
 </div>
 {% endblock search_bar %}
@@ -34,7 +31,7 @@
 {% block body %}
 <section class="margin_container">
     <section id="Title" class="text-center jumbotron cute_border cute_border_line shadow p-3 mb-0">
-        <h1>GameBit - Reviews</h1>
+        <h1>Reviews</h1>
         <p class="lead mb-0">Check out our latest reviews</p>
     </section>
     {% if reviews %}
@@ -44,8 +41,7 @@
     <section id="Review" class="review_article cute_border cute_border_line shadow mb-3">
         <div class="dropleft">
             <div class="dropdown float-right">
-                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button"
-                    id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-share-square"></i>
                 </button>
                 <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
@@ -72,12 +68,9 @@
             <article id="AuthorInfo" class="d-flex justify-content-start">
                 <div class="flex-wrap align-self-center">
                     <figure class="mb-0 profile_pic_container">
-                        <a href="{% url 'gamebit-summary' review.author.id %}"><img
-                                class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}"
-                                alt="{{review.author.username}}"></a>
+                        <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}" alt="{{review.author.username}}"></a>
                     </figure>
-                    <p class="text-center mb-0"><a
-                            href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
+                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
                     </p>
                 </div>
                 <div class="margin_left align-self-center">
@@ -95,8 +88,7 @@
                 <hr class="w-50 my-2">
             </article>
             <figure id="ReviewThumbnail" class="text-center">
-                <a href="{% url 'gamebit-detail' review.id %}"><img class="cute_border_for_pictures carou_size shadow"
-                        src="{{review.thumbnail.url}}" alt="{{review.title}}"></a>
+                <a href="{% url 'gamebit-detail' review.id %}"><img class="cute_border_for_pictures carou_size shadow" src="{{review.thumbnail.url}}" alt="{{review.title}}"></a>
             </figure>
             <article id="ReviewSummary">
                 <p class="lead jumbito">General Info: </p>

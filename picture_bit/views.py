@@ -12,11 +12,6 @@ class ReviewPictureDetail(DetailView):
     model = Review
     context_object_name = "review"
     template_name = "picture_bit/picture_detail.html"
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update({"brand": "Gamebit Council"})
-        return context
 
 
 class ReviewPictureDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -26,10 +21,7 @@ class ReviewPictureDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({
-            "review": get_object_or_404(Review, pk=self.kwargs.get("review_id")),
-            "brand": "Gamebit Council"
-        }) 
+        context.update({"review": get_object_or_404(Review, pk=self.kwargs.get("review_id"))}) 
         return context
     
     def test_func(self):

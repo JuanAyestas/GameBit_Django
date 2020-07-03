@@ -15,19 +15,16 @@
 <!---->
 {% block bread %}
 <li class="breadcrumb-item" aria-current="page"><a href="{% url 'gamebit-review' %}">Reviews</a></li>
-<li class="breadcrumb-item active" aria-current="page">{{review.title}}</li>
+<li class="breadcrumb-item active" aria-current="page">{{review.author.username}}'s Review</li>
 {% endblock bread %}
 <!---->
-{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit
-    Council</a>{% endblock brand %}
+{% block brand %}<a class="navbar-brand hide_small" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
 <!---->
 {% block search_bar %}
 <div class="navbar-nav w_50 mr-auto">
     <form class="d-flex justify-content-between w-100" action="{% url 'gamebit-search' %}" method="GET">
-        <input class="form-control form-control-sm bar_form" name="review" type="search"
-            placeholder="Search in reviews..." aria-label="Search">
-        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search"
-                aria-hidden="true"></i></button>
+        <input class="form-control form-control-sm bar_form" name="review" type="search" placeholder="Search in reviews..." aria-label="Search">
+        <button class="btn btn-sm btn-secondary bar_button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
 </div>
 {% endblock search_bar %}
@@ -37,8 +34,7 @@
     <section id="Review" class="review_article cute_border cute_border_line shadow mb-3">
         <div class="dropleft">
             <div class="dropdown float-right">
-                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button"
-                    id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-share-square"></i>
                 </button>
                 <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
@@ -62,25 +58,22 @@
             </div>
         </div>
         <div class="p-3">
-            <article id="ReviewInfo" class="text-center">
+            <article id="ReviewInfo" class="text-center mt-1">
                 <h1>{{ review.title }}</h1>
                 <p class="lead mt-2 mb-0">Is available for:</p>
                 <h4>{{ review.platform }}</h4>
-                <hr class="w-50 my-2">
+                <hr class="w-75 my-2">
             </article>
             <article id="Carrousel" class="d-flex justify-content-center">
-                <div id="carouselExampleControls" class="carousel slide carou_size" data-ride="carousel"
-                    data-interval="4000">
+                <div id="carouselExampleControls" class="carousel slide carou_size" data-ride="carousel" data-interval="4000">
                     <div class="carousel-inner cuter_border shadow">
                         <figure class="carousel-item active mb-0">
-                            <img class="d-block w-100 cuter_border" src="{{review.thumbnail.url}}"
-                                alt="{{review.title}}">
+                            <img class="d-block w-100 cuter_border" src="{{review.thumbnail.url}}" alt="{{review.title}}">
                         </figure>
                         <!-- for -->
                         {% for picture in review.picture_set.all %}
                         <figure class="carousel-item mb-0">
-                            <img class="d-block w-100 cuter_border" src="{{picture.picture_files.url}}"
-                                alt="{{review.title}}">
+                            <img class="d-block w-100 cuter_border" src="{{picture.picture_files.url}}" alt="{{review.title}}">
                         </figure>
                         <!-- endfor -->
                         {% endfor %}
@@ -110,21 +103,17 @@
             {% if review.author == user %}
             <hr class="my-2">
             <section class="d-flex justify-content-center flex_container" id="ManageButtons">
-                <a class="btn btn-primary btn_block m-1 flex_button" href="{% url 'gamebit-edit' review.id %}">Edit</a>
-                <a class="btn btn-danger btn_block m-1 flex_button"
-                    href="{% url 'gamebit-delete' review.id %}">Delete</a>
+                <a class="btn btn-primary btn_block m-1 flex_button" href="{% url 'gamebit-update' review.id %}">Edit</a>
+                <a class="btn btn-danger btn_block m-1 flex_button" href="{% url 'gamebit-delete' review.id %}">Delete</a>
             </section>
             {% endif %}
             <hr class="my-2">
             <article id="AuthorInfo" class="d-flex justify-content-start mt-3">
                 <div class="flex-wrap align-self-center">
-                    <figure class="mb-0 profile_pic_container">
-                        <a href="{% url 'gamebit-summary' review.author.id %}"><img
-                                class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}"
-                                alt="{{review.author.username}}"></a>
+                    <figure class="profile_pic_container mb-0">
+                        <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}" alt="{{review.author.username}}"></a>
                     </figure>
-                    <p class="text-center mb-0"><a
-                            href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
+                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
                     </p>
                 </div>
                 <div class="margin_left align-self-center">

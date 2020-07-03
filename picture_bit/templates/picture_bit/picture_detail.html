@@ -34,17 +34,10 @@
                 <button class="no_border cute_border_for_pictures" type="button" data-toggle="modal" data-target="#PicModal{{picture.id}}">
                     <img class="cute_border_for_pictures w-100" src="{{picture.picture_files.url}}" alt="{{review.title}}">
                 </button>
-                <!---->
-                {% if user == review.author %}
-                <article class="d-flex justify-content-center mt-2 mb-2">
-                    <a class="btn btn-danger btn-sm btn_block" href="{% url 'gamebit-pic-delete' review.id picture.id %}">Delete the Picture</a>
-                </article>
-                {% endif %}
                 <figcaption>Click the picture to see it in fullscreen.</figcaption>
             </figure>
         </article>
     </div>
-    {% block modal_2 %}
     <!-- Picture modal -->
     <div class="modal modal_custom fade text-center" id="PicModal{{picture.id}}" tabindex="-1" role="dialog" aria-labelledby="PicModalLabel{{picture.id}}" aria-hidden="true">
         <div class="modal-dialog modal_dialog modal-dialog-centered w_95 m-auto" role="document">
@@ -60,15 +53,19 @@
                         <img class="cute_border_for_pictures w_95" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% elif 1200 > picture.picture_files.width and picture.picture_files.width > 720 %}
                         <img class="cute_border_for_pictures w_80" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% else %}
                         <img class="cute_border_for_pictures w_100" src="{{picture.picture_files.url}}" alt="{{review.title}}"> {% endif %}
+                        <!---->
+                        {% if user == review.author %}
+                        <article class="d-flex justify-content-center mt-2 mb-2">
+                            <a class="btn btn-danger btn-sm btn_block" href="{% url 'gamebit-pic-delete' review.id picture.id %}">Delete the Picture</a>
+                        </article>
+                        {% endif %}
                     </figure>
-                    <h5 class="modal-title align-self-center pt-2 pb-2" id="PicModalLabel{{picture.id}}">{{review.title}}</h5>
                 </div>
             </div>
         </div>
     </div>
-    {% endblock modal_2 %} {% endfor %}
+    {% endfor %}
 </section>
-{% block modal %}
 <!-- Thumbnail modal -->
 <div class="modal modal_custom fade text-center" id="ThumbModal" tabindex="-1" role="dialog" aria-labelledby="ThumbModalLabel" aria-hidden="true">
     <div class="modal-dialog modal_dialog modal-dialog-centered w_95 m-auto" role="document">
@@ -90,6 +87,5 @@
         </div>
     </div>
 </div>
-{% endblock modal %}
 <!-- Endblock -->
 {% endblock body %}
