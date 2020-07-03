@@ -33,6 +33,4 @@ if settings.DEBUG:
 if settings.LETSENCRYPT_URL:
     from django.http import HttpResponse
     from django.conf.urls import url
-    urlpatterns += [
-        url(settings.LETSENCRYPT_URL, lambda r: HttpResponse(settings.LETSENCRYPT_RESPONSE, content_type='text/plain'),),
-    ]
+    urlpatterns += path(settings.LETSENCRYPT_URL, HttpResponse(settings.LETSENCRYPT_RESPONSE, content_type='text/plain'))
