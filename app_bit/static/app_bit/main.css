@@ -232,7 +232,7 @@ a:hover {
     transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .label_check .ball {
+.checkbox:checked+.label_check .ball {
     transform: translateX(1.5rem);
 }
 
@@ -429,6 +429,9 @@ a:hover {
 }
 
 .share_button {
+    position: absolute !important;
+    right: 0;
+    line-height: 0 !important;
     border-radius: 0.2rem 0.9375rem 0.2rem 0.2rem;
 }
 
@@ -529,9 +532,6 @@ a:hover {
     .small_pic_container {
         margin-top: 0.9375rem !important;
     }
-    .margin_container {
-        margin-top: 1.5rem !important;
-    }
     .left_right {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
@@ -618,17 +618,20 @@ a:hover {
     background-color: var(--form);
 }
 
+
 /* Mark input boxes that gets an error on validation: */
 
 input.invalid {
     background: #ffdddd;
 }
 
+
 /* Hide all steps by default: */
 
 .tab {
     display: none;
 }
+
 
 /* Make circles that indicate the steps of the form: */
 
@@ -649,11 +652,13 @@ input.invalid {
     margin: 0;
 }
 
+
 /* Mark the active step: */
 
 .step.active {
     opacity: 1;
 }
+
 
 /* Mark the steps that are finished and valid: */
 
