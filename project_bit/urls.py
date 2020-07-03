@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import acme_content
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,12 +26,8 @@ urlpatterns = [
     path("memes/", include("meme_bit.urls")),
     path("", include("users_bit.urls")),
     path("reviews/", include("picture_bit.urls")),
+    path(".well-known/acme-challenge", acme_content)
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-if settings.LETSENCRYPT_URL:
-    from django.conf.urls import url
-    from . import views
-    urlpatterns += url(settings.LETSENCRYPT_URL, views.acme_content, name="acme-test")
