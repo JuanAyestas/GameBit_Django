@@ -26,7 +26,7 @@ urlpatterns = [
     path("memes/", include("meme_bit.urls")),
     path("", include("users_bit.urls")),
     path("reviews/", include("picture_bit.urls")),
-    path(".well-known/acme-challenge", acme_content)
+    path(".well-known/acme-challenge/924VG4l00Xmz09Ekk71Owwk0t32uVAlvwKrhMKSVNGc", acme_content)
 ]
 
 if settings.DEBUG:
