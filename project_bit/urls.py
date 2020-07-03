@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -33,9 +32,7 @@ if settings.DEBUG:
 
 if settings.LETSENCRYPT_URL:
     from django.http import HttpResponse
+    from django.conf.urls import url
     urlpatterns += [
-        url(settings.LETSENCRYPT_URL,
-            lambda r: HttpResponse(
-                settings.LETSENCRYPT_RESPONSE, content_type='text/plain'),
-        ),
+        url(settings.LETSENCRYPT_URL, lambda r: HttpResponse(settings.LETSENCRYPT_RESPONSE, content_type='text/plain'),),
     ]
