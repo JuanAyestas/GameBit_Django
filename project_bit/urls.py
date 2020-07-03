@@ -29,3 +29,12 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.LETSENCRYPT_URL:
+    from django.http import HttpResponse
+    urlpatterns += [
+        url(settings.LETSENCRYPT_URL,
+            lambda r: HttpResponse(
+                settings.LETSENCRYPT_RESPONSE, content_type='text/plain'),
+        ),
+    ]
