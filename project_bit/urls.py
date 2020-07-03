@@ -31,5 +31,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.LETSENCRYPT_URL:
-    from .views import acme_content
-    urlpatterns += path(settings.LETSENCRYPT_URL, acme_content, name="acme-test")
+    from django.conf.urls import url
+    from . import views
+    urlpatterns += url(settings.LETSENCRYPT_URL, views.acme_content, name="acme-test")
