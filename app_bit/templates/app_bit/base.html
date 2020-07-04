@@ -3,15 +3,24 @@
 <html lang="en">
 
 <head>
-    {% block meta_tag %}{% endblock meta_tag %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> {% block icon %}
-    <link rel="icon" type="image/jpg" href="{% static 'app_bit/logo.jpg' %}" /> {% endblock icon %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-    <title>GameBit-Council - {% block title %} {% endblock title %}</title>
-    <script src="https://kit.fontawesome.com/53c772d881.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'app_bit/main.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'app_bit/style.css' %}">
+    <!-- Google config/Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KQFZKD4');
+    </script>
+    <!-- End Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{google}}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,9 +32,22 @@
 
         gtag('config', '{{google}}');
     </script>
+    <!-- End Google config -->
+    {% block meta_tag %}{% endblock meta_tag %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> {% block icon %}
+    <link rel="icon" type="image/jpg" href="{% static 'app_bit/logo.jpg' %}" /> {% endblock icon %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <title>GameBit-Council - {% block title %} {% endblock title %}</title>
+    <script src="https://kit.fontawesome.com/53c772d881.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'app_bit/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app_bit/style.css' %}">
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQFZKD4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top pt-1 pb-1">
             <div class="container">
