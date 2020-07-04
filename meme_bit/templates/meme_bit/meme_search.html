@@ -37,28 +37,26 @@
     <section id="Memes" class="row row-cols-1 {% if meme_list|length >= 1%} row-cols-md-2 {% endif %}">
         {% for meme in meme_list %}
         <div class="col mb-2">
-            <div class="dropleft">
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Share <i class="fas fa-share-square"></i>
-                    </button>
-                    <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{meme.id}}">
-                        <div class="dropdown-item cuter_border d-flex justify-content-start">
-                            {% post_to_facebook meme 'Facebook' %}
-                            <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
-                        </div>
-                        <div class="dropdown-item cuter_border d-flex justify-content-start">
-                            {% post_to_twitter "Check out our meme: {{meme.caption}}" meme "Twitter" %}
-                            <i class="fab fa-twitter-square ml-1 mt-1"></i>
-                        </div>
-                        <div class="dropdown-item cuter_border d-flex justify-content-start">
-                            {% post_to_whatsapp meme 'WhatsApp' %}
-                            <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
-                        </div>
-                        <div class="dropdown-item cuter_border d-flex justify-content-start">
-                            {% send_email "Check out our meme: {{meme.caption}}" "" meme "Mail" %}
-                            <i class="fas fa-envelope ml-1 mt-1"></i>
-                        </div>
+            <div class="dropdown">
+                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Share <i class="fas fa-share-square"></i>
+                </button>
+                <div class="dropdown-menu cuter_border dropdown-menu-right p-2" aria-labelledby="ShareDropdown{{meme.id}}">
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_facebook meme 'Facebook' %}
+                        <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_twitter "Check out our meme: {{meme.caption}}" meme "Twitter" %}
+                        <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_whatsapp meme 'WhatsApp' %}
+                        <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% send_email "Check out our meme: {{meme.caption}}" "" meme "Mail" %}
+                        <i class="fas fa-envelope ml-1 mt-1"></i>
                     </div>
                 </div>
             </div>

@@ -38,13 +38,6 @@
     -webkit-text-fill-color: white;
 }
 
-.share_button_coin {
-    position: absolute !important;
-    right: 0;
-    bottom: 0;
-    line-height: 0 !important;
-}
-
 @media (min-width: 319.98px) {
     .container_custom {
         padding: 0;
@@ -69,9 +62,6 @@
     }
     .coin_btn {
         margin-left: 6px;
-    }
-    .share_button_coin {
-        right: 5px;
     }
 }
 
@@ -107,9 +97,6 @@
     .coin_btn {
         margin-left: 12px;
     }
-    .share_button_coin {
-        right: 11.5px;
-    }
 }
 
 @media (min-width: 410.98px) {
@@ -130,9 +117,6 @@
     .coin_btn {
         margin-left: 0;
     }
-    .share_button_coin {
-        right: 0;
-    }
 }
 
 @media (min-width: 413.98px) {
@@ -149,9 +133,6 @@
     }
     .coin_btn {
         margin-left: 3px;
-    }
-    .share_button_coin {
-        right: 1.5px;
     }
 }
 
@@ -188,9 +169,6 @@
     .coin {
         padding-top: 0px;
     }
-    .share_button_coin {
-        right: .5px;
-    }
 }
 
 @media (min-width: 1199.98px) {
@@ -216,9 +194,6 @@
     }
     .coin_btn {
         margin-left: 3px;
-    }
-    .share_button_coin {
-        right: 3.5px;
     }
 }
 

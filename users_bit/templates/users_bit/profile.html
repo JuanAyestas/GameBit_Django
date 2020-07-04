@@ -27,7 +27,7 @@
         <hr class="my-2">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group mb-0">
+            <fieldset class="form-group break mb-0">
                 <legend class="mb-0">{{legend}}</legend>
                 <hr class="my-2"> {{ up_form|crispy }} {{ pro_form|crispy }}
             </fieldset>

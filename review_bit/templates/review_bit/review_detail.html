@@ -28,28 +28,26 @@
 {% block body %}
 <section class="margin_container">
     <section id="Review" class="review_article cute_border cute_border_line shadow mb-3">
-        <div class="dropleft">
-            <div class="dropdown">
-                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Share <i class="fas fa-share-square"></i>
-                </button>
-                <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_facebook review 'Facebook' %}
-                        <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_twitter "Check out our review: {{review.title}}" review "Twitter" %}
-                        <i class="fab fa-twitter-square ml-1 mt-1"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_whatsapp review 'WhatsApp' %}
-                        <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% send_email "Check out our review: {{review.title}}" "{{review.summary}}" review "Mail" %}
-                        <i class="fas fa-envelope ml-1 mt-1"></i>
-                    </div>
+        <div class="dropdown">
+            <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Share <i class="fas fa-share-square"></i>
+            </button>
+            <div class="dropdown-menu cuter_border dropdown-menu-right p-2" aria-labelledby="ShareDropdown{{review.id}}">
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_facebook review 'Facebook' %}
+                    <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_twitter "Check out our review: {{review.title}}" review "Twitter" %}
+                    <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% post_to_whatsapp review 'WhatsApp' %}
+                    <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                </div>
+                <div class="dropdown-item cuter_border d-flex justify-content-start">
+                    {% send_email "Check out our review: {{review.title}}" "{{review.summary}}" review "Mail" %}
+                    <i class="fas fa-envelope ml-1 mt-1"></i>
                 </div>
             </div>
         </div>

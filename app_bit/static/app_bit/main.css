@@ -80,6 +80,10 @@ a:hover {
     white-space: break-spaces;
 }
 
+.break {
+    word-break: break-word;
+}
+
 .review_article {
     border-radius: 0.9375rem;
     background-color: var(--article);
@@ -390,17 +394,8 @@ a:hover {
 }
 
 .profile_button {
+    margin-left: auto;
     padding: 0 0 0 0.5rem !important;
-    margin-left: 2.2rem !important;
-}
-
-.stubborn_menu {
-    left: -4.375rem !important;
-}
-
-.another_menu {
-    left: 1rem !important;
-    top: 3rem !important;
 }
 
 .order_3 {
@@ -561,17 +556,8 @@ a:hover {
     .margins_total {
         margin: 0.5rem;
     }
-    .stubborn_menu {
-        left: -3.5rem !important;
-    }
     .lead {
         font-size: 1.1rem !important;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .stubborn_menu {
-        left: -2.375rem !important;
     }
 }
 

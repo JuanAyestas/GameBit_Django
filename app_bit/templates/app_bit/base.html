@@ -75,12 +75,11 @@
                                 <a class="nav-item nav-link order-2 d-lg-inline" href="{% url 'gamebit-meme' %}">Memes</i></a>
                                 <a class="nav-item nav-link order-3 d-lg-inline" href="{% url 'gamebit-coin' %}">Coin</i></a>
                             </div>
-                            <div class="dropleft">
+                            <div class="dropdown">
                                 <button class="btn nav-link dropdown-toggle profile_button text-center" href="#" id="UserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="button_pic mr-1" src="{{user.profile.image.url}}"
-                                        alt="">{{user.username}}
+                                    <img class="button_pic mr-1" src="{{user.profile.image.url}}" alt="">{{user.username}}
                                 </button>
-                                <div class="dropdown-menu cuter_border another_menu p-2" aria-labelledby="UserDropdown">
+                                <div class="dropdown-menu cuter_border dropdown-menu-right p-2" aria-labelledby="UserDropdown">
                                     {% if user|has_group:"Staff Member" %}
                                     <a class="dropdown-item cuter_border" href="{% url 'gamebit-create' %}">New Review</a> {% endif %}
                                     <a class="dropdown-item cuter_border" href="{% url 'gamebit-meme-create' %}">New Meme</a>
