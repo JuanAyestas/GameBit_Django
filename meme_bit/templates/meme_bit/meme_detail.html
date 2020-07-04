@@ -59,7 +59,9 @@
             <p class="text-center spaces lead mt-3">{{meme.caption}}</p>
             <hr class="my-2">
             <figure class="d-flex justify-content-center mb-0">
-                <a href="{{meme.meme.url}}"><img class="pr-lg-5 pl-lg-5 cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}"></a>
+                <button class="no_border cute_border_for_pictures" type="button" data-toggle="modal" data-target="#MemeModal{{meme.id}}">
+                    <img class="pr-lg-5 pl-lg-5 cuter_border w-100" src="{{meme.meme.url}}" alt="{{meme.caption}}">
+                </button>
             </figure>
             {% if user == meme.author %}
             <hr class="my-2">
@@ -71,17 +73,33 @@
             <hr class="my-2">
             <div class="d-flex justify-content-start p-2">
                 <div class="flex-wrap align-self-center">
-                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a>
-                    </p>
+                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a></p>
                 </div>
                 <article class="margin_left">
                     <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>
                     <hr class="my-2">
-                    <small class="text_muted">To check out more content of the author, <strong><em>click their
-                                name.</em></strong></small>
+                    <small class="text_muted">To check out more content of the author, <strong><em>click their name.</em></strong></small>
                 </article>
             </div>
         </div>
     </section>
 </section>
+<!-- Meme modal -->
+<div class="modal fade text-center" id="MemeModal{{meme.id}}" tabindex="-1" role="dialog" aria-labelledby="MemeModalLabel{{meme.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered w_95" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <icon aria-hidden="true">&times;</icon>
+                </button>
+                <h5 class="lead modal-title">{{meme.caption}}</h5>
+            </div>
+            <div class="modal-body">
+                <figure class="text-center mb-0 w-100">
+                    <img class="cuter_border w-100 pr-lg-5 pl-lg-5 pb-lg-3" src="{{meme.meme.url}}" alt="{{meme.caption}}">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock body %}

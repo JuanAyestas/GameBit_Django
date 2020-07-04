@@ -21,7 +21,8 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-KQFZKD4');
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50844KNHZZ"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8PW4VJ58X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -30,7 +31,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', '{{google}}');
+        gtag('config', 'G-D8PW4VJ58X');
     </script>
     <!-- End Google config
         Social Meta Tags -->
@@ -81,13 +82,10 @@
                                 </button>
                                 <div class="dropdown-menu cuter_border another_menu p-2" aria-labelledby="UserDropdown">
                                     {% if user|has_group:"Staff Member" %}
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-create' %}">New
-                                        Review</a> {% endif %}
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-meme-create' %}">New
-                                        Meme</a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-create' %}">New Review</a> {% endif %}
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-meme-create' %}">New Meme</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-profile' %}">Profile <i
-                                            class="fas fa-user-circle"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-profile' %}">Profile <i class="fas fa-user-circle"></i></a>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-item cuter_border label_div" id="theme-change">
                                         <input type="checkbox" class="checkbox" id="checkbox-theme" />
@@ -98,20 +96,17 @@
                                         </label>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-about' %}">About Us <i
-                                            class="fas fa-info-circle"></i></a>
-                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-logout' %}">Log out <i
-                                            class="fas fa-sign-out-alt"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-about' %}">About Us <i class="fas fa-info-circle"></i></a>
+                                    <a class="dropdown-item cuter_border" href="{% url 'gamebit-logout' %}">Log out <i class="fas fa-sign-out-alt"></i></a>
                                 </div>
                             </div>
                             {% else %}
                             <a class="nav-item nav-link order-1" href="{% url 'gamebit-review' %}">Reviews</i></a>
                             <a class="nav-item nav-link order-2" href="{% url 'gamebit-meme' %}">Memes</i></a>
                             <a class="nav-item nav-link order-4 d-lg-inline" href="{% url 'gamebit-coin' %}">Coin</i></a>
-                            <a class="nav-item nav-link order-5" href="{% url 'gamebit-about' %}">About Us <i
-                                    class="fas fa-info-circle"></i></a>
-                            <a class="nav-item nav-link btn btn-outline-secondary order-6 mr-lg-1" href="{% url 'gamebit-login' %}">Log in <i class="fas fa-sign-in-alt"></i></a>
-                            <a class="nav-item nav-link btn btn-outline-success order-7 mt-1 mt-lg-0" href="{% url 'gamebit-register' %}">Register <i class="fas fa-user-plus"></i></a> {% endif %}
+                            <a class="nav-item nav-link order-5" href="{% url 'gamebit-about' %}">About Us</a>
+                            <a class="nav-item nav-link order-6 mr-lg-1" href="{% url 'gamebit-login' %}">Log in</a>
+                            <a class="nav-item nav-link btn btn-outline-secondary order-7 mt-1 mt-lg-0" href="{% url 'gamebit-register' %}">Register</a> {% endif %}
                         </div>
                     </div>
                 </div>
