@@ -26,7 +26,8 @@ class ReviewListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID"),})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "url": os.environ.get("DOMAIN_URL")})
         return context
 
 
@@ -70,7 +71,8 @@ class ReviewDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID"),})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "url": os.environ.get("DOMAIN_URL")})
         return context
 
 
@@ -123,7 +125,8 @@ class ReviewSearchResult(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID"),})
+            "facebook": os.environ.get("FACEBOOK_ID"),
+            "url": os.environ.get("DOMAIN_URL")})
         return context
     
     def get_queryset(self):

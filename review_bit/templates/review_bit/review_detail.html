@@ -1,15 +1,11 @@
 {% extends "app_bit/base.html" %} {% load social_share %}
 <!-- extended from -->
 {% block meta_tag %}
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://gamebit-council.herokuapp.com/reviews/{{review.id}}/">
+<meta property="og:url" content="{{url}}/reviews/{{review.id}}/">
 <meta property="og:title" content="{{review.title}}">
 <meta property="og:description" content="{{review.summary}}">
 <meta property="og:image" content="{{review.thumbnail.url}}">
-<meta property="og:image:alt" content="{{review.title}}">
-<meta property="fb:app_id" content="{{facebook}}">
-<!---->
-{% endblock meta_tag %}
+<meta property="og:image:alt" content="{{review.title}}"> {% endblock meta_tag %}
 <!---->
 {% block title %}{{review.title}}{% endblock title %}
 <!---->

@@ -3,7 +3,8 @@
 <html lang="en">
 
 <head>
-    <!-- Google config/Google Tag Manager -->
+    <!-- Google config
+        Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -20,7 +21,6 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-KQFZKD4');
     </script>
-    <!-- End Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-50844KNHZZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -32,16 +32,22 @@
 
         gtag('config', '{{google}}');
     </script>
-    <!-- End Google config -->
-    {% block meta_tag %}{% endblock meta_tag %}
+    <!-- End Google config
+        Social Meta Tags -->
+    <meta property="og:type" content="article"> {% block meta_tag %}{% endblock meta_tag %}
+    <meta property="fb:app_id" content="{{facebook}}">
+    <!-- End Social Meta Tags-->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> {% block icon %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Styles Tag -->
+    {% block icon %}
     <link rel="icon" type="image/jpg" href="{% static 'app_bit/logo.jpg' %}" /> {% endblock icon %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-    <title>GameBit-Council - {% block title %} {% endblock title %}</title>
-    <script src="https://kit.fontawesome.com/53c772d881.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'app_bit/main.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app_bit/style.css' %}">
+    <script src="https://kit.fontawesome.com/53c772d881.js" crossorigin="anonymous"></script>
+    <!-- End Styles Tag -->
+    <title>GameBit-Council - {% block title %} {% endblock title %}</title>
 </head>
 
 <body>
