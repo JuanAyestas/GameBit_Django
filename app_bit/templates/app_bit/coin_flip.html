@@ -1,8 +1,8 @@
-{% extends "app_bit/base.html" %}{% load static %}
+{% extends "app_bit/base.html" %}{% load static %}{% load social_share %}
 <!-- extended from -->
 {% block meta_tag %}
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://gamebit-council.herokuapp.com{% url 'gamebit-coin' %}">
+<meta property="og:url" content="https://www.gamebitcouncil.site{% url 'gamebit-coin' %}">
 <meta property="og:title" content="Flip a Coin">
 <meta property="og:description" content="Try to flip a coin and let the RNG decide for you!">
 <meta property="og:image" content="{% static 'app_bit/home_pictures/mario_coin.png' %}">
@@ -23,6 +23,31 @@
 <div id="coin_div">
     <section class="container_custom">
         <a class="btn btn-sm btn-primary coin_btn" href="{% url 'gamebit-home' %}">Go back</a>
+        <div class="dropleft">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle share_button_coin" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Share <i class="fas fa-share-square"></i>
+                </button>
+                <div class="dropdown-menu cuter_border p-2 stubborn_menu" aria-labelledby="ShareDropdown{{review.id}}">
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_facebook "" 'Facebook' %}
+                        <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_twitter "Can't make a decision? Well, check this out!" "" "Twitter" %}
+                        <i class="fab fa-twitter-square ml-1 mt-1"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% post_to_whatsapp "" 'WhatsApp' %}
+                        <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
+                    </div>
+                    <div class="dropdown-item cuter_border d-flex justify-content-start">
+                        {% send_email "Can't make a decision? Well, check this out!" "Try to flip a coin and let the RNG decide for you!" "" "Mail" %}
+                        <i class="fas fa-envelope ml-1 mt-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
         <article id="Title">
             <h2 class="coin_class rng text-center mb-0"><strong><em>Let the RNG decide for you!</em></strong></h2>
         </article>
