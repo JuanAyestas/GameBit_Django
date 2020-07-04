@@ -17,9 +17,7 @@ class MemeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID"),
-            "google": os.environ.get("GOOGLE_ID")
-        })
+            "facebook": os.environ.get("FACEBOOK_ID"),})
         return context
 
 
@@ -29,8 +27,7 @@ class MemeDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"facebook": os.environ.get("FACEBOOK_ID"),
-            "google": os.environ.get("GOOGLE_ID")})
+        context.update({"facebook": os.environ.get("FACEBOOK_ID"),})
         return context
 
 
@@ -41,8 +38,7 @@ class MemeCreateView(LoginRequiredMixin, CreateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({"facebook": os.environ.get("FACEBOOK_ID"),
-                        "google": os.environ.get("GOOGLE_ID")})
+        context.update({"facebook": os.environ.get("FACEBOOK_ID"),})
         return context
 
     def form_valid(self, form):
@@ -55,11 +51,6 @@ class MemeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Meme
     fields = ["caption", "meme"]
     success_message = "The meme has been updated successfully!"
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update({"google": os.environ.get("GOOGLE_ID")})
-        return context
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -98,8 +89,7 @@ class MemeSearchResult(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "facebook": os.environ.get("FACEBOOK_ID"),
-            "google": os.environ.get("GOOGLE_ID")})
+            "facebook": os.environ.get("FACEBOOK_ID"),})
         return context
 
     def get_queryset(self):
