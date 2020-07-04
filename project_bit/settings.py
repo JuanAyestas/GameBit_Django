@@ -165,9 +165,6 @@ AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-LETSENCRYPT_URL = os.environ.get('LETSENCRYPT_URL')
-LETSENCRYPT_RESPONSE = os.environ.get('LETSENCRYPT_RESPONSE')
-
 DATABASES['default'] = dj_database_url.config(
     conn_max_age=600, ssl_require=True)
 
