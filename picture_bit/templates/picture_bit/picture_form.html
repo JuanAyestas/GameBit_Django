@@ -12,7 +12,7 @@
 {% endif %} {% endblock bread %}
 <!--  -->
 {% block body %}
-<section class="review_article cute_border_line shadow p-4 mb-3">
+<section class="review_article cute_border_line shadow margin_container p-4 mb-3">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {% for hidden in post.Form.hidden_fields %} {{hidden}} {% endfor %}
         <fieldset class="form-group">
