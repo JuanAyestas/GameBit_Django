@@ -166,6 +166,7 @@ a:hover {
 .modal-content {
     background: var(--modal);
     border: 0.0625rem solid var(--modal);
+    border-radius: 0.9375rem !important;
 }
 
 .img-thumbnail {
@@ -485,6 +486,12 @@ a:hover {
     }
     .order_3 {
         order: 0;
+    }
+    .modal-body {
+        padding: 0rem .25rem 1rem .25rem;
+    }
+    .modal-header {
+        padding-bottom: 10px;
     }
 }
 
