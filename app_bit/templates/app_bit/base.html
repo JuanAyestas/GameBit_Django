@@ -71,9 +71,9 @@
                         {% if user.is_authenticated %}
                         <div class="nav-item dropdown order_3 bar_flex">
                             <div class="mr-auto pt-lg-2">
-                                <a class="nav-item nav-link order-1 d-lg-inline" href="{% url 'gamebit-review' %}">Reviews</i></a>
-                                <a class="nav-item nav-link order-2 d-lg-inline" href="{% url 'gamebit-meme' %}">Memes</i></a>
-                                <a class="nav-item nav-link order-3 d-lg-inline" href="{% url 'gamebit-coin' %}">Coin</i></a>
+                                <a class="nav-item nav-link order-1 d-lg-inline" href="{% url 'gamebit-review' %}">Reviews</a>
+                                <a class="nav-item nav-link order-2 d-lg-inline" href="{% url 'gamebit-meme' %}">Memes</a>
+                                <a class="nav-item nav-link order-3 d-lg-inline" href="{% url 'gamebit-minigames' %}">Minigames</a>
                             </div>
                             <div class="dropdown">
                                 <button class="btn nav-link dropdown-toggle profile_button text-center" href="#" id="UserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,9 +100,9 @@
                                 </div>
                             </div>
                             {% else %}
-                            <a class="nav-item nav-link order-1" href="{% url 'gamebit-review' %}">Reviews</i></a>
-                            <a class="nav-item nav-link order-2" href="{% url 'gamebit-meme' %}">Memes</i></a>
-                            <a class="nav-item nav-link order-4 d-lg-inline" href="{% url 'gamebit-coin' %}">Coin</i></a>
+                            <a class="nav-item nav-link order-1" href="{% url 'gamebit-review' %}">Reviews</a>
+                            <a class="nav-item nav-link order-2" href="{% url 'gamebit-meme' %}">Memes</a>
+                            <a class="nav-item nav-link order-4 d-lg-inline" href="{% url 'gamebit-minigames' %}">Minigames</a>
                             <a class="nav-item nav-link order-5" href="{% url 'gamebit-about' %}">About Us</a>
                             <a class="nav-item nav-link order-6 mr-lg-1" href="{% url 'gamebit-login' %}">Log in</a>
                             <a class="nav-item nav-link btn btn-outline-secondary order-7 mt-1 mt-lg-0" href="{% url 'gamebit-register' %}">Register</a> {% endif %}

@@ -8,10 +8,6 @@ def home(request):
   return render(request, "app_bit/home.html", {"facebook": os.environ.get("FACEBOOK_ID"),
                                                "url": os.environ.get("DOMAIN_URL")})
 
-def coin(request):
-  return render(request, "app_bit/coin_flip.html", {"facebook": os.environ.get("FACEBOOK_ID"),
-                                                    "url": os.environ.get("DOMAIN_URL")})
-
 class AboutView(ListView):
   model = User
   queryset = User.objects.order_by("username")
@@ -23,6 +19,7 @@ class AboutView(ListView):
       context.update({"facebook": os.environ.get("FACEBOOK_ID"),
                       "url": os.environ.get("DOMAIN_URL")})
       return context
+    
 
 def rules(request):
   return render(request, "app_bit/rules.html", {"facebook": os.environ.get("FACEBOOK_ID"),

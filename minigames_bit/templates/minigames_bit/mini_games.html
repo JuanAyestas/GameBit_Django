@@ -1,0 +1,54 @@
+{% extends "app_bit/base.html" %}{% load static %}{% load filters.py %}
+<!-- extended from -->
+{% block meta_tag %}
+<meta property="og:url" content="{{url}}{% url 'gamebit-minigames' %}">
+<meta property="og:title" content="GameBit - Mini Games">
+<meta property="og:description" content="Play some games!">
+<meta property="og:image" content="{% static 'app_bit/home_pictures/About_us_collage.jpg' %}">
+<meta property="og:image:alt" content="GameBit - Mini Games"> {% endblock meta_tag %}
+<!---->
+{% block title %}Minigames{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page">Minigames</li>
+{% endblock bread %}
+<!---->
+{% block body %}
+<section class="margin_container">
+    <section class="text-center jumbotron cuter_border shadow cute_border_line shadow p-3 mb-0">
+        <article id="MiniTitle">
+            <h1 class="display-6"><a href="{% url 'gamebit-home' %}">GameBit - Minigames:</a></h1>
+            <p class="lead">Have fun trying some of our Minigames!</p>
+        </article>
+    </section>
+    <hr class="my-4">
+    <section id="MiniList" class="row row-cols-2 row-cols-md-3">
+        <div class="col mb-2">
+            <div class="cute_border_for_pictures cute_border_line shadow p-2">
+                <p class="text-center"><a href="{% url 'gamebit-coin' %}">Flip a Coin</a></p>
+                <figure class="mb-0">
+                    <a href="{% url 'gamebit-coin' %}">
+                        <img class="w-100 cute_border_for_pictures" src="{% static 'app_bit/home_pictures/mario_coin.png' %}" alt="Flip a Coin">
+                    </a>
+                </figure>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="cute_border_for_pictures cute_border_line shadow p-2">
+                <p class="text-center">Coming soon...</p>
+                <figure class="mb-0">
+                    <img class="w-100 cute_border_for_pictures" src="{% static 'app_bit/home_pictures/coming soon.jpg' %}" alt="Flip a Coin">
+                </figure>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="cute_border_for_pictures cute_border_line shadow p-2">
+                <p class="text-center">Coming soon...</p>
+                <figure class="mb-0">
+                    <img class="w-100 cute_border_for_pictures" src="{% static 'app_bit/home_pictures/coming soon.jpg' %}" alt="Flip a Coin">
+                </figure>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock body %}

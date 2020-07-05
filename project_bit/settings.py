@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "review_bit.apps.ReviewBitConfig",
     "meme_bit.apps.MemeBitConfig",
     "users_bit.apps.UsersBitConfig",
+    "minigames_bit.apps.MinigamesBitConfig",
     "picture_bit.apps.PictureBitConfig",
     "crispy_forms",
     "app_bit.apps.AppBitConfig",
