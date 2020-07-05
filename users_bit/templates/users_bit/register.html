@@ -1,7 +1,7 @@
 {% extends "app_bit/base.html" %}{% load static %}{% load crispy_forms_tags %}
 <!-- extended from -->
 {% block meta_tag %}
-<meta property="og:url" content="{{url}}">
+<meta property="og:url" content="{{url}}{% url 'gamebit-register'%}">
 <meta property="og:title" content="GameBit - Register">
 <meta property="og:description" content="Welcome! Register if you want to interact with the page even further.">
 <meta property="og:image" content="{% static 'app_bit/home_pictures/About_us_collage.jpg' %}">

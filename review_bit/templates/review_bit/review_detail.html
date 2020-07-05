@@ -1,7 +1,7 @@
 {% extends "app_bit/base.html" %} {% load social_share %}
 <!-- extended from -->
 {% block meta_tag %}
-<meta property="og:url" content="{{url}}/reviews/{{review.id}}/">
+<meta property="og:url" content="{{url}}{% url 'gamebit-detail' review.id %}">
 <meta property="og:title" content="{{review.title}}">
 <meta property="og:description" content="{{review.summary}}">
 <meta property="og:image" content="{{review.thumbnail.url}}">

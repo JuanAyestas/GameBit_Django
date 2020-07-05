@@ -1,7 +1,7 @@
 {% extends "app_bit/base.html" %}{% load static %}
 <!-- extended from -->
 {% block meta_tag %}
-<meta property="og:url" content="{{url}}">
+<meta property="og:url" content="{{url}}{% url 'gamebit-summary' author.id %}">
 <meta property="og:title" content="GameBit - {{author.username}}' Summary">
 <meta property="og:description" content="Check out {{author.username}}'s work.">
 <meta property="og:image" content="{{author.profile.image.url}}">

@@ -8,6 +8,9 @@ urlpatterns = [
     path('register/staff/Bj_hubwWcHH9DsnAxQCuGrDLfjEt79dFVwKzQTxMdk4',views.staff_register, name="gamebit-staff"),
     path("login/", auth_views.LoginView.as_view(template_name="users_bit/login.html"), name="gamebit-login"),
     path("logout/", auth_views.LogoutView.as_view(template_name="users_bit/logout.html"),name="gamebit-logout"),
+    path("profile/", views.profile, name="gamebit-profile"),
+    path("summary/<int:pk>/", SummaryDetailView.as_view(), name="gamebit-summary"),
+
     path("password-reset/", 
          auth_views.PasswordResetView.as_view(
              template_name="users_bit/password_reset.html"), name="gamebit-reset"),
@@ -23,7 +26,4 @@ urlpatterns = [
     path("password-reset-complete/",
          auth_views.PasswordResetCompleteView.as_view(
              template_name="users_bit/password_reset_complete.html"), name="password_reset_complete"),
-    
-    path("profile/", views.profile, name="gamebit-profile"),
-    path("summary/<int:pk>/", SummaryDetailView.as_view(), name="gamebit-summary")
 ]

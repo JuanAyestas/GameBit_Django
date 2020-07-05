@@ -1,7 +1,7 @@
 {% extends "app_bit/base.html" %}{% load filters.py %}{% load social_share %}
 <!-- extended from -->
 {% block meta_tag %}
-<meta property="og:url" content="{{url}}/memes/{{meme.id}}/">
+<meta property="og:url" content="{{url}}{% url 'gamebit-meme-full' meme.id %}">
 <meta property="og:title" content="{{meme.caption}}">
 <meta property="og:description" content="Uploaded by: {{meme.author}} on {{meme.date_updated|date:'F d, Y'}}.">
 <meta property="og:image" content="{{meme.meme.url}}">
