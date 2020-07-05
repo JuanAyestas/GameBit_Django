@@ -1,5 +1,12 @@
 {% extends "app_bit/base.html" %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:url" content="{{url}}">
+<meta property="og:title" content="GameBit - {{author.username}}' Summary">
+<meta property="og:description" content="Check out {{author.username}}'s work.">
+<meta property="og:image" content="{{author.profile.image.url}}">
+<meta property="og:image:alt" content="GameBit - {{author.username}}' Summary"> {% endblock meta_tag %}
+<!---->
 {% block title %}{{author.username}}'s Summary{% endblock title %}
 <!---->
 {% block bread %}
