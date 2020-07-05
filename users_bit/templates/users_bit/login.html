@@ -1,5 +1,12 @@
 {% extends "app_bit/base.html" %} {% load crispy_forms_tags %}
 <!-- extended from -->
+{% block meta_tag %}
+<meta property="og:url" content="{{url}}">
+<meta property="og:title" content="GameBit - Login">
+<meta property="og:description" content="Welcome! Now, log in">
+<meta property="og:image" content="{% static 'app_bit/home_pictures/About_us_collage.jpg' %}">
+<meta property="og:image:alt" content="GameBit - Login"> {% endblock meta_tag %}
+<!---->
 {% block title %}Log in{% endblock title %}
 <!---->
 {% block brand %}<a class="navbar-brand" href="{% url 'gamebit-home' %}">GameBit Council</a>{% endblock brand %}
