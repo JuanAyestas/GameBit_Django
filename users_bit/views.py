@@ -29,6 +29,7 @@ def register(request):
     context = {
         "form": form,
         "legend": "GameBit - Visitor",
+        "url": os.environ.get("DOMAIN_URL")
     }
     return render(request, "users_bit/register.html", context)
 
@@ -51,6 +52,7 @@ def staff_register(request):
     context = {
         "form": form,
         "legend": "GameBit - Staff",
+        "url": os.environ.get("DOMAIN_URL")
     }
     return render(request, "users_bit/register.html", context)
 
@@ -82,4 +84,10 @@ class SummaryDetailView(DetailView):
     model = User
     template_name = 'users_bit/summary.html'
     context_object_name = 'author'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({"url": os.environ.get("DOMAIN_URL")})
+        return context
+    
 
