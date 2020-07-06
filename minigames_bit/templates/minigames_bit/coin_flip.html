@@ -6,11 +6,17 @@
 <meta property="og:description" content="Try to flip a coin and let the RNG decide for you!">
 <meta property="og:image" content="{% static 'minigames_bit/images/mario_coin.png' %}">
 <meta property="og:image:alt" content="Flip a Coin">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> {% endblock meta_tag %} {% block icon %}
+<!---->
+{% endblock meta_tag %}
+<!---->
+{% block icon %}
 <link rel="icon" type="image/jpg" href="{% static 'minigames_bit/images/coin.png' %}" /> {% endblock icon %}
 <!---->
 {% block other_styles %}
-<link rel="stylesheet" type="text/css" href="{% static 'minigames_bit/coin_style.css' %}"> {% endblock other_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'minigames_bit/coin_style.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<!---->
+{% endblock other_styles %}
 <!---->
 {% block title %}Flip a Coin{% endblock title %}
 <!---->
@@ -49,7 +55,7 @@
     </article>
 </section>
 <article id="CoinShare" class="d-flex justify-content-center">
-    <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style a2a_minigames" data-a2a-url="{{url}}{% url 'gamebit-coin' %}" data-a2a-title="GameBit Council">
+    <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style a2a_minigames" data-a2a-url="{{url}}{% url 'gamebit-coin' %}" data-a2a-title="GameBit Council - Flip a Coin">
         <a class="a2a_button_facebook"></a>
         <a class="a2a_button_twitter"></a>
         <a class="a2a_button_whatsapp"></a>
