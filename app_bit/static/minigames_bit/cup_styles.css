@@ -1,3 +1,14 @@
+/* offSets */
+
+:root {
+    --hat_1: 430px;
+    --hat_top_1: 270px;
+    --hat_2: 72px;
+    --hat_both: 470px;
+    --hat_3: 790px;
+}
+
+
 /* Text CSS */
 
 .logo_bit,
@@ -35,7 +46,6 @@
 }
 
 div.big_circle {
-    top: 250px;
     position: absolute;
     display: none;
     z-index: -2;
@@ -99,13 +109,9 @@ div.big_circle {
 /* Minigame CSS */
 
 .minigame {
-    margin-top: 8rem;
-}
-
-#StartButton {
-    position: absolute;
-    top: 40px;
-    left: 44.5%;
+    max-width: 1110px;
+    margin: auto;
+    margin-top: 4rem;
 }
 
 
@@ -115,9 +121,32 @@ div.big_circle {
     position: relative;
     padding-left: 8px;
     padding-right: 8px;
+    transition: transform 0.5s linear;
 }
 
-.hat:active {
+#Hat2,
+#Hat3 {
+    z-index: 100;
+}
+
+#checkbox_hat_1,
+#checkbox_hat_2,
+#checkbox_hat_3 {
+    display: none;
+}
+
+#checkbox_hat_1:checked+.hat_label>.hat {
+    transform: translateX(200px);
+    bottom: 130px;
+}
+
+#checkbox_hat_2:checked+.hat_label>.hat {
+    transform: translateX(200px);
+    bottom: 130px;
+}
+
+#checkbox_hat_3:checked+.hat_label>.hat {
+    transform: translateX(-200px);
     bottom: 130px;
 }
 
@@ -168,4 +197,243 @@ div.big_circle {
     border-radius: 50%;
     background-color: black;
     border: 2px solid white;
+}
+
+
+/* Queries */
+
+@media (min-width: 319.98px) {
+    .a2a_minigames {
+        top: 90px;
+    }
+    /* offsets */
+     :root {
+        --hat_1: 110px;
+        --hat_top_1: 150px;
+        --hat_2: 18px;
+        --hat_both: 270px;
+        --hat_3: 203px;
+    }
+    .logo_bit {
+        left: 9px;
+        font-size: 0.7rem;
+        bottom: 15px;
+    }
+    .logo_council {
+        left: 15px;
+        font-size: 0.7rem;
+        bottom: -5px;
+    }
+    .hat_top {
+        width: 90px;
+        height: 30px;
+    }
+    .hat_body {
+        width: 90px;
+        height: 50px;
+    }
+    .hat_left_side {
+        top: 12px;
+        height: 75px;
+    }
+    .hat_right_side {
+        top: 12px;
+        height: 75px;
+        left: 86px;
+    }
+    .hat_bottom {
+        top: 70px;
+        left: -7px;
+        width: 120px;
+        height: 30px;
+    }
+    .minigame {
+        max-width: 290px;
+    }
+    #SingleHat {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 359.98px) {
+    /* offsets */
+     :root {
+        --hat_1: 130px;
+        --hat_2: 18px;
+        --hat_both: 270px;
+        --hat_3: 242px;
+    }
+    .minigame {
+        max-width: 330px;
+    }
+}
+
+@media (min-width: 374.98px) {
+    /* offsets */
+     :root {
+        --hat_1: 140px;
+        --hat_2: 45px;
+        --hat_both: 290px;
+        --hat_3: 231px;
+    }
+    .logo_bit {
+        left: 11px;
+        font-size: 0.9rem;
+        bottom: 30px;
+    }
+    .logo_council {
+        left: 20px;
+        font-size: 0.9rem;
+        bottom: 0;
+    }
+    .hat_top {
+        width: 120px;
+        height: 40px;
+    }
+    .hat_body {
+        width: 120px;
+        height: 60px;
+    }
+    .hat_left_side {
+        top: 16px;
+        height: 95px;
+    }
+    .hat_right_side {
+        top: 16px;
+        height: 95px;
+        left: 116px;
+    }
+    .hat_bottom {
+        top: 90px;
+        left: -21px;
+        width: 180px;
+        height: 40px;
+    }
+    .minigame {
+        margin-top: 3rem;
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 410.98px) {
+    /* offsets */
+     :root {
+        --hat_1: 155px;
+        --hat_2: 41px;
+        --hat_3: 272px;
+    }
+    .minigame {
+        max-width: 360px;
+    }
+}
+
+@media (min-width: 413.98px) {
+    .minigame {
+        max-width: 368px;
+    }
+}
+
+@media (min-width: 767.98px) {
+     :root {
+        --hat_1: 314px;
+        --hat_top_1: 230px;
+        --hat_2: 86px;
+        --hat_both: 475px;
+        --hat_3: 537px;
+    }
+    .minigame {
+        max-width: 660px;
+    }
+    /* Text CSS */
+    .logo_bit,
+    .logo_council {
+        font-size: 1.5rem;
+        z-index: 50;
+    }
+    .logo_bit {
+        left: 13px;
+        bottom: 70px;
+    }
+    .logo_council {
+        left: 25px;
+        bottom: 30px;
+    }
+    /* Hat CSS */
+    .hat {
+        position: relative;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .hat_top {
+        width: 200px;
+        height: 80px;
+        border-radius: 50% 50% 0 0;
+        background-color: black;
+        border-top: 2px solid white;
+    }
+    .hat_body {
+        width: 200px;
+        height: 120px;
+        border-radius: 0 0 5px 5px;
+        background-color: black;
+    }
+    .hat_left_side {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        height: 145px;
+        width: 20px;
+        border-radius: 50% 0 0 50%;
+        background-color: black;
+        border-left: 2px solid white;
+    }
+    .hat_right_side {
+        position: absolute;
+        top: 35px;
+        left: 196px;
+        height: 145px;
+        width: 20px;
+        border-radius: 0 50% 50% 0;
+        background-color: black;
+        border-right: 2px solid white;
+    }
+    .hat_bottom {
+        z-index: -1;
+        position: absolute;
+        top: 160px;
+        left: -40px;
+        width: 300px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: black;
+        border: 2px solid white;
+    }
+}
+
+@media (min-width: 991.98px) {
+     :root {
+        --hat_1: 430px;
+        --hat_top_1: 230px;
+        --hat_2: 72px;
+        --hat_both: 475px;
+        --hat_3: 790px;
+    }
+    .minigame {
+        max-width: 930px;
+    }
+}
+
+@media (min-width: 1199.98px) {
+    /* offsets */
+     :root {
+        --hat_1: 525px;
+        --hat_top_1: 253px;
+        --hat_2: 72px;
+        --hat_both: 490px;
+        --hat_3: 970px;
+    }
+    /* Minigame CSS */
+    .minigame {
+        max-width: 1110px;
+    }
 }

@@ -21,9 +21,8 @@
 {% endblock bread %}
 <!---->
 {% block body %}
-<div id="Title">
+<div id="Title" class="d-flex justify-content-center mt-5 mb-5">
     <button id="StartButton" class="btn btn-primary">Start Game</button>
-    <a href="javascript:location.reload();">try again</a>
 </div>
 <div class="minigame">
     <div id="Circle" class="big_circle">
@@ -33,33 +32,46 @@
         <div class="green_circle"></div>
         <div class="blue_circle"></div>
     </div>
-    <div class="hats d-flex justify-content-between">
-        <div id="Hat1" class="hat">
-            <p class="lead logo_bit">Game-Bit</p>
-            <p class="lead logo_council">Council</p>
-            <div class="hat_top"></div>
-            <div class="hat_body"></div>
-            <div class="hat_left_side"></div>
-            <div class="hat_right_side"></div>
-            <div class="hat_bottom"></div>
+    <div class="hats">
+        <div id="SingleHat" class="d-flex justify-content-center">
+            <input type="checkbox" id="checkbox_hat_1">
+            <label for="checkbox_hat_1" class="hat_label mb-0">
+                <div class="hat">
+                    <p class="logo_bit">Game-Bit</p>
+                    <p class="logo_council">Council</p>
+                    <div class="hat_top"></div>
+                    <div class="hat_body"></div>
+                    <div class="hat_left_side"></div>
+                    <div class="hat_right_side"></div>
+                    <div class="hat_bottom"></div>
+                </div>
+            </label>
         </div>
-        <div id="Hat2" class="hat">
-            <p class="lead logo_bit">Game-Bit</p>
-            <p class="lead logo_council">Council</p>
-            <div class="hat_top"></div>
-            <div class="hat_body"></div>
-            <div class="hat_left_side"></div>
-            <div class="hat_right_side"></div>
-            <div class="hat_bottom"></div>
-        </div>
-        <div id="Hat3" class="hat">
-            <p class="lead logo_bit">Game-Bit</p>
-            <p class="lead logo_council">Council</p>
-            <div class="hat_top"></div>
-            <div class="hat_body"></div>
-            <div class="hat_left_side"></div>
-            <div class="hat_right_side"></div>
-            <div class="hat_bottom"></div>
+        <div id="TwoHats" class="d-flex justify-content-between">
+            <input type="checkbox" id="checkbox_hat_2">
+            <label for="checkbox_hat_2" class="hat_label mb-0">
+                <div id="Hat2" class="hat">
+                    <p class="logo_bit">Game-Bit</p>
+                    <p class="logo_council">Council</p>
+                    <div class="hat_top"></div>
+                    <div class="hat_body"></div>
+                    <div class="hat_left_side"></div>
+                    <div class="hat_right_side"></div>
+                    <div class="hat_bottom"></div>
+                </div>
+            </label>
+            <input type="checkbox" id="checkbox_hat_3">
+            <label for="checkbox_hat_3" class="hat_label mb-0">
+                <div id="Hat3" class="hat">
+                    <p class="logo_bit">Game-Bit</p>
+                    <p class="logo_council">Council</p>
+                    <div class="hat_top"></div>
+                    <div class="hat_body"></div>
+                    <div class="hat_left_side"></div>
+                    <div class="hat_right_side"></div>
+                    <div class="hat_bottom"></div>
+                </div>
+            </label>
         </div>
     </div>
 </div>
@@ -77,7 +89,6 @@
 {% block script %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.10.2/underscore-min.js"></script>
 <script>
-    var randomOffset = _.sample(["72px", "430px", "788px"])
     $(document).ready(function() {
         var hat1 = $("#Hat1"),
             hat2 = $("#Hat2"),
@@ -86,11 +97,36 @@
             startButton = $("#StartButton");
         startButton.on("click", function(event) {
             event.preventDefault();
-            var circleInitialPosition = 0
             circle.show();
-        })
-        $("div.big_circle").css("left", randomOffset)
+            $("#StartButton").html('Restart Game');
+            $("#StartButton").attr('href', "javascript:location.reload();");
+            var hatsOffsets = window.getComputedStyle(document.body);
 
+            var first = hatsOffsets.getPropertyValue('--hat_1');
+            var spacingFirst = hatsOffsets.getPropertyValue('--hat_top_1');
+
+            var second = hatsOffsets.getPropertyValue('--hat_2');
+            var third = hatsOffsets.getPropertyValue('--hat_3');
+            var spacing = hatsOffsets.getPropertyValue('--hat_both');
+
+            var randomOffset = _.sample([first, second, third])
+            if (randomOffset == first) {
+                $("div.big_circle").css({
+                    "left": first,
+                    "top": spacingFirst
+                })
+            } else if (randomOffset == second) {
+                $("div.big_circle").css({
+                    "left": second,
+                    "top": spacing
+                })
+            } else if (randomOffset == third) {
+                $("div.big_circle").css({
+                    "left": third,
+                    "top": spacing
+                })
+            }
+        })
     });
 </script>
 {% endblock script %}
