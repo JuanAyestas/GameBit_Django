@@ -1,3 +1,5 @@
+/* Text CSS */
+
 .logo_bit,
 .logo_council {
     font-size: 1.5rem;
@@ -12,6 +14,7 @@
 
 .logo_bit {
     left: 13px;
+    bottom: 70px;
 }
 
 .logo_council {
@@ -19,41 +22,62 @@
     bottom: 30px;
 }
 
+
+/*  Circle CSS*/
+
 .big_circle {
     position: relative;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 10px solid black;
+    border: 2px solid white;
+    background-color: black;
+}
+
+div.big_circle {
+    top: 250px;
+    position: absolute;
+    display: none;
+    z-index: -2;
+}
+
+.smaller_circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    top: 8px;
+    left: 8px;
 }
 
 .yellow_circle {
     position: absolute;
     border: 1px solid black;
-    top: 5px;
-    right: 27px;
-    background-color: rgb(220, 220, 0);
+    top: 10px;
+    right: 35px;
     width: 25px;
     height: 25px;
     border-radius: 50%;
+    background-color: rgb(220, 220, 0);
 }
 
 .red_circle {
     position: absolute;
     border: 1px solid black;
-    top: 28px;
-    right: 5px;
-    background-color: red;
+    top: 35px;
+    right: 10px;
     width: 25px;
     height: 25px;
     border-radius: 50%;
+    background-color: red;
 }
 
 .green_circle {
     position: absolute;
     border: 1px solid black;
-    bottom: 5px;
-    right: 27px;
+    bottom: 10px;
+    right: 35px;
     background-color: green;
     width: 25px;
     height: 25px;
@@ -63,17 +87,46 @@
 .blue_circle {
     position: absolute;
     border: 1px solid black;
-    top: 28px;
-    left: 5px;
+    top: 35px;
+    left: 10px;
     background-color: blue;
     width: 25px;
     height: 25px;
     border-radius: 50%;
 }
 
+
+/* Minigame CSS */
+
+.minigame {
+    margin-top: 8rem;
+}
+
+#StartButton {
+    position: absolute;
+    top: 40px;
+    left: 44.5%;
+}
+
+
+/* Hat CSS */
+
 .hat {
     position: relative;
     padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hat:active {
+    bottom: 130px;
+}
+
+.hat_top {
+    width: 200px;
+    height: 80px;
+    border-radius: 50% 50% 0 0;
+    background-color: black;
+    border-top: 2px solid white;
 }
 
 .hat_body {
@@ -83,34 +136,30 @@
     background-color: black;
 }
 
-.hat_top {
-    width: 200px;
-    height: 80px;
-    border-radius: 50% 50% 0 0;
-    background-color: black;
-}
-
 .hat_left_side {
     position: absolute;
     top: 35px;
     left: 0;
-    height: 165px;
+    height: 145px;
     width: 20px;
     border-radius: 50% 0 0 50%;
     background-color: black;
+    border-left: 2px solid white;
 }
 
 .hat_right_side {
     position: absolute;
     top: 35px;
     left: 196px;
-    height: 165px;
+    height: 145px;
     width: 20px;
     border-radius: 0 50% 50% 0;
     background-color: black;
+    border-right: 2px solid white;
 }
 
 .hat_bottom {
+    z-index: -1;
     position: absolute;
     top: 160px;
     left: -40px;
@@ -118,4 +167,5 @@
     height: 60px;
     border-radius: 50%;
     background-color: black;
+    border: 2px solid white;
 }
