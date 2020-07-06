@@ -14,7 +14,7 @@
 }
 
 .container_custom {
-    background: url(./home_pictures/mario.jpg);
+    background: url(./images/mario.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

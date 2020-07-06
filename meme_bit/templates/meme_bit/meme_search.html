@@ -1,4 +1,4 @@
-{% extends "app_bit/base.html" %}{% load static %}{% load social_share %}
+{% extends "app_bit/base.html" %}{% load static %}
 <!-- extended from -->
 {% block meta_tag %}
 <meta property="og:url" content="{{url}}{% url 'gamebit-meme' %}">
@@ -37,29 +37,6 @@
     <section id="Memes" class="row row-cols-1 {% if meme_list|length >= 1%} row-cols-md-2 {% endif %}">
         {% for meme in meme_list %}
         <div class="col mb-2">
-            <div class="dropdown">
-                <button class="btn btn-sm btn-secondary dropdown-toggle share_button" type="button" id="ShareDropdown{{review.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Share <i class="fas fa-share-square"></i>
-                </button>
-                <div class="dropdown-menu cuter_border dropdown-menu-right p-2" aria-labelledby="ShareDropdown{{meme.id}}">
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_facebook meme 'Facebook' %}
-                        <i class="fab fa-facebook-square ml-1 mt-1" aria-hidden="true"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_twitter "Check out our meme: {{meme.caption}}" meme "Twitter" %}
-                        <i class="fab fa-twitter-square ml-1 mt-1"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% post_to_whatsapp meme 'WhatsApp' %}
-                        <i class="fab fa-whatsapp-square ml-1 mt-1"></i>
-                    </div>
-                    <div class="dropdown-item cuter_border d-flex justify-content-start">
-                        {% send_email "Check out our meme: {{meme.caption}}" "" meme "Mail" %}
-                        <i class="fas fa-envelope ml-1 mt-1"></i>
-                    </div>
-                </div>
-            </div>
             <div class="cute_border_for_pictures cute_border_line shadow p-2">
                 <p class="text-center lead spaces mt-3"><a href="{% url 'gamebit-meme-full' meme.id %}">{{meme.caption}}</a></p>
                 <hr class="my-2">
@@ -69,10 +46,19 @@
                     </a>
                 </figure>
                 <hr class="my-2">
+                <article id="MemeShare" class="d-flex justify-content-center">
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="{{url}}{% url 'gamebit-meme-full' meme.id %}" data-a2a-title="GameBit Council">
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_whatsapp"></a>
+                        <a class="a2a_button_reddit"></a>
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                    </div>
+                </article>
+                <hr class="my-2">
                 <article class="d-flex justify-content-start p-2">
                     <div class="flex-wrap align-self-center">
-                        <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a>
-                        </p>
+                        <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a></p>
                     </div>
                     <div class="margin_left">
                         <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>

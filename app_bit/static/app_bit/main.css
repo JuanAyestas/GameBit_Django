@@ -60,10 +60,6 @@ body {
     color: var(--font_color);
 }
 
-#coin_div {
-    background-color: var(--coin_bg);
-}
-
 a {
     color: var(--font_color);
 }
@@ -131,6 +127,13 @@ a:hover {
 }
 
 .cute_border_line {
+    border: 0.125rem solid var(--article_border);
+}
+
+.minigame_container {
+    border-radius: 0.9375rem !important;
+    background-color: var(--img);
+    padding: 0.5rem;
     border: 0.125rem solid var(--article_border);
 }
 
@@ -453,6 +456,18 @@ a:hover {
     border-top: none;
 }
 
+.col_list {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.a2a_minigames {
+    background-color: transparent !important;
+    right: 0;
+    top: 200px;
+}
+
 @media screen and (max-width: 991px) {
     .w_100 {
         width: 100% !important;
@@ -565,6 +580,9 @@ a:hover {
     }
     .lead {
         font-size: 1.1rem !important;
+    }
+    .minigame_container {
+        padding: 0.25rem;
     }
 }
 

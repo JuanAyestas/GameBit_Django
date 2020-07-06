@@ -1,0 +1,46 @@
+{% extends "app_bit/base.html" %}{% load static %}
+<!-- extended from -->
+{% block meta_tag %}
+<meta property="og:url" content="{{url}}{% url 'gamebit-cup' %}">
+<meta property="og:title" content="Cup Shuffle">
+<meta property="og:description" content="Try to flip a coin and let the RNG decide for you!">
+<meta property="og:image" content="{% static 'app_bit/home_pictures/mario_coin.png' %}">
+<meta property="og:image:alt" content="Cup Shuffle">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> {% endblock meta_tag %}
+<!---->
+{% block other_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'minigames_bit/cup_styles.css' %}"> {% endblock other_styles %}
+<!---->
+{% block title %}Cup Shuffle{% endblock title %}
+<!---->
+{% block bread %}
+<li class="breadcrumb-item active" aria-current="page"><a href="{% url 'gamebit-minigames' %}">Minigames</a></li>
+<li class="breadcrumb-item active" aria-current="page">Cup Shuffle</li>
+{% endblock bread %}
+<!---->
+{% block body %}
+<div class="hat mt-3">
+    <div class="hat_top"></div>
+    <p class="lead logo_bit">Game-Bit</p>
+    <p class="lead logo_council">Council</p>
+    <div class="hat_body"></div>
+    <div class="hat_left_side"></div>
+    <div class="hat_right_side"></div>
+    <div class="hat_bottom"></div>
+</div>
+<div class="big_circle mt-4 ml-5">
+    <div class="yellow_circle"></div>
+    <div class="red_circle"></div>
+    <div class="green_circle"></div>
+    <div class="blue_circle"></div>
+</div>
+<article id="CupShare" class="d-flex justify-content-center">
+    <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style a2a_minigames" data-a2a-url="{{url}}{% url 'gamebit-cup' %}" data-a2a-title="GameBit Council">
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_whatsapp"></a>
+        <a class="a2a_button_reddit"></a>
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    </div>
+</article>
+{% endblock body %} {% block script %} {% endblock script %}

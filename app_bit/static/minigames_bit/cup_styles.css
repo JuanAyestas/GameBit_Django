@@ -1,0 +1,121 @@
+.logo_bit,
+.logo_council {
+    font-size: 1.5rem;
+    z-index: 50;
+    position: absolute;
+    font-family: "Press Start 2P", cursive, "Times New Roman", Times, serif;
+    color: white;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-fill-color: white;
+}
+
+.logo_bit {
+    left: 13px;
+}
+
+.logo_council {
+    left: 25px;
+    bottom: 30px;
+}
+
+.big_circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid black;
+}
+
+.yellow_circle {
+    position: absolute;
+    border: 1px solid black;
+    top: 5px;
+    right: 27px;
+    background-color: rgb(220, 220, 0);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.red_circle {
+    position: absolute;
+    border: 1px solid black;
+    top: 28px;
+    right: 5px;
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.green_circle {
+    position: absolute;
+    border: 1px solid black;
+    bottom: 5px;
+    right: 27px;
+    background-color: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.blue_circle {
+    position: absolute;
+    border: 1px solid black;
+    top: 28px;
+    left: 5px;
+    background-color: blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.hat {
+    position: relative;
+    padding-left: 8px;
+}
+
+.hat_body {
+    width: 200px;
+    height: 120px;
+    border-radius: 0 0 5px 5px;
+    background-color: black;
+}
+
+.hat_top {
+    width: 200px;
+    height: 80px;
+    border-radius: 50% 50% 0 0;
+    background-color: black;
+}
+
+.hat_left_side {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    height: 165px;
+    width: 20px;
+    border-radius: 50% 0 0 50%;
+    background-color: black;
+}
+
+.hat_right_side {
+    position: absolute;
+    top: 35px;
+    left: 196px;
+    height: 165px;
+    width: 20px;
+    border-radius: 0 50% 50% 0;
+    background-color: black;
+}
+
+.hat_bottom {
+    position: absolute;
+    top: 160px;
+    left: -40px;
+    width: 300px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: black;
+}
