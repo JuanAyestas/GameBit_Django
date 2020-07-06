@@ -14,7 +14,7 @@ class Review(models.Model):
   summary = models.TextField()
   content = models.TextField()
   thumbnail = models.ImageField(
-      default="default.png", upload_to="thumbnail_pics")
+      default="default.jpg", upload_to="thumbnail_pics")
   date_posted = models.DateTimeField(auto_now_add=True)
   date_updated = models.DateTimeField(auto_now=True)
   #relationship with User

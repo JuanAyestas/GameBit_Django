@@ -11,7 +11,7 @@ from django.core.files.storage import default_storage as storage
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(
-        default="default.png", upload_to="profile_pics")
+        default="default.jpg", upload_to="profile_pics")
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
