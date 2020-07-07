@@ -126,11 +126,26 @@
     <main role="main" class="container">
         <section class="row">
             <article class="col-md-12">
+                <!--Message StarT-->
                 {% if messages %} {% for message in messages %}
                 <section class="alert alert-{{ message.tags }}">
                     {{ message }}
                 </section>
-                {% endfor %} {% endif %} {% block body %} {% endblock body %}
+                {% endfor %} {% endif %}
+                <!-- Message END 
+                Content START-->
+                {% block body %} {% endblock body %}
+                <!-- Content END 
+                GoogleAD START-->
+                <div id="footerGoogleAds">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Footer Ad container -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="2150298929" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <!-- GoogleAd END -->
             </article>
         </section>
     </main>
