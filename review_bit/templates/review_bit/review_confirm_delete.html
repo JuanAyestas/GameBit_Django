@@ -21,8 +21,7 @@
                 </article>
                 <h3 class="text-center"> {{review.title}}</h3>
                 <figure class="cuter_border d-flex justify-content-center mb-3">
-                    <img class="carou_size cute_border_for_pictures" src="{{review.thumbnail.url}}"
-                        alt="{{review.title}}">
+                    <img class="carou_size cute_border_for_pictures" src="{{review.thumbnail.url}}" alt="{{review.title}}">
                 </figure>
                 <article id="ReviewSummary">
                     <p class="lead jumbito">General Info: </p>
@@ -39,3 +38,12 @@
 </section>
 <!-- endblock -->
 {% endblock body %}
+<!-- Footer Ad container -->
+{% block ad %}
+<section id="GoogleAds" class="mb-3" style="height: 150px !important;">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="2150298929" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</section>
+{% endblock ad %}
