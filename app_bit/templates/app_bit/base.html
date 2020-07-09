@@ -135,13 +135,10 @@
                 <!-- Message END 
                 Content START-->
                 {% block body %} {% endblock body %}
-                <!-- Content END 
-                GoogleAD START-->
-                <div id="footerGoogleAds" class="mb-3">
-                    <!-- Footer Ad container -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="2150298929" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                </div>
-                <!-- GoogleAd END -->
+                <!-- Content END -->
+                <section id="GoogleAds">
+                    {% block ad %}{% endblock ad %}
+                </section>
             </article>
         </section>
     </main>
@@ -151,12 +148,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js "></script>
     <script async src="https://static.addtoany.com/menu/page.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- GoogleAds BEGIN -->
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <!-- GoogleAds END
-        bLazy BEGIN -->
+    <!-- bLazy BEGIN -->
     <script>
         // lazy loading
         var bLazy = new Blazy({
