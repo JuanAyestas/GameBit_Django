@@ -58,19 +58,19 @@
                 </div>
             </article>
             <hr class="my-2">
-            <article id="AuthorInfo" class="d-flex justify-content-start mt-3">
+            <article id="AuthorInfo" class="d-flex justify-content-start review_info">
                 <div class="flex-wrap align-self-center">
                     <figure class="mb-0 profile_pic_container">
                         <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}" alt="{{review.author.username}}"></a>
                     </figure>
-                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
+                    <p class="text-center mb-0">
+                        <a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
                     </p>
                 </div>
                 <div class="margin_left align-self-center">
                     <small class="text_muted">{{ review.date_updated|date:"F d, Y" }}</small>
                     <hr class="my-2">
-                    <small class="text_muted">To check out the full review, <em><strong>click on it's
-                                title.</strong></em></small>
+                    <small class="text_muted">To check out the full review, <em><strong>click on it's title.</strong></em></small>
                 </div>
             </article>
         </div>
@@ -78,8 +78,7 @@
     {% empty %}
     <section id="Title" class="jumbotron cute_border cute_border_line shadow p-3 mb-3">
         <h3 class="">We couldn't find anything, sorry...</h3>
-        <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Not even Detective Pikachu could find
-                what you were looking for.</em></p>
+        <p style="font-weight: 500 !important;" class="lead text-muted mb-0"><em>Not even Detective Pikachu could find what you were looking for.</em></p>
         <hr class="my-2">
         <div class="d-flex justify-content-center mb-3">
             <a class="btn btn-secondary btn_block text-center" href="{% url 'gamebit-review' %}">Go Back</a>

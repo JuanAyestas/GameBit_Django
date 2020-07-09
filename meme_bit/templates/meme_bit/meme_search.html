@@ -56,14 +56,17 @@
                     </div>
                 </article>
                 <hr class="my-2">
-                <article class="d-flex justify-content-start p-2">
+                <article id="AuthorInfo" class="d-flex justify-content-start meme_info">
                     <div class="flex-wrap align-self-center">
+                        <figure class="mb-0 profile_pic_container">
+                            <a href="{% url 'gamebit-summary' meme.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{meme.author.profile.image.url}}" alt="{{meme.author.username}}"></a>
+                        </figure>
                         <p class="text-center mb-0"><a href="{% url 'gamebit-summary' meme.author.id %}"><strong><em>{{ meme.author.username }}</em></strong></a></p>
                     </div>
-                    <div class="margin_left">
+                    <div class="align-self-center margin_left">
                         <small class="text_muted">{{meme.date_updated|date:"F d, Y" }}</small>
-                        <br>
-                        <small class="text_muted">To check out the full meme, click on the picture</small>
+                        <hr class="my-2">
+                        <small class="text_muted">To check out the full meme, click on <strong>the picture<em></em></strong>.</small>
                     </div>
                 </article>
             </div>

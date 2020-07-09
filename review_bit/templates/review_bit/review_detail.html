@@ -89,20 +89,19 @@
                 </div>
             </article>
             <hr class="my-2">
-            <article id="AuthorInfo" class="d-flex justify-content-start mt-3">
+            <article id="AuthorInfo" class="d-flex justify-content-start review_info">
                 <div class="flex-wrap align-self-center">
                     <figure class="profile_pic_container mb-0">
                         <a href="{% url 'gamebit-summary' review.author.id %}"><img class="w-100 h-100 cute_border_for_pictures" src="{{review.author.profile.image.url}}" alt="{{review.author.username}}"></a>
                     </figure>
-                    <p class="text-center mb-0"><a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
+                    <p class="text-center mb-0">
+                        <a href="{% url 'gamebit-summary' review.author.id %}"><strong><em>{{ review.author.username }}</em></strong></a>
                     </p>
                 </div>
                 <div class="margin_left align-self-center">
                     <small class="text_muted">{{ review.date_updated|date:"F d, Y" }}</small>
                     <hr class="my-2">
-                    <small class="text_muted">To check out more content of the author, <strong><em>click
-                                them.</em></strong>
-                    </small>
+                    <small class="text_muted">To check out more content of the author, <strong><em>click them.</em></strong></small>
                 </div>
             </article>
         </div>
