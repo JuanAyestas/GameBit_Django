@@ -21,8 +21,11 @@
 {% endblock bread %}
 <!---->
 {% block body %}
-<div id="Title" class="d-flex justify-content-center mt-5 mb-5">
-    <button id="StartButton" class="btn btn-primary">Start Game</button>
+<div id="Buttons" class=" mt-5 mb-5">
+    <div class="d-flex justify-content-center">
+        <button id="StartButton" class="btn btn-primary">Start Game</button>
+        <button id="StartMessage" class="btn btn-primary btn-block">Game in progress...</button>
+    </div>
 </div>
 <div class="minigame">
     <div id="Circle" class="big_circle">
@@ -34,44 +37,35 @@
     </div>
     <div class="hats">
         <div id="SingleHat" class="d-flex justify-content-center">
-            <input type="checkbox" id="checkbox_hat_1">
-            <label for="checkbox_hat_1" class="hat_label mb-0">
-                <div class="hat">
-                    <p class="logo_bit">Game-Bit</p>
-                    <p class="logo_council">Council</p>
-                    <div class="hat_top"></div>
-                    <div class="hat_body"></div>
-                    <div class="hat_left_side"></div>
-                    <div class="hat_right_side"></div>
-                    <div class="hat_bottom"></div>
-                </div>
-            </label>
+            <div class="hat">
+                <p class="logo_bit">Game-Bit</p>
+                <p class="logo_council">Council</p>
+                <div class="hat_top"></div>
+                <div class="hat_body"></div>
+                <div class="hat_left_side"></div>
+                <div class="hat_right_side"></div>
+                <div class="hat_bottom"></div>
+            </div>
         </div>
         <div id="TwoHats" class="d-flex justify-content-between">
-            <input type="checkbox" id="checkbox_hat_2">
-            <label for="checkbox_hat_2" class="hat_label mb-0">
-                <div id="Hat2" class="hat">
-                    <p class="logo_bit">Game-Bit</p>
-                    <p class="logo_council">Council</p>
-                    <div class="hat_top"></div>
-                    <div class="hat_body"></div>
-                    <div class="hat_left_side"></div>
-                    <div class="hat_right_side"></div>
-                    <div class="hat_bottom"></div>
-                </div>
-            </label>
-            <input type="checkbox" id="checkbox_hat_3">
-            <label for="checkbox_hat_3" class="hat_label mb-0">
-                <div id="Hat3" class="hat">
-                    <p class="logo_bit">Game-Bit</p>
-                    <p class="logo_council">Council</p>
-                    <div class="hat_top"></div>
-                    <div class="hat_body"></div>
-                    <div class="hat_left_side"></div>
-                    <div class="hat_right_side"></div>
-                    <div class="hat_bottom"></div>
-                </div>
-            </label>
+            <div id="Hat2" class="hat">
+                <p class="logo_bit">Game-Bit</p>
+                <p class="logo_council">Council</p>
+                <div class="hat_top"></div>
+                <div class="hat_body"></div>
+                <div class="hat_left_side"></div>
+                <div class="hat_right_side"></div>
+                <div class="hat_bottom"></div>
+            </div>
+            <div id="Hat3" class="hat">
+                <p class="logo_bit">Game-Bit</p>
+                <p class="logo_council">Council</p>
+                <div class="hat_top"></div>
+                <div class="hat_body"></div>
+                <div class="hat_left_side"></div>
+                <div class="hat_right_side"></div>
+                <div class="hat_bottom"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -94,12 +88,14 @@
             hat2 = $("#Hat2"),
             hat3 = $("#Hat4"),
             circle = $("#Circle"),
-            startButton = $("#StartButton");
+            startButton = $("#StartButton"),
+            message = $("#StartMessage");
         startButton.on("click", function(event) {
             event.preventDefault();
             circle.show();
-            $("#StartButton").html('Restart Game');
-            $("#StartButton").attr('href', "javascript:location.reload();");
+            startButton.hide();
+            message.show();
+
             var hatsOffsets = window.getComputedStyle(document.body);
 
             var first = hatsOffsets.getPropertyValue('--hat_1');

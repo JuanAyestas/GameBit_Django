@@ -114,6 +114,14 @@ div.big_circle {
     margin-top: 4rem;
 }
 
+#StartMessage {
+    display: none;
+}
+
+#RestartButton {
+    display: none;
+}
+
 
 /* Hat CSS */
 
@@ -129,28 +137,7 @@ div.big_circle {
     z-index: 100;
 }
 
-#checkbox_hat_1,
-#checkbox_hat_2,
-#checkbox_hat_3 {
-    display: none;
-}
-
-#checkbox_hat_1:checked+.hat_label>.hat,
-#checkbox_hat_2:checked+.hat_label>.hat,
-#checkbox_hat_3:checked+.hat_label>.hat {
-    animation: hat_move 3s 1;
-}
-
-@keyframes hat_move {
-    from {
-        bottom: 0
-    }
-    to {
-        bottom: 125px;
-    }
-}
-
-# .hat_top {
+.hat_top {
     width: 200px;
     height: 80px;
     border-radius: 50% 50% 0 0;
