@@ -468,10 +468,6 @@ a:hover {
     top: 200px;
 }
 
-#GoogleAds {
-    height: 150px !important;
-}
-
 @media screen and (max-width: 991px) {
     .w_100 {
         width: 100% !important;
