@@ -161,19 +161,19 @@
                 <!-- Message END 
                 Content START-->
                 {% block body %} {% endblock body %}
-                <!-- Content END 
-                GoogleAd Start-->
-                <div id="GoogleAd">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    {% block ad %} {% endblock ad %}
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-                <!-- GoogleAd END -->
+                <!-- Content END -->
             </article>
         </section>
     </main>
+    <!-- GoogleAd Start-->
+    <div id="GoogleAd" class="container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        {% block ad %} {% endblock ad %}
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <!-- GoogleAd END -->
     <div class="loader_container">
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
