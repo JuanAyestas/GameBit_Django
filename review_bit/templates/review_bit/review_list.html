@@ -76,8 +76,12 @@
         </div>
     </section>
     <!-- Footer Ad container -->
-    {% block ad %} <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="4244983379" data-ad-format="auto" data-full-width-responsive="true"></ins> {% endblock ad %}
-    <!---->
+    <div id="GoogleAd" class="container">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="4244983379" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
     {% endfor %} {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination d-flex justify-content-center mt-3">
@@ -98,4 +102,11 @@
     </nav>
 </section>
 <!-- endblock -->
-{% endblock body %} {% block script %} {% endblock script %}
+{% endblock body %}
+<!-- Overriding ad block -->
+{% block ad %}
+<div style="display: none;">
+    <p>The block is no more.</p>
+</div>
+<!---->
+{% endblock ad %}

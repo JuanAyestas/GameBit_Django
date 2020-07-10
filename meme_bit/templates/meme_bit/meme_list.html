@@ -70,9 +70,21 @@
             </div>
         </div>
         <!-- Footer Ad container -->
-        {% block ad %} <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="4244983379" data-ad-format="auto" data-full-width-responsive="true"></ins> {% endblock ad %}
-        <!---->
+        <div id="GoogleAd" class="container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="4244983379" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
         {% endfor %}
     </section>
 </section>
+<!-- Endblock -->
 {% endblock body %}
+<!-- Overriding ad block -->
+{% block ad %}
+<div style="display: none;">
+    <p>The block is no more.</p>
+</div>
+<!---->
+{% endblock ad %}

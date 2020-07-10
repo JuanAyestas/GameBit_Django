@@ -149,12 +149,13 @@
             </div>
         </nav>
     </header>
+    <!-- Body START -->
     <main role="main" class="container">
         <section class="row">
             <article class="col-md-12">
                 <!--Message StarT-->
                 {% if messages %} {% for message in messages %}
-                <section class="alert alert-{{ message.tags }}">
+                <section class="alert alert-{{ message.tags }} margin_container">
                     {{ message }}
                 </section>
                 {% endfor %} {% endif %}
@@ -165,24 +166,28 @@
             </article>
         </section>
     </main>
-    <!-- GoogleAd Start-->
-    <div id="GoogleAd" class="container">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        {% block ad %} {% endblock ad %}
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-
-    </div>
-    <!-- GoogleAd END -->
+    <!-- Body END
+    Loading Screen START -->
     <div class="loader_container">
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
+    <!-- Loading Screen END
+    GoogleAd Start-->
+    {% block ad %}
+    <div id="GoogleAd" class="container">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2466487846238481" data-ad-slot="4244983379" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    {% endblock ad %}
+    <!-- GoogleAd END -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js "></script>
     <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- LoadingPage BEGIN -->
     <script>
         $(window).on("load", function() {

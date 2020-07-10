@@ -63,7 +63,16 @@
         <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
     </div>
 </article>
-{% endblock body %} {% block script %}
+{% endblock body %}
+<!-- Overriding ad block -->
+{% block ad %}
+<div style="display: none;">
+    <p>The block is no more.</p>
+</div>
+<!---->
+{% endblock ad %}
+<!---->
+{% block script %}
 <script id="INLINE_PEN_JS_ID">
     jQuery(document).ready(function($) {
         var audioElement = document.createElement('audio');

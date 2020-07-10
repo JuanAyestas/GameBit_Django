@@ -79,6 +79,13 @@
     </div>
 </article>
 {% endblock body %}
+<!-- Overriding ad block -->
+{% block ad %}
+<div style="display: none;">
+    <p>The block is no more.</p>
+</div>
+<!---->
+{% endblock ad %}
 <!---->
 {% block script %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.10.2/underscore-min.js"></script>
