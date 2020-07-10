@@ -163,7 +163,13 @@
                 {% block body %} {% endblock body %}
                 <!-- Content END 
                 GoogleAd Start-->
-                {% block ad %} {% endblock ad %}
+                <div id="GoogleAd">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    {% block ad %} {% endblock ad %}
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
                 <!-- GoogleAd END -->
             </article>
         </section>
@@ -176,7 +182,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js "></script>
     <script async src="https://static.addtoany.com/menu/page.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- LoadingPage BEGIN -->
     <script>
         $(window).on("load", function() {
