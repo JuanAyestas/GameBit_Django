@@ -363,6 +363,18 @@ a:hover {
     padding: 0rem 0.5rem 0 0.5rem;
 }
 
+#GoogleAd {
+    height: 150px !important;
+}
+
+.adsbygoogle {
+    margin-bottom: 0.5rem !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    height: 150px !important;
+    display: block !important;
+}
+
 @media screen and (max-width: 991px) {
     .w_100 {
         width: 100% !important;
