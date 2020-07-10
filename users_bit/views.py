@@ -12,6 +12,8 @@ from meme_bit.models import Meme
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("gamebit-home")
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -35,6 +37,8 @@ def register(request):
 
 
 def staff_register(request):
+    if request.user.is_authenticated:
+        return redirect("gamebit-home")
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
